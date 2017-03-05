@@ -1,6 +1,6 @@
 var User = require('./models/userModel.js');
-var Link = require('./models/linkModel.js');
-var Board = require('./models/boardModel.js');
+// var Link = require('./models/linkModel.js');
+// var Board = require('./models/boardModel.js');
 var util = require('./utils.js')
 var jwt = require('jwt-simple');
 
