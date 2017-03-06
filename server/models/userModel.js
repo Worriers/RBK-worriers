@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+require('mongoose-type-url');
 var bcrypt = require('bcrypt-nodejs');
 var Q = require('q');
 var Schema = mongoose.Schema;
@@ -16,8 +17,49 @@ var UserSchema = new mongoose.Schema({
   },
 
   name: {
-    type: String
-  }
+    type: String,
+    required: true
+  },
+
+  age : {
+    type: Number,
+    required: true
+  },
+
+  mainMajor : {
+    type: String,
+    required: true
+  },
+
+  cohort : {
+    type: Number,
+    required: true
+  },
+
+  currentJob : {
+    type: String,
+    required: true
+  },
+
+  linkedIn : {
+    type: mongoose.SchemaTypes.Url, 
+    required: true
+  },
+
+  gitHub : {
+    type: mongoose.SchemaTypes.Url ,
+    required: true
+  },
+
+  img : {
+    type: mongoose.SchemaTypes.Url ,
+    required: true
+  },
+
+  achievments : [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'achievments'
+  }]
 });
 
 UserSchema.methods.comparePasswords = function (candidatePassword) {
@@ -51,6 +93,6 @@ UserSchema.pre('save', function (next) {
       user.password = hash;
       next();
     });
-});
+  });
 
 module.exports = mongoose.model('users', UserSchema);

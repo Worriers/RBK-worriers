@@ -23,7 +23,7 @@ var ProjectsSchema = new mongoose.Schema({
 		type : Array 
 	}
 	img : {
-		data: Buffer, //check if there is other way to store the images 
+		data: Buffer,
 		contentType: String,
 		required : true
 	}
