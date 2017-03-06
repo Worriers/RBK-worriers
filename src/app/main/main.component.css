@@ -1,0 +1,59 @@
+.main-bg > h3 {
+	color: #dedede;
+}
+
+.src-image {
+  display: none;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #CCC;
+  text-align: center;
+  padding: 0;
+  background-color: #e7e7e7;
+  color: #b52283;
+}
+
+.card .header-bg {
+	/* This stretches the canvas across the entire hero unit */
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  height: 80px;
+  background-color: #b52283;
+  border-bottom: 1px solid #ffffff;
+}
+.card .avatar {
+  position: relative;
+  margin-top: 15px;
+  z-index: 100;
+}
+
+.card .avatar img {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(0,0,30,0.8);
+}
+
+.content {
+	line-height: 30px;
+	font-size: 15px;
+}
+
+.main-bg {
+	padding-bottom: 25px;
+	background-size: cover;
+	background-position: center;
+	background-blend-mode: soft-light;
+	background-color: #c50082;
+	min-height: 350px;
+	position: relative;
+	margin-bottom: 30px;
+}
