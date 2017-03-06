@@ -9,7 +9,7 @@ var QuastionsSchema = new mongoose.Schema({
 		required : true
 	},
 	comments : [{
-    type: mongoose.Schema.Types.ObjectId, // check if it's tru
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'comments'
   }]
 });
