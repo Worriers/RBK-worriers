@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-require('mongoose-type-url');
 var bcrypt = require('bcrypt-nodejs');
 var Q = require('q');
 var Schema = mongoose.Schema;
@@ -12,11 +11,6 @@ var UserSchema = new mongoose.Schema({
   },
 
   password: {
-    type: String,
-    required: true
-  },
-
-  name: {
     type: String,
     required: true
   },
@@ -42,17 +36,17 @@ var UserSchema = new mongoose.Schema({
   },
 
   linkedIn : {
-    type: mongoose.SchemaTypes.Url, 
+    type: String, 
     required: true
   },
 
   gitHub : {
-    type: mongoose.SchemaTypes.Url ,
+    type: String,
     required: true
   },
 
   img : {
-    type: mongoose.SchemaTypes.Url ,
+    type: String,
     required: true
   },
 

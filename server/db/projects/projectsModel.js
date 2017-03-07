@@ -1,5 +1,4 @@
 var mongoose = require('mongoose'); 
-require('mongoose-type-url');
 
 var ProjectsSchema = new mongoose.Schema({
 	title : {
@@ -8,24 +7,23 @@ var ProjectsSchema = new mongoose.Schema({
 		unique: true
 	},
 	url : {
-		type : mongoose.SchemaTypes.Url ,
+		type : String ,
 		required : true , 
 		unique : true
 	},
 	deployLink : {
-		type : mongoose.SchemaTypes.Url,
+		type : String,
 		required : true 
 	},
 	gitHubLink : {
-		type : mongoose.SchemaTypes.Url
-	}
+		type : String
+	},
 	teamMembers : {
 		type : Array 
-	}
+	},
 	img : {
 		data: Buffer,
-		contentType: String,
-		required : true
+		contentType: String
 	}
 })
 

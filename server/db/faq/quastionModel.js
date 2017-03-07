@@ -12,6 +12,6 @@ var QuastionsSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'comments'
   }]
-});
+})
 
 module.exports = mongoose.model('quastions', QuastionsSchema);
