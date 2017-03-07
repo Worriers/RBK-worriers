@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-require('mongoose-type-url');
 
 var AchievmentsSchema = new mongoose.Schema({
 	category : {
@@ -11,7 +10,7 @@ var AchievmentsSchema = new mongoose.Schema({
 		required : true 
 	},
 	url : {
-		type : mongoose.SchemaTypes.Url, 
+		type : String, 
 		required : true 
 	},
 	date : {
