@@ -1,3 +1,5 @@
+var passport = require('passport');
+var session = require('express-session');
 var userController = require('../db/user/userController.js');
 var achievmentsController = require('../db/achievments/achievmentsController.js');
 var commentController = require('../db/comment/commentController.js');
@@ -9,7 +11,22 @@ var utils = require('./utils.js');
 
 module.exports = function (app, express) {
 
-// app.get('/api/gallery', handlers.handlePhoto.showphoto);
+app.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email' ] }));
+app.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+app.get('/api/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+app.get('/api/gallery', utils.ensureAuthenticated, function(req,res){
+  console.log("IM IN GALLERY");
+});
 // app.post('/api/gallery',handlers.handlePhoto.addphoto);
 
 // app.get('/api/grads', handlers.handleGrads.showgrads);
