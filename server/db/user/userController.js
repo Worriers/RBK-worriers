@@ -20,11 +20,11 @@ module.exports ={
         });  
 	},
 	getOneUser : function (req,res) {
-	  user.findById(req.params.id, function (err, teacher) {  
+	  user.findById(req.params.id, function (err, user) {  
         if (err) {
           res.send(err)
         }else{
-          res.json(teacher)
+          res.json(user)
         } 
         })
     }
