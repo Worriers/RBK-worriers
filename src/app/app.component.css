@@ -18,17 +18,3 @@
 	min-height:60px !important;
 }
   
-.main-bg  h3 {
-	color: #dedede;
-}
-
-.main-bg {
-	padding-bottom: 25px;
-	background-size: cover;
-	background-position: center;
-	background-blend-mode: soft-light;
-	background-color: #c50082;
-	min-height: 350px;
-	position: relative;
-	margin-bottom: 30px;
-}

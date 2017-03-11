@@ -1,3 +1,59 @@
-<p>
-  warriors will be here soon!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="page-header">
+		  <h1>RBK Warriors <small>from cohort 1</small></h1>
+		</div>
+	</div>
+	 <ng-container *ngFor="let item of grads">
+		<div class="col-sm-6 col-md-3" *ngIf="item.cohort === 1">
+			<div class="card">
+					<div class="header-bg">
+					</div>
+				
+				<div class="avatar">
+					<img src="{{ item.img }}" alt="" />
+				</div>
+				<div class="content">
+					<p>{{ item.name }}<br>
+						{{ item.currentJob }}</p>
+						<p style="font-size: 3.0em"><a href="{{ item.gitHub }}" target="_blank"><i class="fa fa-github"></i></a>  <a href="{{ item.linkedIn }}" target="_blank"><i class="fa fa-linkedin"></i></a></p>
+						<p><button type="button" class="btn btn-default">View more</button></p>
+				</div>
+			</div>
+		</div>
+	</ng-container>
+
+</div>
+
+<div class="row">
+
+	<div class="col-xs-12">
+		<div class="page-header">
+		  <h1>RBK Warriors <small>from cohort 2</small></h1>
+		</div>
+	</div>
+
+	<ng-container *ngFor="let item of grads">
+		<div class="col-sm-6 col-md-3" *ngIf="item.cohort === 2">
+			<div class="card">
+					<div class="header-bg">
+					</div>
+				
+				<div class="avatar">
+					<img src="{{ item.img }}" alt="" />
+				</div>
+				<div class="content">
+					<p>{{ item.name }}<br>
+						{{ item.currentJob }}</p>
+						<p style="font-size: 3.0em"><a href="{{ item.gitHub }}" target="_blank"><i class="fa fa-github"></i></a>  <a href="{{ item.linkedIn }}" target="_blank"><i class="fa fa-linkedin"></i></a></p>
+						<p><button type="button" class="btn btn-default">View more</button></p>
+				</div>
+			</div>
+		</div>
+	</ng-container>
+
+</div>
+
+<!-- <ul>
+	<li *ngFor="let item of grads">{{ item.id }} - {{ item.name }}</li>
+</ul> -->
