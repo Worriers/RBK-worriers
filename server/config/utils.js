@@ -14,9 +14,8 @@ exports.errorHandler = function (error, req, res, next) {
 //   login page.
 
 exports.ensureAuthenticated = function (req, res, next) {
-  if (req.isAuthenticated()) { 
-    console.log('authhhhhhhhhhhhh')
-    return next(); }
-    console.log('NOT authhhhhhhhh')
-  res.redirect('/login')
+  if (req.isAuthenticated() && req.user.completed && req.user.activated) {
+    return next(); 
+  }
+  res.redirect('/login');
 }

@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
+var User = require('../db/user/userModel.js');
 
 module.exports = function (app, express) {
 
@@ -15,12 +16,13 @@ module.exports = function (app, express) {
 //   and deserialized.
 
 passport.serializeUser(function(user, done) {
-  console.log('IM IN THE serialize');
   done(null, user.id);
 });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+passport.deserializeUser(function(id, done) {
+  User.findById(id,function(err,user){
+  done(err, user);
+  })
 });
 
 app.use(morgan('dev'));

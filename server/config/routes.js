@@ -20,7 +20,7 @@ app.get('/api/logout', function(req, res){
   res.redirect('/');
 });
 
-//app.get('/api/gallery',function(req,res){});
+app.get('/api/gallery',utils.ensureAuthenticated, function(req,res){});
 // app.post('/api/gallery',handlers.handlePhoto.addphoto);
 
 // app.get('/api/grads', handlers.handleGrads.showgrads);

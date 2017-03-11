@@ -15,7 +15,6 @@ passport.use(new GitHubStrategy({
 },
 function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
-    console.log('IM in MONGO creation');
     process.nextTick(function () {
       User.findOneAndUpdate({ _id: profile.id },{$set:{
         displayName: profile.displayName,
