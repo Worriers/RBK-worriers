@@ -1,0 +1,88 @@
+.src-image {
+  display: none;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #CCC;
+  text-align: center;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #b52283;
+}
+
+.card .header-bg {
+	/* This stretches the canvas across the entire hero unit */
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  overflow: hidden;
+  height: 90px;
+  background-color: #b52283;
+  border-bottom: 1px solid #ffffff;
+}
+.card .avatar {
+  position: relative;
+  margin-top: 15px;
+  z-index: 100;
+}
+
+.card .avatar img {
+  width: 130px;
+  height: 130px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  margin-bottom: 20px;
+}
+
+.content {
+	line-height: 30px;
+	font-size: 15px;
+}
+
+.thumbnail {
+	padding: 0px;
+	background-color: #f5f5f5;
+	border-radius: 0px;
+}
+
+.thumbnail > img {
+	border-bottom: 7px solid #b52283;
+}
+
+.thumbnail h3 {
+	border-bottom: 1px solid #dedede;
+	margin-top: 5px;
+	padding-bottom: 10px;
+}
+
+.thumbnail  .btn-default {
+	width: 100%;
+	background-color: #b52283;
+	border-color: #96146a;
+	color: #ffffff;
+}
+
+.thumbnail  .btn-default:hover {
+	background-color: #f532b2;
+	color: #ffffff;
+}
+
+.main-bg  h3 {
+  color: #dedede;
+}
+
+.main-bg {
+  padding-bottom: 25px;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-color: #c50082;
+  min-height: 350px;
+  position: relative;
+  margin-bottom: 30px;
+}
