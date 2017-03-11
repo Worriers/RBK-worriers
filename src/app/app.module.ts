@@ -2,7 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule }   from '@angular/router';
+
+import { GradsService } from './shared/grads.service';
+
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './shared/test-data.service';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -30,6 +36,7 @@ import { AdminComponent } from './admin/admin.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       { path: '', component: MainComponent },
       { path: 'signin', component: MainComponent },
@@ -41,10 +48,10 @@ import { AdminComponent } from './admin/admin.component';
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: QaComponent },
-      { path: '**', redirectTo: '/' },
+      { path: '**', redirectTo: '/' }
     ])
   ],
-  providers: [],
+  providers: [GradsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
