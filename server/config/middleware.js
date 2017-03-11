@@ -2,7 +2,6 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); 
 var morgan = require('morgan');
 var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 
 module.exports = function (app, express) {
@@ -16,7 +15,8 @@ module.exports = function (app, express) {
 //   and deserialized.
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  console.log('IM IN THE serialize');
+  done(null, user.id);
 });
 
 passport.deserializeUser(function(obj, done) {
@@ -31,21 +31,10 @@ app.use(session({
   secret: 'RBK-warriors',
   saveUninitialized: true,
   resave: true,
-  // using store session on MongoDB using express-session + connect
-  // store: new MongoStore({
-  //   mongooseConnection: mongoose.connection,
-  //   collection: 'sessions'
-  // })
 }));
 // Init passport authentication 
 app.use(passport.initialize());
 // persistent login sessions 
 app.use(passport.session());
-
-//app.use(session({ secret: 'RBK-warriors', resave: false, saveUninitialized: false }));
-// Initialize Passport!  Also use passport.session() middleware, to support
-// persistent login sessions (recommended).
-// app.use(passport.initialize());
-// app.use(passport.session());
 app.use(express.static(__dirname + '/../../dist'));
 };

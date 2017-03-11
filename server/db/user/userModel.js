@@ -33,6 +33,10 @@ var UserSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  publicRepos: {
+    type: Number,
+    required: true
+  },
   img : {
     type: String,
     required: true
@@ -64,7 +68,15 @@ var UserSchema = new mongoose.Schema({
   achievments : [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'achievments'
-  }]
+  }],
+  completed: {
+    type: Boolean,
+    default: false
+  },
+  activated: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = mongoose.model('users', UserSchema);
