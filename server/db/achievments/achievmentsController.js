@@ -12,7 +12,7 @@ module.exports ={
 	},
 	insertAchievment : function (req, res) {
 	  var newAchievment = new achievments(req.body);  
-      achievments.save(function (err, newAchievment) {  
+      newAchievment.save(function (err, newAchievment) {  
         if (err) {
           res.send(err);
         }

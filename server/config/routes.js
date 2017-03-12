@@ -29,6 +29,10 @@ app.get('/api/faq',quastionController.getAllQuastions);
 app.get('/api/faq/:id',quastionController.getOne);
 app.post('/api/faq',quastionController.insertQuastion);
 
+//getting all comments on a specific question ;
+app.get('/api/comment',commentController.getAllComments);
+app.post('/api/comment',commentController.insertComment);
+
 // getting all the projects and insert new ones
 app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);

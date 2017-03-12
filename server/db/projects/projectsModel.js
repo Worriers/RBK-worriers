@@ -11,10 +11,6 @@ var ProjectsSchema = new mongoose.Schema({
 		required : true , 
 		// unique : true
 	},
-	deployLink : {
-		type : String,
-		required : true 
-	},
 	gitHubLink : {
 		type : String
 	},
