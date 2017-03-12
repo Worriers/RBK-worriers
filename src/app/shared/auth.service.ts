@@ -1,18 +1,19 @@
 import { Injectable}    from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Subject }    from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService {
 	constructor(private http: Http) { }
 
-	gitHubData = {};
+	gitHubData = new Subject<Object>();
 	gitHubData$ = this.gitHubData.asObservable();
 	
-	private headers = new Headers({'Content-Type': 'application/json'});
+	private headers = new Headers({'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'});
 
 	signin(): Promise<Object[]> {
-	return this.http.get("/api/signin", this.headers)
+	return this.http.get("/auth/github", this.headers)
 	           .toPromise()
 	           .then(response => response.json().data)
 	           .catch(this.handleError);

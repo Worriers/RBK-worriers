@@ -5,10 +5,11 @@ import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 
 import { GradsService } from './shared/grads.service';
+import { AuthService } from './shared/auth.service';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './shared/test-data.service';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './shared/test-data.service';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -38,7 +39,7 @@ import { SignupComponent } from './signup/signup.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    // InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       { path: '', component: MainComponent },
       { path: 'signin', component: MainComponent },
@@ -53,7 +54,7 @@ import { SignupComponent } from './signup/signup.component';
       { path: '**', redirectTo: '/' }
     ])
   ],
-  providers: [GradsService],
+  providers: [GradsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
