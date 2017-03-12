@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var QuastionsSchema = new mongoose.Schema({
+var QuestionsSchema = new mongoose.Schema({
 	name : {
 		type: String
 	},
@@ -14,4 +14,10 @@ var QuastionsSchema = new mongoose.Schema({
   }]
 })
 
-module.exports = mongoose.model('quastions', QuastionsSchema);
+module.exports = mongoose.model('questions', QuestionsSchema);
+
+
+// module.exports.create({text: 'coolMinion'}, function(err, doc) {
+// 	if(err) throw err;
+//     console.log(doc);
+// });

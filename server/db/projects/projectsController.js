@@ -2,7 +2,7 @@ var projects = require("./projectsModel.js");
 
 module.exports ={
 	getAllProjects : function (req, res) {
-	  projects.find().exec(function (err, data) {
+	  projects.find({}).exec(function (err, data) {
 	    if(err){
 		  res.status(500).send('err');
 		}else{
@@ -12,11 +12,11 @@ module.exports ={
 	},
 	insertProject : function (req, res) {
 	  var newProject= new projects(req.body);  
-      projects.save(function (err, newProject) {  
+      newProject.save(function (err, data) {  
         if (err) {
           res.send(err);
         }
-        res.send(newProject);
+        res.send(data);
         });  
 	}
 }

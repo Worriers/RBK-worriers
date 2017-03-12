@@ -11,3 +11,8 @@ var commentSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('comments', commentSchema);
+
+// module.exports.create({text: 'coolMinion'}, function(err, doc) {
+// 	if(err) throw err;
+//     console.log(doc);
+// });
