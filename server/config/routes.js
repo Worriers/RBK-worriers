@@ -22,13 +22,10 @@ app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);
 
 
-
-// app.post('/api/users/signup', handlers.handleUsers.signup);
-// app.post('/api/users/signin', handlers.handleUsers.signin);
-
-// app.get('/api/users', handlers.handleUsers.getUsers);
-
-
+ app.get('/api/users', userController.getAllUsers);
+app.post('/api/users', userController.insertUser);
+app.post('/api/users/:id', userController.getOneUser);
+app.get('/api/users/:id', userController.getOneUser);
 app.use(utils.errorLogger);
 app.use(utils.errorHandler);
 };

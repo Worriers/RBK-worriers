@@ -12,11 +12,11 @@ module.exports ={
 	},
 	insertUser : function (req, res) {
 	  var newUser = new user(req.body);  
-      user.save(function (err, newUser) {  
+      newUser.save(function (err, newUser) {  
         if (err) {
           res.send(err);
         }
-        res.send(newUser);
+        res.status(201).send(newUser);
         });  
 	},
 	getOneUser : function (req,res) {
