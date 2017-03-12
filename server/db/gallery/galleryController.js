@@ -12,7 +12,7 @@ module.exports ={
 	},
 	insertImage : function (req, res) {
 	  var newImage = new gallery(req.body);  
-      gallery.save(function (err, newImage) {  
+      newImage.save(function (err, newImage) {  
         if (err) {
           res.send(err);
         }

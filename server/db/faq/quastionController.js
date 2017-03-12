@@ -1,8 +1,8 @@
 var quastion = require("./quastionModel.js");
 
 module.exports ={
-	getAllQuastions : function (req, res) {
-	  quastion.find().exec(function (err, data) {
+	getAllQuastions :function (req, res) {
+	  quastion.find({}).exec(function (err, data) {
 	    if(err){
 		  res.status(500).send('err');
 		}else{
@@ -11,12 +11,13 @@ module.exports ={
 		});
 	},
 	insertQuastion : function (req, res) {
+		console.log(req.body)
 	  var newQuastion = new quastion(req.body);  
-      quastion.save(function (err, newQuastion) {  
+      newQuastion.save(function (err, data) {  
         if (err) {
           res.send(err);
         }
-        res.send(newQuastion);
+        res.send(data);
         });  
 	},
 	getOne : function (req,res) {
