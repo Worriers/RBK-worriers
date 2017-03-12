@@ -1,3 +1,6 @@
+
+var passport = require('passport');
+var session = require('express-session');
 var userController = require('../db/user/userController.js');
 var achievmentsController = require('../db/achievments/achievmentsController.js');
 var commentController = require('../db/comment/commentController.js');
@@ -12,6 +15,15 @@ module.exports = function (app, express) {
 app.get('/api/gallery', galleryController.getAllImages );
 app.post('/api/gallery', galleryController.insertImage);
 
+
+app.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email', 'public_repo' ] }));
+app.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/' }), userController.validateAccount);
+app.get('/api/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 // getting all quastions , and adding new quastions 
 app.get('/api/faq',quastionController.getAllQuastions);
 app.get('/api/faq/:id',quastionController.getOne);
@@ -22,10 +34,6 @@ app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);
 
 
- app.get('/api/users', userController.getAllUsers);
-app.post('/api/users', userController.insertUser);
-app.post('/api/users/:id', userController.getOneUser);
-app.get('/api/users/:id', userController.getOneUser);
 app.use(utils.errorLogger);
 app.use(utils.errorHandler);
 };

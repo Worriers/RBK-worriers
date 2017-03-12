@@ -4,89 +4,79 @@ var Q = require('q');
 var Schema = mongoose.Schema;
 
 var UserSchema = new mongoose.Schema({
+  _id: {
+    type: Number,
+    unique : true,
+    required: true,
+  },
   username: {
     type: String,
     required: true,
     unique: true
   },
-
-  password: {
+  displayName: {
+    type: String
+  },
+  profileUrl: {
     type: String,
     required: true
   },
-
-  age : {
+  email: {
+    type: String,
+    required: true
+  },
+  following: {
     type: Number,
     required: true
   },
-
-  mainMajor : {
-    type: String,
-    required: true
-  },
-
-  cohort : {
+  followers: {
     type: Number,
     required: true
   },
-
-  currentJob : {
-    type: String,
+  publicRepos: {
+    type: Number,
     required: true
   },
-
-  linkedIn : {
-    type: String, 
-    required: true
-  },
-
-  gitHub : {
-    type: String,
-    required: true
-  },
-
   img : {
     type: String,
     required: true
   },
 
+  age : {
+    type: Number
+  },
+
+  mainMajor : {
+    type: String
+  },
+
+  cohort : {
+    type: Number
+  },
+
+  currentJob : {
+    type: String
+  },
+
+  linkedIn : {
+    type: String
+  },
+
+  gitHub : {
+    type: String
+  },
   achievments : [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'achievments'
-  }]
+  }],
+  completed: {
+    type: Boolean,
+    default: false
+  },
+  activated: {
+    type: Boolean,
+    default: false
+  }
 });
-
-UserSchema.methods.comparePasswords = function (candidatePassword) {
-  var savedPassword = this.password;
-  return Q.Promise(function (resolve, reject) {
-    bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(isMatch);
-      }
-    });
-  });
-};
-
-UserSchema.pre('save', function (next) {
-  var user = this;
-
-  // only hash the password if it has been modified (or is new)
-  // if (!user.isModified('password')) {
-  //   return next();
-  // }
-
-    // hash the password along with our new salt
-    bcrypt.hash(user.password, null, null, function (err, hash) {
-      if (err) {
-        return next(err);
-      }
-
-      // override the cleartext password with the hashed one
-      user.password = hash;
-      next();
-    });
-  });
 
 module.exports = mongoose.model('users', UserSchema);
