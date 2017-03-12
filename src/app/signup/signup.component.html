@@ -1,0 +1,111 @@
+<div class="container">
+	<div class="row main">
+		<div class="panel-heading">
+           <div class="panel-title text-center">
+           {{diagnostic}}
+           		<h2>Step 2 : Complete your profile</h2>
+           	</div>
+        </div> 
+		<div class="main-login main-center">
+			<form class="form-horizontal" method="post" action="#">
+				
+				<div class="form-group">
+					<label for="name" class="cols-sm-2 control-label">Name</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="name" id="name" value="Montaser" [(ngModel)]="user.name" disabled/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="email" class="cols-sm-2 control-label">Email</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="email" id="email" value="Montaser" [(ngModel)]="user.email" disabled/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="username" class="cols-sm-2 control-label">Username</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="username" id="username" value="Montaser" [(ngModel)]="user.username" disabled/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="password" class="cols-sm-2 control-label">Age</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+							<input type="number" class="form-control" name="age" placeholder="Enter your age"
+							[(ngModel)]="user.age" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Main major</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="major" placeholder="Enter your major" [(ngModel)]="user.major"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Current job</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="job" placeholder="Enter your current job" [(ngModel)]="user.currentJob"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Cohort you participated in</label>
+					<div class="cols-sm-10">
+							<div class="input-group" style="width: 100%">
+<!-- 			                  <div class="dropdown">
+			                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;"> 
+			                      <span ng-if="user.city === ''" class="ng-scope">choose your cohort</span>
+			                      <span class="caret"></span>
+			                    </button>
+			                    <ul class="dropdown-menu ng-pristine ng-untouched ng-valid" aria-labelledby="dropdownMenu1" ng-model="citySelect" ng-init="user.city=''">
+			                      <li><a ng-click="user.city='amman'">cohort 1</a></li>
+			                      <li><a ng-click="user.city='irbid'">cohort 2</a></li>
+			                    </ul>
+			                  </div> -->
+
+			                  <select name="cohort" [(ngModel)]="user.cohort" class="cohortSelect">
+			                  	<option value="1">cohort 1</option>
+			                  	<option value="2">cohort 2</option>
+			                  </select>
+			                </div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Linked in url</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="major" placeholder="Enter your linked in profile link" [(ngModel)]="user.linkedin"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group ">
+					<button type="button" class="btn btn-primary btn-lg btn-block login-button">Complete</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

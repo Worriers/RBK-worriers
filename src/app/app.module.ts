@@ -19,6 +19,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
 import { QaComponent } from './qa/qa.component';
 import { AdminComponent } from './admin/admin.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdminComponent } from './admin/admin.component';
     GalleryComponent,
     AboutComponent,
     QaComponent,
-    AdminComponent
+    AdminComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { AdminComponent } from './admin/admin.component';
     RouterModule.forRoot([
       { path: '', component: MainComponent },
       { path: 'signin', component: MainComponent },
-      { path: 'signup', component: MainComponent },
+      { path: 'signup', component: SignupComponent },
       { path: 'profile/:user', component: ProfileComponent },
       { path: 'projects', component: ProjectsComponent },
       { path: 'warriors', component: GradsComponent },
