@@ -2,10 +2,12 @@ var quastion = require("./quastionModel.js");
 
 module.exports ={
 	getAllQuastions :function (req, res) {
-	  quastion.find({}).exec(function (err, data) {
+	  quastion.find({}).populate({
+    path: 'comments'}).exec(function (err, data) {
 	    if(err){
 		  res.status(500).send('err');
 		}else{
+		  console.log(data);
 		  res.json(data)
 		}
 		});
