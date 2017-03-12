@@ -26,9 +26,11 @@ it('Should post project', function (done) {
       .send({
         title: 'Test movie3',
         url: 'ppp',
-        deployLink: "uu",
         gitHubLink: "ll",
-        img:"8" 
+        img:{
+          data:"ss",
+          contentType :"lll"
+        }
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -40,8 +42,6 @@ it('Should post project', function (done) {
         }
 
         let project = resp.body
-            // console.log("hhhhh",project.title)
-        // console.log(resp.body)
         request(app)
           .get('/api/projects/')
           .end(function (err, resp) {
@@ -49,6 +49,9 @@ it('Should post project', function (done) {
               throw new Error(err)
             }
             expect(project.title).to.equal('Test movie3')
+             // expect(project.img.data.data).to.equal('ss')
+            expect(project.gitHubLink).to.equal('ll')
+            expect(project.url).to.equal('ppp')
             done()
           })
       })
