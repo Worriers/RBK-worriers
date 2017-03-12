@@ -3,7 +3,7 @@ const request = require('supertest');
 const expect = require('chai').expect
 
 
-describe('users', function () {
+describe('project', function () {
   it('Should get all projects', function (done) {
     request(app)
       .get('/api/projects/')
@@ -32,8 +32,7 @@ it('Should post project', function (done) {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(201
-        )
+      .expect(201)
       .end(function (err, resp) {
          // console.log(resp.body)
         if (err) {

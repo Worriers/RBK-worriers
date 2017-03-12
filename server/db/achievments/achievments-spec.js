@@ -3,10 +3,10 @@ const request = require('supertest');
 const expect = require('chai').expect
 
 
-describe('gallery', function () {
-  it('Should get all images', function (done) {
+describe('achievments', function () {
+  it('Should get all achievments', function (done) {
     request(app)
-      .get('/api/gallery/')
+      .get('/api/projects/')
       .set('ok', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -20,34 +20,39 @@ describe('gallery', function () {
 
   })
   
-it('Should create a new image', function (done) {
+it('Should post project', function (done) {
     request(app)
-      .post('/api/gallery/')
+      .post('/api/projects/')
       .send({
-        img:{
-          data:"kk",
-         contentType: "jjjj"
-        }
+        title: 'Test movie3',
+        url: 'ppp',
+        deployLink: "uu",
+        gitHubLink: "ll",
+        img:"8" 
       })
-      .set('ok', 'application/json')
+      .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(201)
       .end(function (err, resp) {
+         // console.log(resp.body)
         if (err) {
           console.log(err)
         }
-        let img = resp.body
+
+        let project = resp.body
+            // console.log("hhhhh",project.title)
+        // console.log(resp.body)
         request(app)
-        .get('/api/gallery/')
-        .end(function (err, resp) {
+          .get('/api/projects/')
+          .end(function (err, resp) {
             if (err) {
               throw new Error(err)
             }
-         //console.log("hhhhh",resp.body.img)
-        expect(img).to.be.an('object')
-        done()
+            expect(project.title).to.equal('Test movie3')
+            done()
+          })
       })
+     // done()
   })
 
-})
 })
