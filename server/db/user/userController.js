@@ -52,7 +52,6 @@ function(accessToken, refreshToken, profile, done) {
 
 module.exports ={
 	getAllUsers : function (req, res) {
-<<<<<<< HEAD
 	  user.find().exec(function (err, alluser) {
 	    if(err){
 		  res.status(500).send('err');
@@ -86,6 +85,7 @@ module.exports ={
       res.status(201).send(req.user);
     }else{
       res.status(403).send('not activated');
+
     }
   }else{
     res.status(401).send(req.user);
