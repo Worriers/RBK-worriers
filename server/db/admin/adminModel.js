@@ -20,10 +20,10 @@ var AdminSchema = new mongoose.Schema({
 
 AdminSchema.plugin(db.autoIncrement.plugin, 'admins');
 
-AdminSchema.methods.comparePasswords = function (candidatePassword) {    
+AdminSchema.methods.comparePasswords = function (password) {    
  var savedPassword = this.password;    
  return Q.Promise(function (resolve, reject) {   
-   bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {    
+   bcrypt.compare(password, savedPassword, function (err, isMatch) {    
      if (err) {    
        reject(err);    
      } else {    

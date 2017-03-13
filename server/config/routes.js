@@ -28,6 +28,8 @@ app.post('/api/register', passport.authenticate('local-signup', {
     failureRedirect : '/login'
 }));
 
+app.post('/api/login', passport.authenticate('local-login', adminController.authorizeAdmin ));
+
 app.get('/api/logout', function(req, res){
   req.logout();
   res.status(200).send();
