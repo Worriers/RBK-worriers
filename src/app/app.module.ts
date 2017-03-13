@@ -50,8 +50,8 @@ import { SignupComponent } from './signup/signup.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent },
-      { path: '**', redirectTo: '/' }
+      { path: 'admin', component: QaComponent }
+    
     ])
   ],
   providers: [GradsService, AuthService],
