@@ -1,22 +1,28 @@
-var achievments = require("./achievmentsModel.js");
-
+var achievment = require("./achievmentsModel.js");
+var user = require("../user/userModel.js")
 module.exports ={
 	getAllAchievments : function (req, res) {
-	  achievments.find().exec(function (err, data) {
+	  achievment.find({}).exec(function (err, data) {
 	    if(err){
 		  res.status(500).send('err');
 		}else{
-		  res.json(data)
+		  res.status(200).json(data)
 		}
 		});
 	},
 	insertAchievment : function (req, res) {
-	  var newAchievment = new achievments(req.body);  
-      newAchievment.save(function (err, newAchievment) {  
-        if (err) {
-          res.send(err);
-        }
-        res.send(newAchievment);
-        });  
+		console.log(req.body)
+		var newAch = new achievment(req.body);
+		var n = req.body.name;  
+		user.findOne({username : n}).exec(function(err, u){
+		  	if(err) throw err;
+		  	newAch.save(function(err, achievment){
+		  		if(err) throw err;
+		  		u.achievments.push(achievment._id);
+		  		u.save(function(err, u){
+		  			res.json(achievment)
+		  		})
+		  	})
+	  })
 	}
 }

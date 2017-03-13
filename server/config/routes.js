@@ -1,4 +1,3 @@
-
 var passport = require('passport');
 var session = require('express-session');
 var path = require('path');
@@ -29,6 +28,14 @@ app.get('/api/logout', function(req, res){
 
 app.get('/api/isLogged',utils.isLogged);
 
+//getting all profiles and editing profiles 
+app.get('/api/profile' , userController.getAllUsers)
+app.post('/api/profile', userController.updateAccount);
+
+// getting and adding achievments 
+app.get('/api/achievments',achievmentsController.getAllAchievments);
+app.post('/api/achievments',achievmentsController.insertAchievment);
+
 //insert and get all the images from the gellary 
 app.get('/api/gallery', galleryController.getAllImages );
 app.post('/api/gallery', galleryController.insertImage);
@@ -55,4 +62,3 @@ app.all('*', (req, res) => {
 app.use(utils.errorLogger);
 app.use(utils.errorHandler);
 };
-

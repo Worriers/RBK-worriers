@@ -8,12 +8,6 @@ var commentSchema = new mongoose.Schema({
 		type : String,
 		required : true
 	}
-	// _question : { type: mongoose.Schema.Types.ObjectId, ref: 'questions' }
 });
 
 module.exports = mongoose.model('comments', commentSchema);
-
-// module.exports.create({text: 'coolMinion'}, function(err, doc) {
-// 	if(err) throw err;
-//     console.log(doc);
-// });
