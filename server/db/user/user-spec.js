@@ -54,8 +54,6 @@ it('Should post user', function (done) {
               throw new Error(err)
             }
             expect(user.username).to.equal('aaa')
-            expect(user.img).to.equal('kk')
-            expect(user.gitHub).to.equal('uuu')
             done()
           })
       })

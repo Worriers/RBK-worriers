@@ -25,58 +25,47 @@ it('Should post user', function (done) {
       .post('/api/faq/')
       .send({
         name: 'aaa',
-        text: 'ppp',
-        
+        text: 'ppp'
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(201
         )
       .end(function (err, resp) {
-         console.log(resp.body.username)
+         // console.log(resp.body.username)
         if (err) {
           console.log(err)
         }
 
-        let user = resp.body
-             console.log("hhhhh",user.username)
+        let q = resp.body
+           // console.log("hhhhh",q.name,q._id)
         // /console.log(resp.body)
         request(app)
-          .get('/api/users/')
+          .get('/api/faq/:id')
           .end(function (err, resp) {
             if (err) {
               throw new Error(err)
             }
-            expect(user.username).to.equal('aaa')
+            expect(q.name).to.equal('aaa')
             done()
           })
       })
      // done()
   })
-  it('Should get one user', function (done) {
-    request(app)
-      .post('/api/users/:id')
-      .send({
-        id: '1234'
-      })
-      .set('Accept', 'application/json')
-      .end(function (err, resp) {
-        if (err) {
-          console.log(err)
-        }
-        console.log("hhhhh",resp.body.id)
-        let user = resp.body
-        console.log("hhhhh",user.id)
-        request(app)
-          .get('/api/users/:id' + user.id)
-          .end(function (err, resp) {
-            if (err) {
-              throw new Error(err)
-            }
-            expect(user.id).to.equal('1234')
-            done()
-          })
-      })
-      // done()
-  })
+  // it('Should get one Quastion', function (done) {
+  //       request(app)
+  //         .get('/api/faq/:id')
+  //         .set('Accept', 'application/json')
+  //         .expect('Content-Type', /json/)
+  //         .expect(200)
+  //         .end(function (err, resp) {
+  //           if (err) {
+  //             throw new Error(err)
+  //           }
+  //           expect(resp.body[1].name).to.equal('aaa')
+  //           expect(resp.body[1].text).to.equal('ppp')
+  //           // expect(q._).to.equal()
+  //           done()
+  //         })
+  //     })
 })

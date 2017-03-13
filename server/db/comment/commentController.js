@@ -2,7 +2,7 @@ var comment = require("./commentModel.js");
 var question = require("../faq/quastionModel.js")
 module.exports ={
 	getAllComments : function (req, res) {
-		console.log(req.body)
+		// console.log(req.body)
 	  comment.find({}).exec(function (err, data) {
 	    if(err){
 		  res.status(500).send('err');
@@ -12,7 +12,7 @@ module.exports ={
 		});
 	},
 	insertComment : function (req, res) {
-		console.log(req.body)
+		// console.log(req.body)
 		var newComment = new comment(req.body);
 		var qId = req.body.qText;  
 		question.findOne({text : qId}).exec(function(err, q){
