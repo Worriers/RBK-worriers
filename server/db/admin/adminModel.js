@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var db = require('../config.js')
 var bcrypt = require('bcrypt-nodejs');
 var Q = require('q');
 
@@ -17,7 +18,9 @@ var AdminSchema = new mongoose.Schema({
   }
 });
 
-UserSchema.methods.comparePasswords = function (candidatePassword) {    
+AdminSchema.plugin(db.autoIncrement.plugin, 'admins');
+
+AdminSchema.methods.comparePasswords = function (candidatePassword) {    
  var savedPassword = this.password;    
  return Q.Promise(function (resolve, reject) {   
    bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {    
@@ -30,7 +33,7 @@ UserSchema.methods.comparePasswords = function (candidatePassword) {
  });   
 };    
 
-UserSchema.pre('save', function (next) {    
+AdminSchema.pre('save', function (next) {    
   var user = this;
    // only hash the password if it has been modified (or is new)   
    if (!user.isModified('password')) {    
@@ -44,7 +47,8 @@ UserSchema.pre('save', function (next) {
        // override the cleartext password with the hashed one    
        user.password = hash;   
        next();   
-     });   
+     });
+
    });
 
 module.exports = mongoose.model('admins', AdminSchema);

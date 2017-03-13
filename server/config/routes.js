@@ -2,6 +2,7 @@ var passport = require('passport');
 var session = require('express-session');
 var path = require('path');
 var userController = require('../db/user/userController.js');
+var adminController = require('../db/admin/adminController.js');
 var achievmentsController = require('../db/achievments/achievmentsController.js');
 var commentController = require('../db/comment/commentController.js');
 var quastionController = require('../db/faq/quastionController.js');
@@ -21,11 +22,18 @@ app.get('/auth/github/callback', passport.authenticate ('github', {
      failureRedirect: '/'
    }));
 
+app.post('/api/register', passport.authenticate('local-signup', {
+    // TODO : init custom request handler for ajax respond;
+    successRedirect : '/cpanel',
+    failureRedirect : '/login'
+}));
+
 app.get('/api/logout', function(req, res){
   req.logout();
   res.status(200).send();
 });
 
+app.get('/api/validate',userController.validateAccount);
 app.get('/api/isLogged',utils.isLogged);
 
 //getting all profiles and editing profiles 
