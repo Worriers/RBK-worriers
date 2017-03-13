@@ -81,5 +81,15 @@ module.exports ={
   }else{
     res.status(401).send(req.user);
   }
+ }, 
+
+ updateAccount : function(req , res) {
+  var id = req.user.id ; 
+
+  User.findOneAndUpdate({_id: id} , {name : "hahaha"} , function(err, data){
+    if(err){throw err} ; 
+    res.json(data);
+  })
  }
+
 }

@@ -15,7 +15,7 @@ module.exports = function (app, express) {
 app.get('/api/gallery', galleryController.getAllImages );
 app.post('/api/gallery', galleryController.insertImage);
 
-
+//user authentication get 
 app.get('/auth/github', passport.authenticate('github', { scope: [ 'user:email', 'public_repo' ] }));
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: '/' }), userController.validateAccount);
@@ -23,6 +23,9 @@ app.get('/api/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+app.get('/api/profile' , userController.getAllUsers)
+app.post('/api/profile/:id', userController.updateAccount);
 
 // getting all quastions , and adding new quastions 
 app.get('/api/faq',quastionController.getAllQuastions);
