@@ -8,7 +8,7 @@ var commentSchema = new mongoose.Schema({
 		type : String,
 		required : true
 	}
-	// _question : { type: mongoose.Schema.Types.ObjectId, ref: 'questions' }
 });
 
 module.exports = mongoose.model('comments', commentSchema);
+
