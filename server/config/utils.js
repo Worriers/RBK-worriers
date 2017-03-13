@@ -7,15 +7,19 @@ exports.errorHandler = function (error, req, res, next) {
   res.status(500).send({error: error.message});
 };
 
-// Simple route middleware to ensure user is authenticated.
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
-
 exports.ensureAuthenticated = function (req, res, next) {
   if (req.isAuthenticated() && req.user.completed && req.user.activated) {
     return next(); 
   }
-  res.redirect('/login');
+  res.status(401).send();
+}
+
+exports.isLogged = function (req, res){
+  if(req.isAuthenticated()){
+    res.send({'id':req.user._id,
+              'activated': req.user.activated,
+              'completed': req.user.completed
+            });
+  }
+  res.status(401).send();
 }

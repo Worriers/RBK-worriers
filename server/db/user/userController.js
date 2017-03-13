@@ -4,10 +4,7 @@ var GitHubStrategy = require('passport-github2').Strategy;
 var User = require("./userModel.js");
 var configAuth = require("../../config/auth.js");
 
-// Use the GitHubStrategy within Passport.
-//   Strategies in Passport require a `verify` function, which accept
-//   credentials (in this case, an accessToken, refreshToken, and GitHub
-//   profile), and invoke a callback with a user object.
+
 passport.use(new GitHubStrategy({
   clientID: configAuth.gitHubAuth.clientID,
   clientSecret: configAuth.gitHubAuth.clientSecret,
@@ -79,7 +76,7 @@ module.exports ={
         })
  },
 
- validateAccount: function(req,res){
+ validateAccount: function(req, res, next){
   if(req.user.completed){
     if(req.user.activated){
       res.status(201).send(req.user);

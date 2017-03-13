@@ -1,5 +1,7 @@
 var express = require('express');
 var mongoDB = require('./db/config.js');
+var dotenv = require('dotenv').config();
+
 var app = express();
 
 require('./config/middleware.js')(app, express);
