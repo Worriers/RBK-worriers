@@ -1,4 +1,3 @@
-
 var passport = require('passport');
 var GitHubStrategy = require('passport-github2').Strategy;
 var User = require("./userModel.js");
@@ -52,21 +51,22 @@ function(accessToken, refreshToken, profile, done) {
 
 module.exports ={
 	getAllUsers : function (req, res) {
-   User.find().exec(function (err, alluser) {
+   User.find({}).populate({
+    path: 'achievments'}).exec(function (err, alluser) {
      if(err){
       res.status(500).send('err');
     }else{
-      res.json(alluser)
+      res.status(200).json(alluser)
     }
   });
  },
 
  getOneUser : function (req,res) {
-   User.findById(req.params.id, function (err, teacher) {  
+   User.findById(req.body.id, function (err, user) {  
     if (err) {
       res.send(err)
     }else{
-      res.json(teacher)
+      res.status(200).json(user)
     } 
   })
  },
@@ -84,12 +84,15 @@ module.exports ={
  }, 
 
  updateAccount : function(req , res) {
-  var id = req.user.id ; 
-
-  User.findOneAndUpdate({_id: id} , {name : "hahaha"} , function(err, data){
+  console.log(req.body)
+  var id = req.body.id ; 
+  var name = req.body.name
+  User.findOneAndUpdate({_id: id} , {username : name} , function(err, data){
     if(err){throw err} ; 
-    res.json(data);
+    res.status(201).json(data);
   })
  }
 
+
 }
+
