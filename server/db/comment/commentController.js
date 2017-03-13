@@ -21,7 +21,7 @@ module.exports ={
 		  		if(err) throw err;
 		  		q.comments.push(comment._id);
 		  		q.save(function(err, q){
-		  			res.status(201).json(comment)
+		  			res.json(comment)
 		  		})
 		  	})
 	  })

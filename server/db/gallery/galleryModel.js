@@ -11,8 +11,3 @@ var ImagesSchema = new mongoose.Schema({
 });
  
 module.exports = mongoose.model('gallery', ImagesSchema);
-
-module.exports.create({description: 'coolMinion'}, function(err, doc) {
-	if(err) throw err;
-    // console.log(doc);
-});

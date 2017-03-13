@@ -25,30 +25,32 @@ it('Should creat Comment', function (done) {
       .post('/api/comment/')
       .send({
         name: 'dan',
-        text: 'hii'
+        text: 'hii',
+        qText: "ppp"
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(201)
       .end(function (err, resp) {
-         // console.log(resp.body.username)
         if (err) {
           console.log(err)
         }
-
+        
         let comment = resp.body
            // console.log("hhhhh",q.name,q._id)
         // /console.log(resp.body)
         request(app)
           .get('/api/comment/')
+          .expect('Content-Type', /json/)
+          .expect(200)
           .end(function (err, resp) {
             if (err) {
               throw new Error(err)
             }
+            console.log(resp.body)
             expect(comment.name).to.equal('dan')
             done()
           })
       })
-     // done()
   })
 })

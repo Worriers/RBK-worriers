@@ -15,9 +15,3 @@ var QuestionsSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('questions', QuestionsSchema);
-
-
-module.exports.create({text: 'coolMinion'}, function(err, doc) {
-	if(err) throw err;
-    // console.log(doc);
-});

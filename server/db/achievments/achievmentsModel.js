@@ -20,11 +20,3 @@ var AchievmentsSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('achievments', AchievmentsSchema);
-
-module.exports.create({	category : "Promotion",
-	desc: "nothing at all!",
-	url : "www.url.com",
-	date : "2017/8/8"}, function(err, doc) {
-	if(err) throw err;
-    // console.log(doc);
-});
