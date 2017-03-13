@@ -24,7 +24,7 @@ it('Should post project', function (done) {
     request(app)
       .post('/api/projects/')
       .send({
-        title: 'Test movie3',
+        title: 'Test ',
         url: 'ppp',
         gitHubLink: "ll",
         img:{
@@ -48,7 +48,7 @@ it('Should post project', function (done) {
             if (err) {
               throw new Error(err)
             }
-            expect(project.title).to.equal('Test movie3')
+            expect(project.title).to.equal('Test ')
              // expect(project.img.data.data).to.equal('ss')
             expect(project.gitHubLink).to.equal('ll')
             expect(project.url).to.equal('ppp')

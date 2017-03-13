@@ -3,10 +3,10 @@ const request = require('supertest');
 const expect = require('chai').expect
 
 
-describe('faq', function () {
-  it('Should get All Quastions', function (done) {
+describe('comment', function () {
+  it('Should get All comment', function (done) {
     request(app)
-      .get('/api/faq/')
+      .get('/api/comment/')
       .set('ok', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -20,12 +20,12 @@ describe('faq', function () {
 
   })
   
-it('Should creat Quastion', function (done) {
+it('Should creat Comment', function (done) {
     request(app)
-      .post('/api/faq/')
+      .post('/api/comment/')
       .send({
-        name: 'aaa',
-        text: 'ppp'
+        name: 'dan',
+        text: 'hii'
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -36,35 +36,19 @@ it('Should creat Quastion', function (done) {
           console.log(err)
         }
 
-        let q = resp.body
+        let comment = resp.body
            // console.log("hhhhh",q.name,q._id)
         // /console.log(resp.body)
         request(app)
-          .get('/api/faq/:id')
+          .get('/api/comment/')
           .end(function (err, resp) {
             if (err) {
               throw new Error(err)
             }
-            expect(q.name).to.equal('aaa')
+            expect(comment.name).to.equal('dan')
             done()
           })
       })
      // done()
   })
-  // it('Should get one Quastion', function (done) {
-  //       request(app)
-  //         .get('/api/faq/:id')
-  //         .set('Accept', 'application/json')
-  //         .expect('Content-Type', /json/)
-  //         .expect(200)
-  //         .end(function (err, resp) {
-  //           if (err) {
-  //             throw new Error(err)
-  //           }
-  //           expect(resp.body[1].name).to.equal('aaa')
-  //           expect(resp.body[1].text).to.equal('ppp')
-  //           // expect(q._).to.equal()
-  //           done()
-  //         })
-  //     })
 })
