@@ -27,6 +27,8 @@ app.get('/api/logout', function(req, res){
   res.status(200).send();
 });
 
+app.get('/api/isLogged',utils.isLogged);
+
 //insert and get all the images from the gellary 
 app.get('/api/gallery', galleryController.getAllImages );
 app.post('/api/gallery', galleryController.insertImage);
