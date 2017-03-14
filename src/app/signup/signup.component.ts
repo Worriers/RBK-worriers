@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   	// this.auth.getGitHubData().then(data => {
   	// 	this.user = data
   	// });
+  	
   	this.user = this.route.snapshot.data['gitHubData'];
   }
 
