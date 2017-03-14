@@ -18,5 +18,15 @@ module.exports ={
         }
         res.send(newImage);
         });  
-	}
+	},
+	deleteImg : function(req,res) {
+		var id = req.body._id ; 
+          gallery.remove({_id:id}, function (err, p) {
+            if (err){
+              throw err
+            }
+            console.log('image removed');
+            res.status(200).send();
+		})
+    }
 }

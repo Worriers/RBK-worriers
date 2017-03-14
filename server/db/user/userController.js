@@ -49,7 +49,7 @@ function(accessToken, refreshToken, profile, done) {
   }
   ));
 
-module.exports ={
+module.exports ={ 
 	getAllUsers : function (req, res) {
    User.find({}).populate({
     path: 'achievments'}).exec(function (err, alluser) {
@@ -92,6 +92,17 @@ module.exports ={
     req.user.activated = data.activated;
     res.status(201).send(data);
   })
- }
+ },
+  deleteUser : function(req,res) {
+    var id = req.body._id ; 
+    User.remove({_id: id}, function (err, p) {
+      if (err){
+        throw err
+      }
+      console.log('question removed');
+      res.status(200).send();
+    })
+  }
+
 }
 
