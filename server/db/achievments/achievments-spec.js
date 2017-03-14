@@ -6,7 +6,7 @@ const expect = require('chai').expect
 describe('achievments', function () {
   it('Should get all achievments', function (done) {
     request(app)
-      .get('/api/projects/')
+      .get('/api/achievments/')
       .set('ok', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -20,15 +20,15 @@ describe('achievments', function () {
 
   })
   
-it('Should post project', function (done) {
+it('Should creat achievments', function (done) {
     request(app)
-      .post('/api/projects/')
+      .post('/api/achievments/')
       .send({
-        title: 'Test movie3',
-        url: 'ppp',
-        deployLink: "uu",
-        gitHubLink: "ll",
-        img:"8" 
+        category: 'web app',
+        url: 'www.aaa.com',
+        desc: "uu",
+        date: "ll",
+        name:"DaniaHamdan"
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -39,16 +39,16 @@ it('Should post project', function (done) {
           console.log(err)
         }
 
-        let project = resp.body
+        let ach = resp.body
             // console.log("hhhhh",project.title)
         // console.log(resp.body)
         request(app)
-          .get('/api/projects/')
+          .get('/api/achievments/')
           .end(function (err, resp) {
             if (err) {
               throw new Error(err)
             }
-            expect(project.title).to.equal('Test movie3')
+            expect(ach.date).to.equal('ll')
             done()
           })
       })

@@ -20,7 +20,7 @@ module.exports ={
 		  		if(err) throw err;
 		  		u.achievments.push(achievment._id);
 		  		u.save(function(err, u){
-		  			res.json(achievment)
+		  			res.status(201).send(achievment)
 		  		})
 		  	})
 	  })

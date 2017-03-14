@@ -50,34 +50,7 @@ function(accessToken, refreshToken, profile, done) {
   ));
 
 module.exports ={
-	getAllUsers : function (req, res) {
-<<<<<<< HEAD
-	  user.find().exec(function (err, alluser) {
-	    if(err){
-		  res.status(500).send('err');
-		}else{
-		  res.json(alluser)
-		}
-		});
-	},
-	insertUser : function (req, res) {
-	  var newUser = new user(req.body);  
-      newUser.save(function (err, newUser) {  
-        if (err) {
-          res.send(err);
-        }
-        res.status(201).send(newUser);
-        });  
-	},
-	getOneUser : function (req,res) {
-	  user.findById(req.params.id, function (err, user) {  
-        if (err) {
-          res.send(err)
-        }else{
-          res.json(user)
-        } 
-        })
-=======
+  getAllUsers : function (req, res) {
    User.find({}).populate({
     path: 'achievments'}).exec(function (err, alluser) {
      if(err){
@@ -96,7 +69,6 @@ module.exports ={
       res.status(200).json(user)
     } 
   })
->>>>>>> 7fa1f74a58550fbbe88b9a66644a51c4ef9bc134
  },
 
  validateAccount: function(req,res){
@@ -105,7 +77,6 @@ module.exports ={
       res.status(201).send(req.user);
     }else{
       res.status(403).send('not activated');
-
     }
   }else{
     res.status(401).send(req.user);
@@ -124,4 +95,3 @@ module.exports ={
 
 
 }
-
