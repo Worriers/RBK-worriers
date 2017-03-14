@@ -1,3 +1,6 @@
+
+var bcrypt = require('bcrypt-nodejs');
+
 exports.errorLogger = function (error, req, res, next) {
   console.error(error.stack);
   next(error);
@@ -21,5 +24,14 @@ exports.isLogged = function (req, res){
               'completed': req.user.completed
             });
   }
-  res.status(401).send();
+  res.status(203).send();
 }
+
+exports.comparePass = function(pass, hash, cb) {
+  bcrypt.compare(pass, hash, function(err, isMatch) {
+    if (err) {
+      throw new Error(err);
+    }
+    cb(null,isMatch);
+  });
+};
