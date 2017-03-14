@@ -28,7 +28,10 @@ app.post('/api/register', passport.authenticate('local-signup', {
     failureRedirect : '/login'
 }));
 
-app.post('/api/login', passport.authenticate('local-login', adminController.authorizeAdmin ));
+app.post('/api/login', passport.authenticate('local-login',{failureRedirect : '/loginFail'}),adminController.authorizeAdmin);
+app.get('/loginFail',function(req,res){
+  res.send({status:'username or password is not correct!'})
+})
 
 app.get('/api/logout', function(req, res){
   req.logout();

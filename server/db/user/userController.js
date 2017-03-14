@@ -74,12 +74,12 @@ module.exports ={
  validateAccount: function(req,res){
   if(req.user.completed){
     if(req.user.activated){
-      res.status(201).send(req.user);
+      res.status(202).send(req.user);
     }else{
-      res.status(403).send('not activated');
+      res.status(203).send('not activated');
     }
   }else{
-    res.status(401).send(req.user);
+    res.status(204).send(req.user);
   }
  }, 
 

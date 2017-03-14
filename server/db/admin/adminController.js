@@ -1,6 +1,7 @@
 var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var Admin = require("./adminModel.js");
+var utils = require('../../config/utils.js');
 
 passport.use('local-signup', new LocalStrategy({
   usernameField : 'username',
@@ -43,19 +44,21 @@ function(req, username, password, done){
       return done(err);
     }
     if(!user){
-      return done(null,false,{message:'username is not correct!'});
+      return done(null,false);
     }
-    if(!user.comparePasswords(password)){
-      return done(null,false,{message:'password is not correct!'});
-    }
-    return done(null,user);
+    utils.comparePass(password,user.password,function(err,match){
+      if(!match){
+        return done(null,false);
+      } else{
+        return done(null,user,{status:'valid'});
+      }
+    })
   })
 }
 ))
 
 module.exports = {
   authorizeAdmin: function(req, res){
-    console.log(req);
-    console.log(res);
+    res.send({status: req.authInfo.status, data: req.user});
   }
 }

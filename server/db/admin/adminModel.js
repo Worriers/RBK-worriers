@@ -19,20 +19,7 @@ var AdminSchema = new mongoose.Schema({
 });
 
 AdminSchema.plugin(db.autoIncrement.plugin, 'admins');
-
-AdminSchema.methods.comparePasswords = function (password) {    
- var savedPassword = this.password;    
- return Q.Promise(function (resolve, reject) {   
-   bcrypt.compare(password, savedPassword, function (err, isMatch) {    
-     if (err) {    
-       reject(err);    
-     } else {    
-       resolve(isMatch);   
-     }   
-   });   
- });   
-};    
-
+  
 AdminSchema.pre('save', function (next) {    
   var user = this;
    // only hash the password if it has been modified (or is new)   
