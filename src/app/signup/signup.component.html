@@ -2,12 +2,11 @@
 	<div class="row main">
 		<div class="panel-heading">
            <div class="panel-title text-center">
-           {{diagnostic}}
            		<h2>Step 2 : Complete your profile</h2>
            	</div>
         </div> 
 		<div class="main-login main-center">
-			<form class="form-horizontal" method="post" action="#">
+			<form class="form-horizontal" method="post" action="#" (ngSubmit)="completeProfile()">
 				
 				<div class="form-group">
 					<label for="name" class="cols-sm-2 control-label">Name</label>
@@ -47,7 +46,7 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
 							<input type="number" class="form-control" name="age" placeholder="Enter your age"
-							[(ngModel)]="user.age" />
+							[(ngModel)]="user.age" required/>
 						</div>
 					</div>
 				</div>
@@ -57,7 +56,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="major" placeholder="Enter your major" [(ngModel)]="user.major"/>
+							<input type="text" class="form-control" name="major" placeholder="Enter your major" [(ngModel)]="user.mainMajo" required/>
 						</div>
 					</div>
 				</div>
@@ -66,7 +65,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="job" placeholder="Enter your current job" [(ngModel)]="user.currentJob"/>
+							<input type="text" class="form-control" name="job" placeholder="Enter your current job" [(ngModel)]="user.currentJob" required />
 						</div>
 					</div>
 				</div>
@@ -86,7 +85,7 @@
 			                    </ul>
 			                  </div> -->
 
-			                  <select name="cohort" [(ngModel)]="user.cohort" class="cohortSelect">
+			                  <select name="cohort" [(ngModel)]="user.cohort" class="cohortSelect" required>
 			                  	<option value="1">cohort 1</option>
 			                  	<option value="2">cohort 2</option>
 			                  </select>
@@ -99,13 +98,13 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="major" placeholder="Enter your linked in profile link" [(ngModel)]="user.linkedin"/>
+							<input type="text" class="form-control" name="major" placeholder="Enter your linked in profile link" [(ngModel)]="user.linkedIn" required />
 						</div>
 					</div>
 				</div>
 
 				<div class="form-group ">
-					<button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)="completeProfile()">Complete</button>
+					<button class="btn btn-primary btn-lg btn-block login-button">Complete</button>
 				</div>
 			</form>
 		</div>

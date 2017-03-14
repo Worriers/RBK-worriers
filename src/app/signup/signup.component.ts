@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -9,20 +10,19 @@ import { AuthService } from '../shared/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private auth : AuthService) { }
+  constructor(private auth : AuthService, private route : ActivatedRoute) { }
 
   user = {};
 
   ngOnInit() {
-  	this.auth.getGitHubData().then(data => {
-  		this.user = data
-  		console.log("from signupppppppp", data);
-  	});
+  	// this.auth.getGitHubData().then(data => {
+  	// 	this.user = data
+  	// });
+  	this.user = this.route.snapshot.data['gitHubData'];
   }
 
   completeProfile(){
   	this.auth.completeProfile(this.user).then(data => {
-  		console.log(data);
   		if(data.status !== 201){
   			 console.log("shit happens dude!");
   		} else {

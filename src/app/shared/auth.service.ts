@@ -37,11 +37,11 @@ export class AuthService {
 	}
 
 	completeProfile(data) : Promise<any> {
-	return this.http.post("/api/profile", JSON.stringify(data), this.headers)
+		console.log(JSON.stringify(data));
+	return this.http.post("/api/profile", JSON.stringify(data), {headers: this.headers})
 	           .toPromise()
 	           .then(function(response){
-	           		console.log(response);
-	           		return  response.json();
+	           		return  response;
 	           })
 	           .catch(this.handleError);
 	}
