@@ -18,5 +18,15 @@ module.exports ={
         }
         res.send(data);
         });  
-	}
+	},
+	deleteProject : function(req,res) {
+		var id = req.body._id ; 
+          projects.remove({_id: id}, function (err, p) {
+            if (err){
+              throw err
+            }
+            console.log('project removed');
+            res.status(200).send();
+		})
+    }
 }

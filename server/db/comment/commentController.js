@@ -25,5 +25,15 @@ module.exports ={
 		  		})
 		  	})
 	  })
-	}
+	},
+	deleteComment : function(req,res) {
+		var id = req.body._id ; 
+          comment.remove({_id: id}, function (err, p) {
+            if (err){
+              throw err
+            }
+            console.log('comment removed');
+            res.status(200).send();
+		})
+    }
 }

@@ -5,14 +5,9 @@ var ImagesSchema = new mongoose.Schema({
 		data: Buffer,
 		contentType: String
 	},
-	description : {
+	desc : {
 		type : String
 	}
 });
  
 module.exports = mongoose.model('gallery', ImagesSchema);
-
-// module.exports.create({description: 'coolMinion'}, function(err, doc) {
-// 	if(err) throw err;
-//     console.log(doc);
-// });
