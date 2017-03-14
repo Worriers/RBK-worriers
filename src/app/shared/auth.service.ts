@@ -21,7 +21,7 @@ export class AuthService {
 	           .then(function(response){
 	           		console.log("isAuth data -----", response.json().data);
 	           		//this.userData = response.json().data;
-	           		return  response.json().data;
+	           		return  response.json();
 	           })
 	           .catch(this.handleError);
 	}
@@ -30,11 +30,22 @@ export class AuthService {
 	return this.http.get("/api/validate", this.headers)
 	           .toPromise()
 	           .then(function(response){
-	           		console.log("validate", response.json().data);
-	           		return  response.json().data;
+	           		console.log("validate", response);
+	           		return  response.json();
 	           })
 	           .catch(this.handleError);
 	}
+
+	completeProfile(data) : Promise<any> {
+	return this.http.post("/api/profile", JSON.stringify(data), this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		console.log(response);
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
 
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error); // for demo purposes only

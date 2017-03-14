@@ -11,12 +11,23 @@ export class SignupComponent implements OnInit {
 
   constructor(private auth : AuthService) { }
 
-  user = {username: "montaser", email:"a@a.com", name:"Montaser Rahmani"};
+  user = {};
 
   ngOnInit() {
   	this.auth.getGitHubData().then(data => {
   		this.user = data
   		console.log("from signupppppppp", data);
+  	});
+  }
+
+  completeProfile(){
+  	this.auth.completeProfile(this.user).then(data => {
+  		console.log(data);
+  		if(data.status !== 201){
+  			 console.log("shit happens dude!");
+  		} else {
+  			alert("Thank you for completing your profile, It won't take long until your account is activated! STAY TUNED!");
+  		}
   	});
   }
 

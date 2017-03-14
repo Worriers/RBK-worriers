@@ -14,7 +14,8 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="name" id="name" value="Montaser" [(ngModel)]="user.name" disabled/>
+							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName !== ''" disabled/>
+							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName === ''" required />
 						</div>
 					</div>
 				</div>
@@ -24,7 +25,8 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="email" id="email" value="Montaser" [(ngModel)]="user.email" disabled/>
+							<input type="text" class="form-control" name="email" id="email" value="Loading.." [(ngModel)]="user.email" *ngIf="user.email !== ''" disabled/>
+							<input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.email" *ngIf="user.email === ''" placeholder="Enter your email please" required />
 						</div>
 					</div>
 				</div>
@@ -34,7 +36,7 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="username" id="username" value="Montaser" [(ngModel)]="user.username" disabled/>
+							<input type="text" class="form-control" name="username" id="username" value="Loading.." [(ngModel)]="user.username" disabled/>
 						</div>
 					</div>
 				</div>
@@ -103,7 +105,7 @@
 				</div>
 
 				<div class="form-group ">
-					<button type="button" class="btn btn-primary btn-lg btn-block login-button">Complete</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)="completeProfile()">Complete</button>
 				</div>
 			</form>
 		</div>
