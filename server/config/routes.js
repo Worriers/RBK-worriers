@@ -22,11 +22,9 @@ app.get('/auth/github/callback', passport.authenticate ('github', {
      failureRedirect: '/'
    }));
 
-app.post('/api/register', passport.authenticate('local-signup', {
-    // TODO : init custom request handler for ajax respond;
-    successRedirect : '/cpanel',
-    failureRedirect : '/login'
-}));
+app.post('/api/register', passport.authenticate('local-signup', {failureRedirect : '/login'}),function(req,res){
+  res.status(201).send(req.user);
+});
 
 app.post('/api/login', passport.authenticate('local-login',{failureRedirect : '/loginFail'}),adminController.authorizeAdmin);
 app.get('/loginFail',function(req,res){
