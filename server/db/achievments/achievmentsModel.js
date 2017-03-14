@@ -20,3 +20,4 @@ var AchievmentsSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('achievments', AchievmentsSchema);
+

@@ -11,3 +11,4 @@ var ImagesSchema = new mongoose.Schema({
 });
  
 module.exports = mongoose.model('gallery', ImagesSchema);
+

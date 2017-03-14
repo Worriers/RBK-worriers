@@ -16,7 +16,7 @@ module.exports ={
         if (err) {
           res.send(err);
         }
-        res.send(newImage);
+        res.status(201).send(newImage);
         });  
 	},
 	deleteImg : function(req,res) {

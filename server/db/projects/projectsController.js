@@ -11,12 +11,12 @@ module.exports ={
 		});
 	},
 	insertProject : function (req, res) {
-	  var newProject= new projects(req.body);  
-      newProject.save(function (err, data) {  
+	  var newProject= new projects(req.body); 
+      newProject.save(function (err, newProject) {  
         if (err) {
           res.send(err);
         }
-        res.send(data);
+        res.status(201).send(newProject);
         });  
 	},
 	deleteProject : function(req,res) {

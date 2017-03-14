@@ -49,6 +49,9 @@ function(accessToken, refreshToken, profile, done) {
   }
   ));
 
+
+
+
 module.exports ={ 
 	getAllUsers : function (req, res) {
    User.find({}).populate({
@@ -56,7 +59,8 @@ module.exports ={
      if(err){
       res.status(500).send(err);
     }else{
-      res.json(alluser);
+      res.json(alluser)
+
     }
   });
  },
@@ -66,7 +70,9 @@ module.exports ={
     if (err) {
       res.status(500).send(err);
     }else{
-      res.json(user);
+
+      res.json(user)
+
     } 
   })
  },
@@ -82,14 +88,13 @@ module.exports ={
     cohort : req.body.cohort,
     currentJob : req.body.currentJob,
     linkedIn: req.body.linkedIn,
-    completed: req.body.completed,
-    activated: req.body.activated
+    completed: true
     } 
   } 
    , { new: true }, function(err, data){
     if(err){throw err} ; 
+
     req.user.completed = data.completed;
-    req.user.activated = data.activated;
     res.status(201).send(data);
   })
  },
@@ -105,4 +110,3 @@ module.exports ={
   }
 
 }
-

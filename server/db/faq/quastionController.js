@@ -7,7 +7,7 @@ module.exports ={
 	    if(err){
 		  res.status(500).send('err');
 		}else{
-		  console.log(data);
+		  // console.log(data);
 		  res.json(data)
 		}
 		});
@@ -19,7 +19,7 @@ module.exports ={
         if (err) {
           res.send(err);
         }
-        res.send(data);
+        res.status(201).send(data);
         });  
 	},
 	getOne : function (req,res) {
