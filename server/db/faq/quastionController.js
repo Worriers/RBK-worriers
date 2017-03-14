@@ -30,5 +30,15 @@ module.exports ={
           res.json(data)
         } 
         })
+    },
+    deleteQ : function(req,res) {
+		var id = req.body._id ; 
+          quastion.remove({_id: id}, function (err, p) {
+            if (err){
+              throw err
+            }
+            console.log('question removed');
+            res.status(200).send();
+		})
     }
 }

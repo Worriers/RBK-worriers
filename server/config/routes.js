@@ -22,11 +22,9 @@ app.get('/auth/github/callback', passport.authenticate ('github', {
      failureRedirect: '/'
    }));
 
-app.post('/api/register', passport.authenticate('local-signup', {
-    // TODO : init custom request handler for ajax respond;
-    successRedirect : '/cpanel',
-    failureRedirect : '/login'
-}));
+app.post('/api/register', passport.authenticate('local-signup', {failureRedirect : '/login'}),function(req,res){
+  res.status(201).send(req.user);
+});
 
 app.post('/api/login', passport.authenticate('local-login',{failureRedirect : '/loginFail'}),adminController.authorizeAdmin);
 app.get('/loginFail',function(req,res){
@@ -42,30 +40,35 @@ app.get('/api/validate',userController.validateAccount);
 app.get('/api/isLogged',utils.isLogged);
 
 //getting all profiles and editing profiles 
-app.get('/api/profile' , userController.getAllUsers)
+app.get('/api/profile' , userController.getAllUsers);
 app.post('/api/profile', userController.updateAccount);
-
+app.delete('/api/profile', userController.deleteUser);
 // getting and adding achievments 
 app.get('/api/achievments',achievmentsController.getAllAchievments);
 app.post('/api/achievments',achievmentsController.insertAchievment);
+app.delete('/api/achievments',achievmentsController.deleteA);
 
 //insert and get all the images from the gellary 
-app.get('/api/gallery', galleryController.getAllImages );
+app.get('/api/gallery', galleryController.getAllImages);
 app.post('/api/gallery', galleryController.insertImage);
+app.delete('/api/gallery', galleryController.deleteImg);
 
 // getting all quastions , and adding new quastions 
 app.get('/api/faq',quastionController.getAllQuastions);
 app.get('/api/faq/:id',quastionController.getOne);
 app.post('/api/faq',quastionController.insertQuastion);
+app.delete('/api/faq', quastionController.deleteQ);
 
 //getting all comments on a specific question ;
 app.get('/api/comment',commentController.getAllComments);
 app.post('/api/comment',commentController.insertComment);
+app.delete('/api/comment',commentController.deleteComment);
+
 
 // getting all the projects and insert new ones
 app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);
-
+app.delete('/api/projects', projectsController.deleteProject);
 
 app.all('*', (req, res) => {
   console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);

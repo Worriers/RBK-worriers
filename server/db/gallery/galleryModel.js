@@ -5,9 +5,10 @@ var ImagesSchema = new mongoose.Schema({
 		data: Buffer,
 		contentType: String
 	},
-	description : {
+	desc : {
 		type : String
 	}
 });
  
 module.exports = mongoose.model('gallery', ImagesSchema);
+

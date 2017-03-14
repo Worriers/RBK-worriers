@@ -49,14 +49,18 @@ function(accessToken, refreshToken, profile, done) {
   }
   ));
 
-module.exports ={
-  getAllUsers : function (req, res) {
+
+
+
+module.exports ={ 
+	getAllUsers : function (req, res) {
    User.find({}).populate({
     path: 'achievments'}).exec(function (err, alluser) {
      if(err){
-      res.status(500).send('err');
+      res.status(500).send(err);
     }else{
       res.json(alluser)
+
     }
   });
  },
@@ -64,34 +68,45 @@ module.exports ={
  getOneUser : function (req,res) {
    User.findById(req.body.id, function (err, user) {  
     if (err) {
-      res.send(err)
+      res.status(500).send(err);
     }else{
+
       res.json(user)
+
     } 
   })
  },
 
  validateAccount: function(req,res){
-  if(req.user.completed){
-    if(req.user.activated){
-      res.status(202).send(req.user);
-    }else{
-      res.status(203).send('not activated');
-    }
-  }else{
-    res.status(204).send(req.user);
-  }
+  res.json(req.user);
  }, 
 
  updateAccount : function(req , res) {
-  console.log(req.body)
-  var id = req.body.id ; 
-  var name = req.body.name
-  User.findOneAndUpdate({_id: id} , {username : name} , function(err, data){
+  User.findOneAndUpdate({_id: req.user.id} , { $set: {
+    age : req.body.age,
+    mainMajor : req.body.mainMajor,
+    cohort : req.body.cohort,
+    currentJob : req.body.currentJob,
+    linkedIn: req.body.linkedIn,
+    completed: true
+    } 
+  } 
+   , { new: true }, function(err, data){
     if(err){throw err} ; 
+
+    req.user.completed = data.completed;
     res.status(201).send(data);
   })
- }
-
+ },
+  deleteUser : function(req,res) {
+    var id = req.body._id ; 
+    User.remove({_id: id}, function (err, p) {
+      if (err){
+        throw err
+      }
+      console.log('question removed');
+      res.status(200).send();
+    })
+  }
 
 }

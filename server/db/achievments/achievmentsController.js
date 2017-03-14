@@ -24,5 +24,15 @@ module.exports ={
 		  		})
 		  	})
 	  })
-	}
+	},
+	deleteA : function(req,res) {
+		var id = req.body._id ; 
+          achievment.remove({_id: id}, function (err, p) {
+            if (err){
+              throw err
+            }
+            console.log('achievment removed');
+            res.status(200).send();
+		})
+    }
 }
