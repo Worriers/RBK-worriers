@@ -34,14 +34,13 @@ it('Should creat achievments', function (done) {
       .expect('Content-Type', /json/)
       .expect(201)
       .end(function (err, resp) {
-         // console.log(resp.body)
+
         if (err) {
           console.log(err)
         }
 
         let ach = resp.body
-            // console.log("hhhhh",project.title)
-        // console.log(resp.body)
+        console.log(ach)
         request(app)
           .get('/api/achievments/')
           .end(function (err, resp) {
@@ -52,7 +51,6 @@ it('Should creat achievments', function (done) {
             done()
           })
       })
-     // done()
   })
 
 })

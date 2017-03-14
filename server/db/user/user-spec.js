@@ -20,7 +20,7 @@ describe('users', function () {
 
   })
   
-it('Should post user', function (done) {
+it('Should creat user', function (done) {
     request(app)
       .post('/api/users/')
       .send({
@@ -83,6 +83,5 @@ it('Should post user', function (done) {
             done()
           })
       })
-      // done()
   })
 })

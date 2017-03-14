@@ -56,7 +56,7 @@ module.exports ={
      if(err){
       res.status(500).send('err');
     }else{
-      res.status(200).json(alluser)
+      res.json(alluser)
     }
   });
  },
@@ -66,7 +66,7 @@ module.exports ={
     if (err) {
       res.send(err)
     }else{
-      res.status(200).json(user)
+      res.json(user)
     } 
   })
  },
@@ -89,7 +89,7 @@ module.exports ={
   var name = req.body.name
   User.findOneAndUpdate({_id: id} , {username : name} , function(err, data){
     if(err){throw err} ; 
-    res.status(201).json(data);
+    res.status(201).send(data);
   })
  }
 
