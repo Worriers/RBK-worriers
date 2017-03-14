@@ -13,9 +13,10 @@ export class AppComponent implements OnInit {
 
   constructor(private auth : AuthService) {}
 
-  OnInit(){
+  ngOnInit(){
   	this.auth.isAuth().then(data => {
   		this.userData = data;
+  		console.log(userData, data);
   	});
   }
   

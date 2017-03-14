@@ -15,12 +15,22 @@ export class AuthService {
 	// 	this.isAuth();
 	// }
 
-	isAuth() : Promise<Object[]> {
+	isAuth() : Promise<any> {
 	return this.http.get("/api/isLogged", this.headers)
 	           .toPromise()
 	           .then(function(response){
 	           		console.log("isAuth data -----", response.json().data);
-	           		this.userData = response.json().data;
+	           		//this.userData = response.json().data;
+	           		return  response.json().data;
+	           })
+	           .catch(this.handleError);
+	}
+
+	getGitHubData() : Promise<any> {
+	return this.http.get("/api/validate", this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		console.log("validate", response.json().data);
 	           		return  response.json().data;
 	           })
 	           .catch(this.handleError);
