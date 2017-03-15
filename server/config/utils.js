@@ -24,7 +24,7 @@ exports.isLogged = function (req, res){
               'completed': req.user.completed
             });
   }
-  res.status(203).send({id:null});
+  res.status(203).send();
 }
 
 exports.comparePass = function(pass, hash, cb) {
