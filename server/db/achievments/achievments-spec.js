@@ -53,4 +53,34 @@ it('Should creat achievments', function (done) {
       })
   })
 
+ it('Should delete achievment', function (done) {
+    request(app)
+    .get('/api/achievments/')
+    .set('ok', 'application/json')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, resp) {
+      if (err) {
+        throw new Error(err)
+      }
+      var id=resp.body[resp.body.length-1]._id
+      console.log(id)
+      request(app)
+      .delete('/api/achievments/')
+      .send({
+       _id : id,
+     })
+      .set('ok', 'application/json')
+      // .expect('Content-Type', /json/)
+      .expect(200)
+      .end(function (err, resp) {
+        if (err) {
+          console.log(err)
+        }
+        console.log(resp.body)
+        done()
+      })  
+    })
+  }) 
+
 })
