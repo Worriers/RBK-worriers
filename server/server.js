@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoDB = require('./db/config.js');
 var dotenv = require('dotenv').config();
+var mockup = require('./mockupData/insertAllData');
 
 var app = express();
 
