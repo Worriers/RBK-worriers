@@ -13,6 +13,7 @@ var utils = require('./utils.js');
 
 module.exports = function (app, express) {
 
+app.get('/api/validate', userController.validateAccount);
 
 app.get('/auth/github',
 passport.authenticate('github', { scope: [ 'user:email', 'public_repo' ] }));

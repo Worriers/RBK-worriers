@@ -14,10 +14,11 @@ passport.use(new GitHubStrategy({
 },
 function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
+    var check = profile.emails === undefined ? false : true; 
     process.nextTick(function () {
       User.findOneAndUpdate({ _id: profile.id },{$set:{
         displayName: profile.displayName,
-        email: profile.emails[0].value,
+        email: check ? profile.emails[0].value : null,
         img: profile._json.avatar_url,
         following: profile._json.following,
         followers: profile._json.followers,
@@ -29,12 +30,13 @@ function(accessToken, refreshToken, profile, done) {
         if(user) {
           return done(null,user)
         } else {
+          var userEmail = check ? profile.emails[0].value : null;
           var newUser = new User();
           newUser._id = profile.id;
           newUser.username = profile.username;
           newUser.displayName = profile.displayName;
           newUser.profileUrl = profile.profileUrl;
-          newUser.email = profile.emails[0].value;
+          newUser.email = userEmail;
           newUser.img = profile._json.avatar_url;
           newUser.following = profile._json.following;
           newUser.followers = profile._json.followers;
@@ -53,7 +55,7 @@ function(accessToken, refreshToken, profile, done) {
 
 
 module.exports ={ 
-	getAllUsers : function (req, res) {
+  getAllUsers : function (req, res) {
    User.find({}).populate({
     path: 'achievments'}).exec(function (err, alluser) {
      if(err){
@@ -108,5 +110,4 @@ module.exports ={
       res.status(200).send();
     })
   }
-
 }

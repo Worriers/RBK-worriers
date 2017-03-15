@@ -6,6 +6,7 @@ import { RouterModule }   from '@angular/router';
 
 import { GradsService } from './shared/grads.service';
 import { AuthService } from './shared/auth.service';
+import { SignupResolve } from './signup/signup.resolve';
 
 // Imports for loading & configuring the in-memory web api
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -42,19 +43,19 @@ import { SignupComponent } from './signup/signup.component';
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       { path: '', component: MainComponent },
-      { path: 'signin', component: MainComponent },
-      { path: 'signup', component: SignupComponent },
+      { path: 'signin', component: MainComponent, pathMatch : 'full' },
+      { path: 'signup', component: SignupComponent, resolve: {gitHubData: SignupResolve} },
       { path: 'profile/:user', component: ProfileComponent },
       { path: 'projects', component: ProjectsComponent },
-      { path: 'warriors', component: GradsComponent },
+      { path: 'warriors', component: GradsComponent, pathMatch : 'full' },
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent }
-    
+      { path: 'admin', component: QaComponent },
+      { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService],
+  providers: [GradsService, AuthService, SignupResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
