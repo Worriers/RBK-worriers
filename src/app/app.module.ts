@@ -51,8 +51,8 @@ import { SignupComponent } from './signup/signup.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent }
-    
+      { path: 'admin', component: QaComponent },
+      { path: '**', component: MainComponent }
     ])
   ],
   providers: [GradsService, AuthService, SignupResolve],

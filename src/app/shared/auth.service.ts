@@ -19,7 +19,7 @@ export class AuthService {
 	return this.http.get("/api/isLogged", this.headers)
 	           .toPromise()
 	           .then(function(response){
-	           		console.log("isAuth data -----", response.json().data);
+	           		console.log("isAuth data -----", response.json());
 	           		//this.userData = response.json().data;
 	           		return  response.json();
 	           })
