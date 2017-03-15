@@ -68,11 +68,13 @@ module.exports ={
  },
 
  getOneUser : function (req,res) {
-   User.findById(req.params.username, function (err, user) {  
+   User.findOne({username: { $regex : new RegExp(req.params.username, "i")}}, function (err, user) {  
     if (err) {
       res.status(500).send(err);
-    }else{
+    }else if(user){
       res.json(user);
+    }else {
+    res.json({_id : null})
     } 
   })
  },
