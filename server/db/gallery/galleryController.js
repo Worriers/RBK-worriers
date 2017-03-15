@@ -25,7 +25,7 @@ module.exports ={
             if (err){
               throw err
             }
-            console.log('image removed');
+            // console.log('image removed');
             res.status(200).send();
 		})
     }
