@@ -40,7 +40,7 @@ it('Should creat Quastion', function (done) {
            // console.log("hhhhh",q.name,q._id)
         // /console.log(resp.body)
         request(app)
-          .get('/api/faq/:id')
+          .get('/api/faq/'+resp.body._id)
           .end(function (err, resp) {
             if (err) {
               throw new Error(err)
@@ -50,6 +50,7 @@ it('Should creat Quastion', function (done) {
           })
       })
   })
+
   it('Should delete Quastion', function (done) {
     request(app)
     .get('/api/faq/')
