@@ -29,7 +29,7 @@
         <li><a routerLink="/qa">FAQ</a></li>
         <li><a routerLink="/about">About us</a></li>
 <!--         <li *ngIf="userData?.id === null"><a href="/auth/github">Sign in with GitHub</a></li> -->
-        <li *ngIf="userData?.id !== null"><a (click)="logout()">Logout</a></li>
+        <li *ngIf="userData?.id !== null" style="cursor: pointer;"><a (click)="logout()">Logout</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
