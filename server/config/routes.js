@@ -43,12 +43,13 @@ app.get('/api/isLogged',utils.isLogged);
 //getting all profiles and editing profiles 
 app.get('/api/profile' , userController.getAllUsers);
 app.get('/api/profile:username',userController.getOneUser);
-app.post('/api/profile', userController.updateAccount);
+app.post('/api/profile', utils.ensureAuthenticated,userController.updateAccount);
+
 app.delete('/api/profile', userController.deleteUser);
 // getting and adding achievments 
 app.get('/api/achievments',achievmentsController.getAllAchievments);
-app.post('/api/achievments',achievmentsController.insertAchievment);
-app.delete('/api/achievments',achievmentsController.deleteA);
+app.post('/api/achievments',utils.ensureAuthenticated,achievmentsController.insertAchievment);
+app.delete('/api/achievments',utils.ensureAuthenticated,achievmentsController.deleteA);
 
 //insert and get all the images from the gellary 
 app.get('/api/gallery', galleryController.getAllImages);
@@ -69,7 +70,7 @@ app.delete('/api/comment',commentController.deleteComment);
 
 // getting all the projects and insert new ones
 app.get('/api/projects',projectsController.getAllProjects);
-app.post('/api/projects',projectsController.insertProject);
+app.post('/api/projects',utils.ensureAuthenticated,projectsController.insertProject);
 app.delete('/api/projects', projectsController.deleteProject);
 
 app.all('*', (req, res) => {
