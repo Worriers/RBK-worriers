@@ -16,7 +16,12 @@ exports.ensureAuthenticated = function (req, res, next) {
   }
   res.status(401).send();
 }
-
+exports.adminAuth = function (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next(); 
+  }
+  res.status(401).send();
+}
 exports.isLogged = function (req, res){
   if(req.isAuthenticated()){
     res.send({'id':req.user._id,
