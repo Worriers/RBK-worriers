@@ -11,10 +11,10 @@ export class SignupResolve implements Resolve<any> {
     return this.auth.getGitHubData().then(data => {
     	if(data.completed){
     		if(data.activated){
-    			this.router.navigate([('/profile/'+data.username)]);
+    			this.router.navigate([('/warriors/'+data.username)]);
     		} else {
-    			alert("Oh! our admin is working on activating your account, Thank you for your patience!")
     			this.router.navigate([('/')]);
+    			alert("Oh! our admin is working on activating your account, Thank you for your patience!")
     		}
     	} else {
 			return data;

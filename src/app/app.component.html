@@ -22,14 +22,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a routerLink="/">My Profile</a></li>
+        <li><a routerLink="/warriors/montaserRahmani">My Profile</a></li>
         <li><a routerLink="/warriors">Warriors</a></li>
         <li><a routerLink="/projects">Porjects</a></li>
         <li><a routerLink="/gallery">Gallery</a></li>
         <li><a routerLink="/qa">FAQ</a></li>
         <li><a routerLink="/about">About us</a></li>
 <!--         <li *ngIf="userData?.id === null"><a href="/auth/github">Sign in with GitHub</a></li> -->
-        <li *ngIf="userData?.id !== null"><a (click)="logout()">Logout</a></li>
+        <li *ngIf="userData?.id !== null" style="cursor: pointer;"><a (click)="logout()">Logout</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">

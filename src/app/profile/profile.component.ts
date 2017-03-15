@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  
+  profileData = {};
+  constructor(private route : ActivatedRoute) { }
 
   ngOnInit() {
+  	console.log("in profile", this.profileData)
+  	this.profileData = this.route.snapshot.data['profileData'];
   }
 
 }
