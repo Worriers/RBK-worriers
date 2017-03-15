@@ -4,22 +4,23 @@
 		  <h1>RBK Warriors <small>from all cohorts</small></h1>
 		</div>
 	</div>
-		<div class="col-sm-3">
+		<div class="col-sm-3" *ngFor="let grad of grads">
 			<div class="card">
 					<div class="header-bg">
 					</div>
 				
 				<div class="avatar">
-					<img src="http://bootsnipp.com/img/avatars/a72ba2f5fa63d21110945fbea19e7f9ad249786b.jpg" alt="" />
+					<img src="{{ grad.img }}" alt="" />
 				</div>
 				<div class="content">
-					<p>Ali Al Ali <br>
-						Web Developer at Expedia</p>
-						<p><button type="button" class="btn btn-default">Contact</button></p>
+					<p>{{ grad.displayName }} <br>
+						{{ grad.currentJob }}</p>
+						<p style="font-size: 3.0em"><a href="{{ grad.gitHub }}" target="_blank"><i class="fa fa-github"></i></a>  <a href="{{ grad.linkedIn }}" target="_blank"><i class="fa fa-linkedin"></i></a></p>
+						<p><button type="button" class="btn btn-default">View more</button></p>
 				</div>
 			</div>
 		</div>
-
+<!-- 
 				<div class="col-sm-3">
 			<div class="card">
 					<div class="header-bg">
@@ -68,7 +69,7 @@
 			</div>
 		</div>
 
-
+ -->
 
 </div>
 

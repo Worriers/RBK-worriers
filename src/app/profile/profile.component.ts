@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
   constructor(private route : ActivatedRoute) { }
 
   ngOnInit() {
+  	console.log("in profile", this.profileData)
   	this.profileData = this.route.snapshot.data['profileData'];
   }
 
