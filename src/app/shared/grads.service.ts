@@ -9,9 +9,16 @@ export class GradsService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	getGrads(): Promise<Object[]> {
-	return this.http.get("/api/grads", this.headers)
+	return this.http.get("/api/profile", this.headers)
 	           .toPromise()
-	           .then(response => response.json().data)
+	           .then(response => response.json())
+	           .catch(this.handleError);
+	}
+
+	getProfile(params): Promise<any> {
+	return this.http.get("/api/profile/"+params.user, this.headers)
+	           .toPromise()
+	           .then(response => response)
 	           .catch(this.handleError);
 	}
 

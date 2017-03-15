@@ -13,8 +13,8 @@ export class SignupResolve implements Resolve<any> {
     		if(data.activated){
     			this.router.navigate([('/profile/'+data.username)]);
     		} else {
-    			alert("Oh! our admin is working on activating your account, Thank you for your patience!")
     			this.router.navigate([('/')]);
+    			alert("Oh! our admin is working on activating your account, Thank you for your patience!")
     		}
     	} else {
 			return data;
