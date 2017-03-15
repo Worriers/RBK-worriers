@@ -1,3 +1,21 @@
-<p>
-  projects works!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="page-header">
+		  <h1>RBK Projects <small>from all cohorts</small></h1>
+		</div>
+	</div>
+		<div class="col-sm-6 col-md-3" *ngFor="let project of projects">
+		    <div class="thumbnail">
+		      <img src="http://i.imgur.com/B1bOmIG.png" alt="...">
+		      <div class="caption">
+		        <h3>{{ project.title }}</h3>
+		        <p>Team Members : {{ project.teamMembers }}</p>
+		        <p>Url : {{project.url}}</p>
+		        <p>GitHubLink : {{project.gitHubLink}}</p>
+		        <p>{{project.img}}</p>
+		      </div>
+		    </div>
+		  </div>
+
+
+</div>
