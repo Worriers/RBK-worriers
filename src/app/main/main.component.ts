@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
   	this.getGrads();
+  	this.getProjects();
   }
 
   getGrads() {

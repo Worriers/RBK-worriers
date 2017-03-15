@@ -12,7 +12,7 @@
 				<div class="avatar">
 					<img src="{{ grad.img }}" alt="" />
 				</div>
-				<div class="content">
+				<div class="content" style="padding-bottom: 10px;">
 					<p>{{ grad.displayName }} <br>
 						{{ grad.currentJob }}</p>
 						<p style="font-size: 3.0em"><a href="{{ grad.gitHub }}" target="_blank"><i class="fa fa-github"></i></a>  <a href="{{ grad.linkedIn }}" target="_blank"><i class="fa fa-linkedin"></i></a></p>
@@ -55,8 +55,8 @@
 		    <div class="thumbnail">
 		      <img src="http://i.imgur.com/B1bOmIG.png" alt="...">
 		      <div class="caption">
-		        <h3>{{ project.title }}}</h3>
-		        <p>Team Members : {{ project.team }}</p>
+		        <h3>{{ project.title }}</h3>
+		        <p>Team Members : {{ project.teamMembers }}</p>
 		        <p><a routerLink="/projects" class="btn btn-default" role="button">View More</a></p>
 		      </div>
 		    </div>
@@ -78,8 +78,8 @@
 		    <div class="thumbnail">
 		      <img src="http://i.imgur.com/B1bOmIG.png" alt="...">
 		      <div class="caption">
-		        <h3>{{ project.title }}}</h3>
-		        <p>Team Members : {{ project.team }}</p>
+		        <h3>{{ project.title }}</h3>
+		        <p>Team Members : {{ project.teamMembers }}</p>
 		        <p><a routerLink="/projects" class="btn btn-default" role="button">View More</a></p>
 		      </div>
 		    </div>
