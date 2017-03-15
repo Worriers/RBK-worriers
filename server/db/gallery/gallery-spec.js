@@ -36,18 +36,34 @@ it('Should create a new image', function (done) {
         if (err) {
           console.log(err)
         }
-        let img = resp.body
         request(app)
         .get('/api/gallery/')
         .end(function (err, resp) {
             if (err) {
               throw new Error(err)
             }
-         //console.log("hhhhh",resp.body.img)
-        expect(img).to.be.an('object')
+         // console.log("hhhhh",resp.body)
+        expect(resp.body[0].img.contentType).to.equal('jjjj')
         done()
       })
   })
 
 })
+it('Should delete image', function (done) {
+    request(app)
+      .delete('/api/gallery/')
+      .send({
+         _id : "58c905630dc9b31be4340dc1",
+      })
+      .set('ok', 'application/json')
+      // .expect('Content-Type', /json/)
+      .expect(200)
+      .end(function (err, resp) {
+        if (err) {
+          console.log(err)
+        }
+        done()
+      })
+  })
+
 })
