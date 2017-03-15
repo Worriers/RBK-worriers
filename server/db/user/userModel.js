@@ -22,8 +22,7 @@ var UserSchema = new mongoose.Schema({
     required: true
   },
   email: {
-    type: String,
-    required: true
+    type: String
   },
   following: {
     type: Number,

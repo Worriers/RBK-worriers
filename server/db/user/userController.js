@@ -30,12 +30,13 @@ function(accessToken, refreshToken, profile, done) {
         if(user) {
           return done(null,user)
         } else {
+          var userEmail = check ? profile.emails[0].value : null;
           var newUser = new User();
           newUser._id = profile.id;
           newUser.username = profile.username;
           newUser.displayName = profile.displayName;
           newUser.profileUrl = profile.profileUrl;
-          newUser.email = profile.emails[0].value;
+          newUser.email = userEmail;
           newUser.img = profile._json.avatar_url;
           newUser.following = profile._json.following;
           newUser.followers = profile._json.followers;
