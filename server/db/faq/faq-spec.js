@@ -49,22 +49,34 @@ it('Should creat Quastion', function (done) {
             done()
           })
       })
-     // done()
   })
-  // it('Should get one Quastion', function (done) {
-  //       request(app)
-  //         .get('/api/faq/:id')
-  //         .set('Accept', 'application/json')
-  //         .expect('Content-Type', /json/)
-  //         .expect(200)
-  //         .end(function (err, resp) {
-  //           if (err) {
-  //             throw new Error(err)
-  //           }
-  //           expect(resp.body[1].name).to.equal('aaa')
-  //           expect(resp.body[1].text).to.equal('ppp')
-  //           // expect(q._).to.equal()
-  //           done()
-  //         })
-  //     })
+  it('Should delete Quastion', function (done) {
+    request(app)
+    .get('/api/faq/')
+    .set('ok', 'application/json')
+    .expect('Content-Type', /json/)
+    .expect(200)
+    .end(function (err, resp) {
+      if (err) {
+        throw new Error(err)
+      }
+      var id=resp.body[resp.body.length-1]._id
+      console.log(id)
+      request(app)
+      .delete('/api/faq/')
+      .send({
+       _id : id,
+     })
+      .set('ok', 'application/json')
+      // .expect('Content-Type', /json/)
+      .expect(200)
+      .end(function (err, resp) {
+        if (err) {
+          console.log(err)
+        }
+        console.log(resp.body)
+        done()
+      })  
+    })
+  })
 })
