@@ -38,7 +38,6 @@ describe('users', function () {
     .delete('/api/profile/')
     .send({_id: '16870091'})
     .set('ok', 'application/json')
-    //.expect('Content-Type', /json/)
     .expect(200)
     .end(function (err, resp) {
       if (err) {
