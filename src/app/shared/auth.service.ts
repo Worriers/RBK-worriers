@@ -30,7 +30,6 @@ export class AuthService {
 	return this.http.get("/api/validate", this.headers)
 	           .toPromise()
 	           .then(function(response){
-	           		console.log("validate", response);
 	           		return  response.json();
 	           })
 	           .catch(this.handleError);
@@ -39,6 +38,15 @@ export class AuthService {
 	completeProfile(data) : Promise<any> {
 		console.log(JSON.stringify(data));
 	return this.http.post("/api/profile", JSON.stringify(data), {headers: this.headers})
+	           .toPromise()
+	           .then(function(response){
+	           		return  response;
+	           })
+	           .catch(this.handleError);
+	}
+
+	logout() : Promise<any> {
+	return this.http.get("/api/logout", this.headers)
 	           .toPromise()
 	           .then(function(response){
 	           		return  response;

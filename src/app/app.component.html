@@ -28,11 +28,8 @@
         <li><a routerLink="/gallery">Gallery</a></li>
         <li><a routerLink="/qa">FAQ</a></li>
         <li><a routerLink="/about">About us</a></li>
-        <li *ngIf="userData?.id === null"><a href="/auth/github">Sign in with GitHub</a></li>
-<!--          <li><a routerLink="/signup">Signup</a></li> -->
-<!--         <li><a routerLink="/signin">Sign In</a></li>
-        <li><a routerLink="/signup">Sign Up</a></li> -->
-        <li *ngIf="userData?.id !== null"><a routerLink="/signout">Sign out</a></li>
+<!--         <li *ngIf="userData?.id === null"><a href="/auth/github">Sign in with GitHub</a></li> -->
+        <li *ngIf="userData?.id !== null"><a (click)="logout()">Logout</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -76,7 +73,9 @@
     padding: 20px;
     color: #ffffff;
     border-top: 2px solid #000000;">
-    <p>All rights resrved, RBK Warriors (C) 2017</p>
+    <div class= "col-md-6 col-xs-12"><p>All rights resrved, RBK Warriors (C) 2017 <br> ReBootKamp</p></div>
+    <div class= "col-md-6 col-xs-12"><a href="/auth/github"><button class="btn btn-default"  *ngIf="userData?.id === null"><i class="fa fa-github" style="font-size: 1.4em;"></i> Sign in with GitHub</button></a>
+    </div>
   </div>
 
 </footer>
