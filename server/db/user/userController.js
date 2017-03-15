@@ -68,13 +68,11 @@ module.exports ={
  },
 
  getOneUser : function (req,res) {
-   User.findById(req.body.id, function (err, user) {  
+   User.findById(req.params.user, function (err, user) {  
     if (err) {
       res.status(500).send(err);
     }else{
-
       res.json(user)
-
     } 
   })
  },
