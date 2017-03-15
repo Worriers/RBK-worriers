@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QaComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
