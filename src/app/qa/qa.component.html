@@ -1,10 +1,11 @@
 <h1>
-Ola Says hi :D
+{{str}}
 </h1>
 
 <div class="form-group">
     <label for="inputlg" >name</label>
-    <input class="form-control input-lg" id="inputlg" type="text">
+    <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
      <label for="inputlg">question</label>
-    <input class="form-control input-lg" id="inputlg" type="text">
+    <input class="form-control input-lg" id="question" type="text">
+    <button  (click)= "submit(name)" >Click me</button>
   </div>

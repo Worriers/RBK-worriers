@@ -6,13 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qa.component.css']
 })
 export class QaComponent implements OnInit {
-	str : String = "hey there!"
+	str : String
   constructor() {}
 
   ngOnInit() {
   }
 
-  submit(){
+  submit(s = String){
+  	this.str = s;
   	console.log(this.str);
   }
 
