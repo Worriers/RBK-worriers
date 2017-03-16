@@ -1,11 +1,23 @@
-<h1>
-{{str}}
-</h1>
 
 <div class="form-group">
     <label for="inputlg" >name</label>
     <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
      <label for="inputlg">question</label>
-    <input class="form-control input-lg" id="question" type="text">
-    <button  (click)= "submit(name)" >Click me</button>
-  </div>
+    <input class="form-control input-lg" id="question" type="text" [(ngModel)]="question">
+    <button  (click)= "addQ(name,question)" >Click me</button>
+  </div> 
+
+<div class="content">
+   <ng-container *ngFor="let item of q">	
+				
+					<p>{{ item.name }}</p>
+						<p>{{ item.text }}</p>
+						<!-- <button (click)="clicked()" > Comments</button> -->
+						<p *ngFor="let x of item.comments">{{x.text}}</p>
+							
+    <input class="form-control input-lg" id="comment" type="text" [(ngModel)]="comment">
+    <button (click)= "addQ(item.text,comment )" >Add comment</button>
+    <br>
+    <br>
+	</ng-container>
+	</div>
