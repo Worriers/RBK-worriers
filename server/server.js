@@ -9,7 +9,7 @@ app.use('/assets/projects',express.static('src/assets/projects'));
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 5001));
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });

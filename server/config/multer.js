@@ -3,7 +3,7 @@ var path = require('path');
 
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './server/images/gallery');
+    cb(null, './src/assets/gallery');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -12,7 +12,6 @@ var storage = multer.diskStorage({ //multers disk storage settings
 });
 
 var filter = function (req, file, cb) {
-  console.log('THIS IS MULTER FILTER');
   var filetypes = /jpeg|jpg|gif|bmp|png/;
   var mimetype = filetypes.test(file.mimetype);
   var extname = filetypes.test(path.extname(file.originalname).toLowerCase());
