@@ -24,7 +24,8 @@ exports.adminAuth = function (req, res, next) {
 }
 exports.isLogged = function (req, res){
   if(req.isAuthenticated()){
-    res.send({'id':req.user._id,
+    res.json({'id':req.user._id,
+              'username' : req.user.username,
               'activated': req.user.activated,
               'completed': req.user.completed
             });

@@ -63,7 +63,11 @@ var UserSchema = new mongoose.Schema({
 
   gitHub : {
     type: String
-  },
+  },  
+  projects : [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'projects'
+  }],
   achievments : [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'achievments'

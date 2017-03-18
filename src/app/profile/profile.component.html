@@ -15,31 +15,92 @@
 	<div class="col-md-10 col-md-offset-1 col-xs-12">
 
 		<div class="col-md-4 col-xs-12 text-center">
+			<a href="{{profileData?.gitHub}}">
 			<div class="col-xs-12 icon-bg">
-			<i class="fa fa-github"></i>
+				<i class="fa fa-github"></i>
+			</div>
+			<div class="col-xs-12 icon-title">
+				<h5>/{{ profileData?.username }}</h5>
+			</div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<a href="{{profileData?.linkedIn}}">
+			<div class="col-xs-12 icon-bg">
+				<i class="fa fa-linkedin"></i>
+			</div>
+			<div class="col-xs-12 icon-title">
+				<h5>/{{ profileData?.username }}</h5>
+			</div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<a href="emailto:{{profileData?.email}}">
+			<div class="col-xs-12 icon-bg">
+				<i class="fa fa-envelope"></i>
+			</div>
+			<div class="col-xs-12 icon-title">
+				<h5>{{ profileData?.email }}</h5>
+			</div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-briefcase"></i>
 		</div>
 		<div class="col-xs-12 icon-title">
-			<h5>/montaserRahmani</h5>
+			<h5>{{ profileData?.currentJob }}</h5>
 		</div>
 		</div>
 
 		<div class="col-md-4 col-xs-12 text-center">
 			<div class="col-xs-12 icon-bg">
-			<i class="fa fa-linkedin"></i>
+			<i class="fa fa-graduation-cap"></i>
 		</div>
 		<div class="col-xs-12 icon-title">
-			<h5>/montaserRahmani</h5>
+			<h5>{{ profileData?.mainMajor }}</h5>
 		</div>
 		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-address-book-o"></i>
+		</div>
+		<div class="col-xs-12 icon-title">
+			<h5>Cohort <b>{{ profileData?.cohort }}</b></h5>
+		</div>
+		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-user"></i>
+		</div>
+		<div class="col-xs-12 icon-title">
+			<h5><b>{{ profileData?.age }}</b> years</h5>
+		</div>
+		</div>		
 
 		<div class="col-md-4 col-xs-12 text-center">
 			<div class="col-xs-12 icon-bg">
 			<i class="fa fa-window-restore"></i>
 		</div>
 		<div class="col-xs-12 icon-title">
-			<h5>{{ profileData?.publicRepos }} public repos</h5>
+			<h5><b>{{ profileData?.publicRepos }}</b> public repos</h5>
 		</div>
 		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-users"></i>
+		</div>
+		<div class="col-xs-12 icon-title">
+			<h5><b>{{ profileData?.followers }}</b> gitHub followers</h5>
+		</div>
+		</div>		
+
 	</div>
 
 
