@@ -1,4 +1,46 @@
-<p>
-  profile works!
-  {{ profileData.displayName }}
-</p>
+<div class="row avatar-bg">
+	<div class="card">
+		<div class="header-bg">
+		</div>
+
+		<div class="avatar">
+			<img src="{{ profileData.img }}" alt="" />
+		</div>
+		<h3>[ {{ profileData?.displayName }} ]</h3>
+	</div>
+</div>
+
+
+<div class="row icon-container">
+	<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-github"></i>
+		</div>
+		<div class="col-xs-12 icon-title">
+			<h5>/montaserRahmani</h5>
+		</div>
+		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-linkedin"></i>
+		</div>
+		<div class="col-xs-12 icon-title">
+			<h5>/montaserRahmani</h5>
+		</div>
+		</div>
+
+		<div class="col-md-4 col-xs-12 text-center">
+			<div class="col-xs-12 icon-bg">
+			<i class="fa fa-window-restore"></i>
+		</div>
+		<div class="col-xs-12 icon-title">
+			<h5>{{ profileData?.publicRepos }} public repos</h5>
+		</div>
+		</div>
+	</div>
+
+
+</div>

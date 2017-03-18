@@ -30,13 +30,13 @@ module.exports ={
 								renderDelay : 3000,
 								timeout : 4000
 							};
-				webshot(newProject.url, 'server/images/projects/'+newProject.title.replace(" ", "-")+'.jpg', options, 
+				webshot(newProject.url, 'src/assets/projects/'+newProject.title.replace(" ", "-")+'.jpg', options, 
 					function() {
 						if(err){
 							console.log(err);
 						}
 					    console.log("done");
-					    newProject.img = 'images/projects/'+newProject.title.replace(" ", "-")+'.jpg';
+					    newProject.img = 'assets/projects/'+newProject.title.replace(" ", "-")+'.jpg';
 					    newProject.save((err, data) => {
 					    	if(err){
 					    		console.log(err);

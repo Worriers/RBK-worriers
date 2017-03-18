@@ -5,8 +5,7 @@ var mockup = require('./mockupData/insertAllData');
 
 var app = express();
 //project images path
-app.use('/images/projects',express.static(__dirname + '/images/projects'));
-console.log(__dirname + '/images/projects')
+app.use('/assets/projects',express.static('src/assets/projects'));
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 

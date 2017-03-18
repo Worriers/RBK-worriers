@@ -1,7 +1,7 @@
 {
   "name": "RBK-Warriors",
   "version": "1.1.0",
-  "description": "Full stack application for RBK graduates to stay in touch",
+  "description": "Full stack application for RBK graduates to stay in touch ",
   "author": "Dania Hamdan, Montaser Rahmani , Salim Al bakri and Ola Alkhateeb",
   "private": true,
   "license": "MIT",
@@ -11,7 +11,7 @@
   "scripts": {
     "run": "nodemon ./server/server.js",
     "ng": "ng",
-    "start": "ng build && ng serve",
+    "start": "ng build -op dist -w",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
