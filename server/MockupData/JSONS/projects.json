@@ -1,26 +1,50 @@
-[ 
- {
-   "title" :"RBK-Warriors " ,
-   "url" : "http://rbk.org",
-   "gitHubLink" : "https://github.com/DaniaHamdan/RBK-Warriors",
-   "teamMembers" :["dania","ola","saleem","montaser"]
- },
- {
-   "title" : "Otbo5ly",
-   "url" : "http://otbo5ly.herokuapp.com",
-   "gitHubLink" : "https://github.com/montaserRahmani/otbo5ly",
-   "teamMembers" :["montaser","zainab","saeed", "hadeel"]
- },
- {
-   "title" :"Event" ,
-   "url" : "http://rbk-events.herokuapp.com",
-   "gitHubLink" : "https://github.com/montaserRahmani/Event",
-   "teamMembers" :["montaser","zainab","hadeel","saeed"]
- },
- {
-   "title" : "dentisto",
-   "url" : "http://google.com",
-   "gitHubLink" : "https://github.com/semo94/dentisto",
-   "teamMembers" :["saleem","hassan","abd-alazeez","rwaida"]
- }
+[
+  {
+    "title": "RBK-Warriors ",
+    "url": "http://rbk.org",
+    "gitHubLink": "https://github.com/DaniaHamdan/RBK-Warriors",
+    "img": "images/projects/RBK-Warriors-.jpg",
+    "teamMembers": [
+      "dania",
+      "ola",
+      "saleem",
+      "montaser"
+    ]
+  },
+  {
+    "title": "Event",
+    "url": "http://rbk-events.herokuapp.com",
+    "gitHubLink": "https://github.com/montaserRahmani/Event",
+    "img": "images/projects/Event.jpg",
+    "teamMembers": [
+      "montaser",
+      "zainab",
+      "hadeel",
+      "saeed"
+    ]
+  },
+  {
+    "title": "otbo5ly",
+    "url": "http://otbo5ly.herokuapp.com",
+    "gitHubLink": "https://github.com/montaserRahmani/otbo5ly",
+    "img": "images/projects/otbo5ly.jpg",
+    "teamMembers": [
+      "Montaser",
+      "Hadeel",
+      "saeed",
+      "zainab"
+    ]
+  },
+  {
+    "title": "dentisto",
+    "url": "https://dentisto.herokuapp.com/",
+    "gitHubLink": "https://github.com/semo94/dentisto",
+    "img": "images/projects/dentisto.jpg",
+    "teamMembers": [
+      "saleem",
+      "hassan",
+      "abd-alazeez",
+      "rwaida"
+    ]
+  }
 ]
