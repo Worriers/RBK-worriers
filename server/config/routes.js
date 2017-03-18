@@ -13,6 +13,7 @@ var utils = require('./utils.js');
 
 module.exports = function (app, express) {
 
+
 app.get('/api/validate', userController.validateAccount);
 
 app.get('/auth/github',
@@ -70,8 +71,12 @@ app.delete('/api/comment',commentController.deleteComment);
 
 // getting all the projects and insert new ones
 app.get('/api/projects',projectsController.getAllProjects);
-app.post('/api/projects',utils.ensureAuthenticated,projectsController.insertProject);
+app.post('/api/projects',projectsController.insertProject);
 app.delete('/api/projects', projectsController.deleteProject);
+
+app.get('/images/projects', (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '../../dist', 'index.html'));
+});
 
 app.all('*', (req, res) => {
   console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);

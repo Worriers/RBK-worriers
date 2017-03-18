@@ -18,8 +18,7 @@ var ProjectsSchema = new mongoose.Schema({
 		type : Array 
 	},
 	img : {
-		data: Buffer,
-		contentType: String
+		type : String
 	}
 })
 
