@@ -1,6 +1,7 @@
 var passport = require('passport');
 var session = require('express-session');
 var path = require('path');
+var multer = require('./multer.js');
 var userController = require('../db/user/userController.js');
 var adminController = require('../db/admin/adminController.js');
 var achievmentsController = require('../db/achievments/achievmentsController.js');
@@ -54,7 +55,7 @@ app.delete('/api/achievments',utils.ensureAuthenticated,achievmentsController.de
 
 //insert and get all the images from the gellary 
 app.get('/api/gallery', galleryController.getAllImages);
-app.post('/api/gallery', galleryController.insertImage);
+app.post('/api/gallery', multer.upload.single('IMG'), galleryController.insertImage);
 app.delete('/api/gallery', galleryController.deleteImg);
 
 // getting all quastions , and adding new quastions 

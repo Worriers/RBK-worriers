@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
+var cors = cors = require('cors');
 var User = require('../db/user/userModel.js');
 
 module.exports = function (app, express) {
@@ -40,5 +41,6 @@ app.use(session({
 app.use(passport.initialize());
 // persistent login sessions 
 app.use(passport.session());
+app.use(cors());
 app.use(express.static(__dirname + '/../../dist'));
 };

@@ -11,6 +11,8 @@ module.exports ={
 		});
 	},
 	insertImage : function (req, res) {
+    console.log('this is body object',req.body);
+    console.log('this is file object', req.file);
 	  var newImage = new gallery(req.body);  
       newImage.save(function (err, newImage) {  
         if (err) {
