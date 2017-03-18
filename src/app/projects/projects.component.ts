@@ -9,10 +9,12 @@ import { ProjectsService } from '../shared/projects.service';
 })
 export class ProjectsComponent implements OnInit {
 	projects : Object[] = [];
+  flag  : Boolean ;
   constructor(private projectsService: ProjectsService) { }
 
   ngOnInit() {
   	this.getProjects();
+    this.flag=false
   }
    getProjects() {
   	this.projectsService.getProjects().then((data) => this.projects = data );
@@ -20,5 +22,10 @@ export class ProjectsComponent implements OnInit {
   addProject(title,url,gitHubLink,teamMembers,img){
     console.log(title,url,gitHubLink,teamMembers)
     this.projectsService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }) ;
+    location.reload()
+     this.flag=false
+  }
+  showAdd(){
+    this.flag=true
   }
 }
