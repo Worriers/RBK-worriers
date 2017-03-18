@@ -1,38 +1,26 @@
 [ 
  {
    "title" :"RBK-Warriors " ,
-   "url" : "jjj.com",
+   "url" : "http://rbk.org",
    "gitHubLink" : "https://github.com/DaniaHamdan/RBK-Warriors",
-   "teamMembers" :["dania","ola","saleem","montaser"] ,
-   "img" : {
-    "data": "http://www.ict-coherent.eu/coherent/wp-content/uploads/2015/10/project-motivation-img.jpg"
-        }
+   "teamMembers" :["dania","ola","saleem","montaser"]
  },
  {
-   "title" : "Book-shop",
-   "url" : "bbb.com",
-   "gitHubLink" : "https://github.com/DaniaHamdan/Book-shop",
-   "teamMembers" :["dania","ola","walled"] ,
-   "img" : {
-    "data": "http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2014%2F11%2Fnexus2cee_image_thumb1_thumb_thumb.png&w=150&h=150&zc=3"
-        }
+   "title" : "Otbo5ly",
+   "url" : "http://otbo5ly.herokuapp.com",
+   "gitHubLink" : "https://github.com/montaserRahmani/otbo5ly",
+   "teamMembers" :["montaser","zainab","saeed", "hadeel"]
  },
  {
    "title" :"Event" ,
-   "url" : "abc.com",
+   "url" : "http://rbk-events.herokuapp.com",
    "gitHubLink" : "https://github.com/montaserRahmani/Event",
-   "teamMembers" :["montaser","zainab","hadeel","saeed"] ,
-   "img" : {
-    "data": "http://1.bp.blogspot.com/-47ehH6VQ8Dg/U1io7iuzMoI/AAAAAAAAAa8/rh8gAHDL12k/s1600/android.jpg"
-        }
+   "teamMembers" :["montaser","zainab","hadeel","saeed"]
  },
  {
    "title" : "dentisto",
-   "url" : "lll.com",
+   "url" : "http://google.com",
    "gitHubLink" : "https://github.com/semo94/dentisto",
-   "teamMembers" :["saleem","hassan","abd-alazeez","rwaida"] ,
-   "img" : {
-    "data": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROcOfN874buM4PBb71liVcn7wxB43BX5e5SKY07PljuxLzmEqa"
-        }
+   "teamMembers" :["saleem","hassan","abd-alazeez","rwaida"]
  }
 ]

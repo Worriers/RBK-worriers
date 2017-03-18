@@ -4,9 +4,7 @@ var dotenv = require('dotenv').config();
 var mockup = require('./mockupData/insertAllData');
 
 var app = express();
-//project images path
-app.use('/images/projects',express.static(__dirname + '/images/projects'));
-console.log(__dirname + '/images/projects')
+
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 

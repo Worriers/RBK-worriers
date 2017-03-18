@@ -8,7 +8,7 @@ var ProjectsSchema = new mongoose.Schema({
 	},
 	url : {
 		type : String ,
-		// required : true , 
+		required : true , 
 		// unique : true
 	},
 	gitHubLink : {
@@ -18,7 +18,8 @@ var ProjectsSchema = new mongoose.Schema({
 		type : Array 
 	},
 	img : {
-		type : String
+		data: Buffer,
+		contentType: String
 	}
 })
 

@@ -1,4 +1,6 @@
 var projects = require("./projectsModel.js");
+var urlToImage = require('url-to-image');
+var webshot = require('webshot');
 
 module.exports ={
 	getAllProjects : function (req, res) {
@@ -12,11 +14,41 @@ module.exports ={
 	},
 	insertProject : function (req, res) {
 	  var newProject= new projects(req.body); 
-      newProject.save(function (err, newProject) {  
+      newProject.save(function (err, newProject) {
         if (err) {
-          res.send(err);
-        }
-        res.status(201).send(newProject);
+          res.send({error: 1, text:"duplicated"});
+        } else if(newProject){
+      		if(newProject.url){
+				var options = {
+							 	screenSize: {
+							    	width: 1280,
+							  		height: 800
+							  	},
+								shotSize: {
+							    	width: 1280,
+									height: 700
+								},
+								renderDelay : 3000,
+								timeout : 4000
+							};
+				webshot(newProject.url, 'server/images/projects/'+newProject.title.replace(" ", "-")+'.jpg', options, 
+					function() {
+						if(err){
+							console.log(err);
+						}
+					    console.log("done");
+					    newProject.img = 'images/projects/'+newProject.title.replace(" ", "-")+'.jpg';
+					    newProject.save((err, data) => {
+					    	if(err){
+					    		console.log(err);
+					    	}
+					    })
+					})
+      		}
+      		res.status(201).send("project added!");
+      	} else {
+      		res.status(204).send({error: 1, text:"duplicated"});
+      	}
         });  
 	},
 	deleteProject : function(req,res) {
@@ -26,7 +58,7 @@ module.exports ={
               throw err
             }
             console.log('project removed');
-            res.status(200).send();
+            res.status(200).send(p);
 		})
     }
 }

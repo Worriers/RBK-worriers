@@ -8,7 +8,7 @@ export class ProjectsService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
 
-	getProjects(): Promise<Object[]> {
+	getProjects(): Promise<any> {
 	return this.http.get("/api/projects", this.headers)
 	           .toPromise()
 	           .then(response => response.json())
