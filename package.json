@@ -49,7 +49,8 @@
     "request": "^2.34.0",
     "rxjs": "^5.1.0",
     "supertest": "^3.0.0",
-    "zone.js": "^0.7.6"
+    "zone.js": "^0.7.6",
+    "webshot": "latest"
   },
   "devDependencies": {
     "@angular/cli": "1.0.0-rc.0",
