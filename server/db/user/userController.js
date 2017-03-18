@@ -84,7 +84,7 @@ module.exports ={
  }, 
 
  updateAccount : function(req , res) {
-  User.findOneAndUpdate({_id: req.user.id} , { $set: {
+  User.findOneAndUpdate({_id: req.body._id} , { $set: {
     age : req.body.age,
     mainMajor : req.body.mainMajor,
     cohort : req.body.cohort,

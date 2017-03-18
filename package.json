@@ -11,7 +11,7 @@
   "scripts": {
     "run": "nodemon ./server/server.js",
     "ng": "ng",
-    "start": "ng build && ng serve",
+    "start": "ng build -op dist -w",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

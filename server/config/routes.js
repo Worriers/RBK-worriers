@@ -44,7 +44,7 @@ app.get('/api/isLogged',utils.isLogged);
 //getting all profiles and editing profiles 
 app.get('/api/profile' , userController.getAllUsers);
 app.get('/api/profile/:username',userController.getOneUser);
-app.post('/api/profile', utils.ensureAuthenticated,userController.updateAccount);
+app.post('/api/profile', userController.updateAccount);
 app.delete('/api/profile', userController.deleteUser);
 
 // getting and adding achievments 

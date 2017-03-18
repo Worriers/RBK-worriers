@@ -28,8 +28,9 @@ exports.isLogged = function (req, res){
               'activated': req.user.activated,
               'completed': req.user.completed
             });
+  } else {
+    res.json({'id': null});
   }
-  res.json({'id': null});
 }
 
 exports.comparePass = function(pass, hash, cb) {
