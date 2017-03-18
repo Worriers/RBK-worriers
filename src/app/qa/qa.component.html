@@ -1,23 +1,41 @@
-
+<div class= "well">
 <div class="form-group">
-    <label for="inputlg" >name</label>
-    <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
-     <label for="inputlg">question</label>
-    <input class="form-control input-lg" id="question" type="text" [(ngModel)]="question">
-    <button  (click)= "addQ(name,question)" >Click me</button>
-  </div> 
+	<label for="inputlg" >name</label>
+	<input class="form-control input-lg" id="name" type="text" [(ngModel)]="newEntry.name">
+	<label for="inputlg">question</label>
+	<input class="form-control input-lg" id="question" type="text" [(ngModel)]="newEntry.question">
+	<button  (click)= "addQ(newEntry.name,newEntry.question)" >Click me</button>
+	<!-- <on-changes [hero]="hero" [power]="power"></on-changes> -->
+</div> 
+</div>
 
-<div class="content">
-   <ng-container *ngFor="let item of q">	
-				
-					<p>{{ item.name }}</p>
-						<p>{{ item.text }}</p>
-						<!-- <button (click)="clicked()" > Comments</button> -->
-						<p *ngFor="let x of item.comments">{{x.text}}</p>
-							
-    <input class="form-control input-lg" id="comment" type="text" [(ngModel)]="comment">
-    <button (click)= "addQ(item.text,comment )" >Add comment</button>
-    <br>
-    <br>
-	</ng-container>
-	</div>
+<div class="media" *ngFor="let item of q" >
+<div class= "well">
+<div class = "media-left">
+		<img  class="media-object" src="http://rbk.org/prep/images/logo.png?crc=3962195778" style="width:45px">
+		</div>
+	<div class="media-body">
+		<h4 class="media-heading">{{ item.name }}</h4>
+		<p>{{ item.text }}</p>
+		<button type="button" class="btn btn-link" (click) = "myVar = !myVar"> View comments --></button>
+		<div [hidden]="!myVar">
+		<div class="media" *ngFor="let x of item.comments" >
+			<div class = "media-left">
+			<img src="http://rbk.org/prep/images/logo.png?crc=3962195778" class="media-object" style="width:35px">
+				</div>
+			<div class="media-body">
+				<p>{{x.text}}</p>
+			</div>
+			</div>
+				<input class="form-control input-lg" id="comment" type="text" [(ngModel)]="newComment.comment">
+				<button (click)= "addC(item.text,newComment.comment )" >Add comment</button>
+			<br>
+			<br>
+			</div>
+		</div>
+		</div>
+</div>
+
+
+
+
