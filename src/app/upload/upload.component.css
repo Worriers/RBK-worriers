@@ -1,0 +1,4 @@
+.my-drop-zone { border: dotted 3px lightgray; }
+.nv-file-over { border: dotted 3px pink; } /* Default class applied to drop zones on over */
+
+html, body { height: 100%; }
