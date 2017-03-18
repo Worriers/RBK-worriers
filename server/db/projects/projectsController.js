@@ -1,5 +1,4 @@
 var projects = require("./projectsModel.js");
-var urlToImage = require('url-to-image');
 var webshot = require('webshot');
 
 module.exports ={
