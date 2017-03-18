@@ -15,6 +15,16 @@ export class GalleryService {
 	           .catch(this.handleError);
 	}
 
+<<<<<<< HEAD:src/app/shared/gallery.service.ts
+=======
+	insertProject(p): Promise<any> {
+	return this.http.post("/api/projects", p ,this.headers)
+		       .toPromise()
+		       .then(response => response)
+		       .catch(this.handleError)
+	}
+
+>>>>>>> add project:src/app/shared/projects.service.ts
 	private handleError(error: any): Promise<any> {
 	console.error('An error occurred', error); // for demo purposes only
 	return Promise.reject(error.message || error);

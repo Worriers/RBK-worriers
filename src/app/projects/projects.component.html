@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="col-xs-12">
 		<div class="page-header">
@@ -6,7 +7,7 @@
 	</div>
 		<div class="col-sm-6 col-md-3" *ngFor="let project of projects">
 		    <div class="thumbnail">
-		      <img src="http://i.imgur.com/B1bOmIG.png" alt="...">
+		      <img src="{{project.img}}" alt="...">
 		      <div class="caption">
 		        <h3>{{ project.title }}</h3>
 		        <p>Team Members : {{ project.teamMembers }}</p>
@@ -15,44 +16,17 @@
 		      </div>
 		    </div>
 		  </div>
-		   <div>
-		   	<form class="form-horizntal" method="post" action="#" (ngSubmit)="addProject()">
-		   		<div class="form-group">
-					<label for="confirm" class="cols-sm-2 control-label">Project Name</label>
-					<div class="cols-sm-10">
-						<div class="input-group">
-							<span class="input-group-addon"></span>
-							<input type="text" class="form-control" name="title" placeholder="Enter your title project" [(ngModel)]="projects.title" required/>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="confirm" class="cols-sm-2 control-label">Project Url</label>
-					<div class="cols-sm-10">
-						<div class="input-group">
-							<span class="input-group-addon"></span>
-							<input type="text" class="form-control" name="url" placeholder="Enter your url" [(ngModel)]="projects.url" required/>
-						</div>
-					</div>
-				</div>
-					<div class="form-group">
-					<label for="confirm" class="cols-sm-2 control-label">Project GitHubLink</label>
-					<div class="cols-sm-10">
-						<div class="input-group">
-							<span class="input-group-addon"></span>
-							<input type="text" class="form-control" name="gitHubLink" placeholder="Enter your gitHubLink" [(ngModel)]="projects.gitHubLink" required/>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="confirm" class="cols-sm-2 control-label">Project img</label>
-				     <div class="cols-sm-10">
-						<div class="input-group">
-							<span class="input-group-addon"></span>
-							<input type="text" class="form-control" name="img" placeholder="Enter your img" [(ngModel)]="projects.img" required/>
-						</div>
-					</div>
-				</div>
-		   	</form>
-		 </div>
+		  
+		  <!-- <form> -->
+		  <div class="col-xs-12">
+    <label for="inputlg" >project name </label>
+     <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
+    <label for="inputlg">project url </label>
+     <input class="form-control input-lg" id="url" type="text" [(ngModel)]="url">
+    <label for="inputlg">project github  </label>
+     <input class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink">
+    <label for="inputlg">project team </label>
+     <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers">
+    <button  (click)= "addProject(name,url,gitHubLink,teamMembers)" >Click me</button>
+  </div>
 </div>
