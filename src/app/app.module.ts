@@ -28,6 +28,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AchievmentsComponent } from './achievments/achievments.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
     SignupComponent,
     SliderComponent,
     AdminMenuComponent
+    AchievmentsComponent
   ],
   imports: [
     BrowserModule,
