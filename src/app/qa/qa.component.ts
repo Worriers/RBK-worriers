@@ -29,6 +29,7 @@ export class QaComponent implements OnInit {
   	}
   	this.qaSevices.addQuestion({name : name , text : q}) ;
   	this.newEntry = {};
+  	this.getQuestions();
   }
 
   addC(qText , c) {
