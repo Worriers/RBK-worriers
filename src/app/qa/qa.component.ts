@@ -7,6 +7,7 @@ import { QaService } from '../shared/qa.service';
   styleUrls: ['./qa.component.css'],
   providers:[ QaService ]
 })
+
 export class QaComponent implements OnInit {
 
 	q : Object[] = [];
@@ -20,7 +21,12 @@ export class QaComponent implements OnInit {
   }
 
   getQuestions() {
-  	this.qaSevices.getQuestions().then((data) => this.q = data);
+  	this.qaSevices.getQuestions().then((data) => {
+  		data.forEach(q => {
+  			q.show = false;
+  		})
+  		this.q = data;
+  	});
   }
 
   addQ(name , q ){
@@ -30,10 +36,12 @@ export class QaComponent implements OnInit {
   	this.qaSevices.addQuestion({name : name , text : q}) ;
   	this.newEntry = {};
   	this.getQuestions();
+  		alert('your question will be answered as soon as possible')
   }
 
   addC(qText , c) {
  	this.qaSevices.addComment({qText :qText , text : c });
+ 	setTimeout(() => this.getQuestions() , 500);
  	this.newComment = {} ;
   }
 

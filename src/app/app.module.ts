@@ -27,6 +27,7 @@ import { QaComponent } from './qa/qa.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
+import { AchievmentsComponent } from './achievments/achievments.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SliderComponent } from './slider/slider.component';
     QaComponent,
     AdminComponent,
     SignupComponent,
-    SliderComponent
+    SliderComponent,
+    AchievmentsComponent
   ],
   imports: [
     BrowserModule,
