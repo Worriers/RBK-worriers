@@ -34,6 +34,7 @@
                     <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
                     <td>
                         <div class="progress" style="margin-bottom: 0;">
+                        {{ item.progress == 100 ? fetch(item) : ''}}
                             <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
                         </div>
                     </td>
@@ -101,21 +102,23 @@
 
 
 <div class="container">
-    <div class="well well-sm">
+    <div class="well well-sm" *ngIf="images.length">
         <strong>Uploaded images list:</strong>
     </div>
     <div id="images" class="row list-group">
-        <div class="image  col-xs-4 col-lg-4">
+        <div class="image  col-xs-4 col-lg-4" *ngFor="let image of images">
             <div class="thumbnail">
-                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <img class="group list-group-image" src="{{image.path}}" alt="RBK-image"/>
                 <div class="caption">
                     <div class="row" style="line-height: 40px">
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-danger" href="http://www.jquery2dotnet.com">Delete image</a>
+                            <button class="btn btn-danger" 
+                            (click)="deleteImage(image._id)">
+                            Delete image</button>
                         </div>
                         <div class="col-xs-12 col-md-6" >
                           <strong class="group inner list-group-item-heading">
-                          image name</strong>
+                          {{image.desc}}</strong>
                         </div>
                     </div>
                 </div>

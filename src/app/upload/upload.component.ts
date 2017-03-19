@@ -20,12 +20,20 @@ export class UploadComponent implements OnInit {
     this.getImages();
   }
 
-  getImages() {
-    this.galleryService.getImages().then((data) => {
-        this.images = data;
-        console.log(data);
-    });
-
+  fetch(item){
+    this.getImages();
+    item.progress = 101;
   }
 
+  getImages() {
+    this.galleryService.getImages().then((data) => this.images = data);
+  }
+
+  deleteImage(id) {
+    this.galleryService.deleteImage(id).then((data) => {
+      if(data.status === 200){
+        this.getImages();
+      }
+    });
+  }
 }
