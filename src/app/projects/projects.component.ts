@@ -14,18 +14,9 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
   	this.getProjects();
-    this.flag=false
   }
    getProjects() {
   	this.projectsService.getProjects().then((data) => this.projects = data );
   }
-  addProject(title,url,gitHubLink,teamMembers,img){
-    console.log(title,url,gitHubLink,teamMembers)
-    this.projectsService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }) ;
-    location.reload()
-     this.flag=false
-  }
-  showAdd(){
-    this.flag=true
-  }
+
 }

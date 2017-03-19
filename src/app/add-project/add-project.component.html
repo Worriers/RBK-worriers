@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-xs-12">
+	    <label for="inputlg" >project name </label>
+	     <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
+	    <label for="inputlg">project url </label>
+	     <input class="form-control input-lg" id="url" type="text" [(ngModel)]="url">
+	    <label for="inputlg">project github  </label>
+	     <input class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink">
+	    <label for="inputlg">project team </label>
+	     <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers">
+	    <button  (click)= "addProject(name,url,gitHubLink,teamMembers)" >Done</button>
+  </div>
+</div>

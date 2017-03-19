@@ -11,6 +11,8 @@ import { QaService } from './shared/qa.service';
 import { GalleryService } from './shared/gallery.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
+import { AddProjectService} from './shared/addproject.service';
+
 
 // Imports for loading & configuring the in-memory web api
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -27,6 +29,7 @@ import { QaComponent } from './qa/qa.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { SliderComponent } from './slider/slider.component';
     QaComponent,
     AdminComponent,
     SignupComponent,
-    SliderComponent
+    SliderComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -57,10 +61,11 @@ import { SliderComponent } from './slider/slider.component';
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: QaComponent },
+      { path: 'addproject', component: AddProjectComponent },
       { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve],
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
