@@ -31,7 +31,7 @@ import { SliderComponent } from './slider/slider.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
-
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { UploadComponent } from './upload/upload.component';
     AchievmentsComponent,
     UploadComponent,
     FileSelectDirective,
-    FileDropDirective
+    FileDropDirective,
+    AdminMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +69,7 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: AdminComponent },
       { path: 'cpanel', component: UploadComponent },
+      { path: 'admin', component: AdminComponent },
       { path: '**', component: MainComponent }
     ])
   ],
