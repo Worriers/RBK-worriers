@@ -8,7 +8,7 @@ export class QaService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
 
-	getQuestions(): Promise<Object[]> {
+	getQuestions(): Promise<any[]> {
 		return this.http.get("/api/faq", this.headers)
 		.toPromise()
 		.then(response => response.json())
