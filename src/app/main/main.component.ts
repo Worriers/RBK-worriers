@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
 
   grads : any[] = [];
   projects  : any[] = [];
+  images : any[] = [];
 
   constructor(private gradsService : GradsService, private projectsService: ProjectsService,
   	private galleryService : GalleryService) { }
@@ -31,15 +32,14 @@ export class MainComponent implements OnInit {
 
   getProjects() {
   	this.projectsService.getProjects().then((data) => {
-		data = data.filter(project => project.approved)
+		data = data.filter(project => project.approved);
   		this.projects = this.shuffle(data).splice(0,4);
   	});
   }
 
   getImages() {
   	this.galleryService.getImages().then((data) => {
-  		console.log(data)
-  		this.projects = this.shuffle(data).splice(0,4);
+  		this.images = this.shuffle(data).splice(0,4);
   	});
   }
 
