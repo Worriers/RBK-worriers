@@ -32,7 +32,7 @@ export class MainComponent implements OnInit {
 
   getProjects() {
   	this.projectsService.getProjects().then((data) => {
-		data = data.filter(project => project.approved);
+		  data = data.filter(project => project.approved);
   		this.projects = this.shuffle(data).splice(0,4);
   	});
   }
