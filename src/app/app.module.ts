@@ -27,6 +27,7 @@ import { QaComponent } from './qa/qa.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SliderComponent } from './slider/slider.component';
     QaComponent,
     AdminComponent,
     SignupComponent,
-    SliderComponent
+    SliderComponent,
+    AdminMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { SliderComponent } from './slider/slider.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent },
+      { path: 'admin', component: AdminComponent },
       { path: '**', component: MainComponent }
     ])
   ],
