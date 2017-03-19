@@ -7,13 +7,7 @@ import {Observable} from 'rxjs/Observable';
 export class AuthService {
 	constructor(private http: Http) { }
 
-	userData = {};
-
-	private headers = new Headers({'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'});
-
-	// init(){
-	// 	this.isAuth();
-	// }
+	private headers = new Headers({'Content-Type': 'application/json'});
 
 	isAuth() : Promise<any> {
 	return this.http.get("/api/isLogged", this.headers)
