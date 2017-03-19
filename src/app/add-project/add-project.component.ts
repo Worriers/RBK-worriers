@@ -4,7 +4,7 @@ import { AddProjectService } from '../shared/addproject.service';
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css'],
-  providers: [AddProjectService]
+  providers [AddProjectService]
 })
 export class AddProjectComponent implements OnInit {
 
