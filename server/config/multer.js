@@ -15,9 +15,6 @@ var filter = function (req, file, cb) {
   var filetypes = /jpeg|jpg|gif|bmp|png/;
   var mimetype = filetypes.test(file.mimetype);
   var extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  console.log(mimetype);
-  console.log(extname);
-
   if (mimetype && extname) {
     return cb(null, true);
   }

@@ -1,4 +1,5 @@
 var gallery = require("./galleryModel.js");
+var fs = require('fs');
 
 module.exports ={
 	getAllImages : function (req, res) {
@@ -22,13 +23,23 @@ module.exports ={
     });  
   },
   deleteImg : function(req,res) {
-    var id = req.body._id ; 
-    gallery.remove({_id:id}, function (err, p) {
-      if (err){
-        throw err
+    var id = req.params.id;
+    gallery.findById(id,function(err,data){
+      if(err) throw err;
+      if(data){
+          gallery.remove({_id:id}, function (err, obj) {
+          if (err){ throw err }
+          if(obj.result.n === 0){
+            next(new Error("Image is not deleted, try again"));
+          }
+          var imgPath = "./src" + data.path;
+          fs.unlink(imgPath, function(err){
+          if(err) throw err;
+            res.status(200).send();
+          }); 
+        })
       }
+    }) 
 
-      res.status(200).send();
-    })
   }
 }

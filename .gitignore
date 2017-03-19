@@ -5,6 +5,9 @@
 /tmp
 /src/assets/projects
 
+# ignore gallery
+/src/assets/gallery/*.*
+
 # environment
 .env
 
