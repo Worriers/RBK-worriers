@@ -74,6 +74,9 @@ app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);
 app.delete('/api/projects', projectsController.deleteProject);
 
+//get admin stats
+app.get('/api/adminStats',adminController.getAdminStats);
+
 app.get('/images/projects', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../../dist', 'index.html'));
 });
