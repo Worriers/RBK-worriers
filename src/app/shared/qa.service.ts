@@ -22,8 +22,7 @@ export class QaService {
 		.catch(this.handleError);
 	}
 
-	addComment(qText, comment): Promise<any> {
-		comment.qText = qText;
+	addComment(comment): Promise<any> {
 		return this.http.post("/api/comment", comment, this.headers)
 		.toPromise()
 		.then(response => response)

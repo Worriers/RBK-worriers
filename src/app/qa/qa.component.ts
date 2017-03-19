@@ -10,7 +10,9 @@ import { QaService } from '../shared/qa.service';
 export class QaComponent implements OnInit {
 
 	q : Object[] = [];
-
+	myVar : boolean = false ; 
+	newEntry: any = {}; 
+	newComment : any = {} ;
   constructor(private qaSevices : QaService) { }
 
   ngOnInit() {
@@ -21,18 +23,17 @@ export class QaComponent implements OnInit {
   	this.qaSevices.getQuestions().then((data) => this.q = data);
   }
 
-newQ : any
-str : String
-text : String
-
   addQ(name , q ){
+  	if(name === undefined){
+  		name = "visitor"
+  	}
   	this.qaSevices.addQuestion({name : name , text : q}) ;
+  	this.newEntry = {};
   }
 
   addC(qText , c) {
-  	console.log({qText :qText , text : c })
- 	// this.qaSevices.addComment({qText :qText , text : c });
-
+ 	this.qaSevices.addComment({qText :qText , text : c });
+ 	this.newComment = {} ;
   }
 
 
