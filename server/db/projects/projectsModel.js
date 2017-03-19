@@ -4,21 +4,26 @@ var ProjectsSchema = new mongoose.Schema({
 	title : {
 		type: String,
 		required: true,
-		// unique: true
+		unique: true
 	},
 	url : {
 		type : String ,
-		// required : true , 
-		// unique : true
+		required : true , 
+		unique : true
 	},
 	gitHubLink : {
 		type : String
 	},
-	teamMembers : {
-		type : Array 
-	},
+	teamMembers :  [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'users'
+  	}],
 	img : {
 		type : String
+	},
+	approved : {
+		type: Boolean,
+    	default: false
 	}
 })
 

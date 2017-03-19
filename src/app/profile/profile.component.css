@@ -34,8 +34,13 @@
 .icon-title {
 	background-color: #b52283;
 	color: #fff;
+	margin-bottom: 30px;
 }
 
 .icon-container {
 	margin-top: 30px;
+}
+
+.icon-container a {
+	color : #ffffff;
 }

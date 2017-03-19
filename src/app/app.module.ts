@@ -26,6 +26,7 @@ import { AboutComponent } from './about/about.component';
 import { QaComponent } from './qa/qa.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SignupComponent } from './signup/signup.component';
     AboutComponent,
     QaComponent,
     AdminComponent,
-    SignupComponent
+    SignupComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
