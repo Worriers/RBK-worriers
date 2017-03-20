@@ -86,5 +86,48 @@ module.exports = {
           });
         }
       });
+  },
+
+
+  getNotActivatedUsers : function(req, res) {
+    users.find({activated : false}).exec(function (err, alluser) {
+       if(err){
+        res.json({error : err});
+      }else{
+        res.json(alluser);
+      }
+    });
+  },
+
+  approveUser : function(req, res) {
+    users.findById(req.body.id).exec(function (err, user) {
+       if(err){
+        res.json({error : err});
+      }else{
+        if(user){
+          user.activated = true;
+          user.save((err,user) => {
+              if(err){
+                res.json({error : err});
+              }else{
+                res.json({ok : 1});
+              }
+          })
+        } else {
+          res.json({error : {message: 'user not found'}});
+        }
+      }
+    });
+  },
+
+  deleteUser : function(req,res) {
+    var id = req.body.id ; 
+    users.remove({_id: id}, function (err, p) {
+      if (err){
+        res.json({error : err});
+      } else {
+        res.json({ok : 1});
+      }
+    })
   }
 }

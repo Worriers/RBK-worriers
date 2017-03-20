@@ -44,6 +44,24 @@ export class AdminService {
 	           .catch(this.handleError);
 	}
 
+	approveUser(id) : Promise<any> {
+	return this.http.post("/api/admin/users/approve", {id : id}, this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
+	deleteUser(id) : Promise<any> {
+	return this.http.post("/api/admin/users/delete", {id : id}, this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
 
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error); // for demo purposes only

@@ -27,7 +27,8 @@ exports.isLogged = function (req, res){
     res.json({'id':req.user._id,
               'username' : req.user.username,
               'activated': req.user.activated,
-              'completed': req.user.completed
+              'completed': req.user.completed,
+              'cohort' : req.user.cohort
             });
   } else {
     res.json({'id': null});

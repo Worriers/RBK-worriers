@@ -73,13 +73,11 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent },
       { path: 'addproject', component: AddProjectComponent },
-       { path: 'achievments', component: AchievmentsComponent},
-      { path: 'cpanel', component: UploadComponent },
+      { path: 'achievments', component: AchievmentsComponent},
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
-      { path: 'achievments', component: AchievmentsComponent},
+      { path: 'admin/users', component: ManageUsersComponent },
       { path: '**', component: MainComponent }
     ])
   ],
