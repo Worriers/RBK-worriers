@@ -12,8 +12,8 @@ export class ProfileComponent implements OnInit {
   constructor(private route : ActivatedRoute) { }
 
   ngOnInit() {
-  	console.log("in profile", this.profileData)
-  	this.profileData = this.route.snapshot.data['profileData'];
+    this.profileData = this.route.snapshot.data['profileData'];
+  	console.log("in profile", this.profileData);
   	this.profileData.projects = this.profileData.projects.filter(project => project.approved);
   }
 

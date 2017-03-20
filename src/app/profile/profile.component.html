@@ -15,7 +15,7 @@
 	<div class="col-md-10 col-md-offset-1 col-xs-12">
 
 		<div class="col-md-4 col-xs-12 text-center">
-			<a href="{{profileData?.profileUrl}}">
+			<a href="{{profileData?.profileUrl}}" target="_blank">
 			<div class="col-xs-12 icon-bg">
 				<i class="fa fa-github"></i>
 			</div>
@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="col-md-4 col-xs-12 text-center">
-			<a href="{{profileData?.linkedIn}}">
+			<a href="{{profileData?.linkedIn}}" target="_blank">
 			<div class="col-xs-12 icon-bg">
 				<i class="fa fa-linkedin"></i>
 			</div>
@@ -107,7 +107,7 @@
 </div>
 
 
-<div class="row" *ngIf="profileData.projects.length > 1">
+<div class="row" *ngIf="profileData.projects.length > 0">
 	<div class="col-xs-12">
 		<div class="page-header">
 		  <h1>{{ profileData.displayName }} Projects <small>from cohort {{ profileData.cohort }}</small></h1>
@@ -117,15 +117,17 @@
 	    <div class="thumbnail">
 	      <img src="{{ project.img }}" />
 	      <div class="caption">
-	        <h3>{{ project.title }}</h3>
-	        <p>Team Members : {{ project.teamMembers }}</p>
+	        <h3><a href="{{ project?.url }}" target="_blank">{{ project.title }}</a></h3>
+	        <p>Team Members : <span *ngFor="let member of project.teamMembers">
+		        	<a routerLink="warriors/{{ member.username }}">{{ member.displayName }} </a> 
+		        </span></p>
 	        <p><a routerLink="/projects" class="btn btn-default" role="button">View More</a></p>
 	      </div>
 	    </div>
 	</div>
 </div>
 
-<div class="row" *ngIf="profileData.achievments.length > 1">
+<div class="row" *ngIf="profileData.achievments.length > 0">
 	<div class="col-xs-12">
 		<div class="page-header">
 		  <h1>{{ profileData.displayName }} achievments</h1>

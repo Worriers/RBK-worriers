@@ -67,7 +67,11 @@ module.exports ={
  },
 
  getOneUser : function (req,res) {
-   User.findOne({username: { $regex : new RegExp(req.params.username, "i")}}, function (err, user) {  
+   User.findOne({username: { $regex : new RegExp(req.params.username, "i")}}).populate({
+    path: 'projects',
+    populate: { path: 'teamMembers' }
+  })
+   .populate('achievments').exec(function (err, user) {  
     if (err) {
       res.status(500).send(err);
     }else if(user){
