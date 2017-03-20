@@ -9,7 +9,7 @@ import { ProjectsService } from '../shared/projects.service';
 })
 export class ProjectsComponent implements OnInit {
 	projects : Object[] = [];
-  
+  flag :String ;
   constructor(private projectsService: ProjectsService) { }
 
   ngOnInit() {
@@ -17,6 +17,8 @@ export class ProjectsComponent implements OnInit {
   }
    getProjects() {
   	this.projectsService.getProjects().then((data) => this.projects = data );
+   this.flag=localStorage.getItem("rbk.isLogged")
+   console.log(this.flag)
   }
 
 }

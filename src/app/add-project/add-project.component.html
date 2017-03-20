@@ -5,14 +5,46 @@
 	    <i style="font-size: 1.5em" class="fa fa-external-link" aria-hidden="true"></i><label for="basic-url">Project URL</label>
        <div class="input-group">
          <span class="input-group-addon" id="basic-addon3">https://example.com</span>
-         <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+         <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="url">
         </div>
-	     <input class="form-control input-lg" id="url" type="text" [(ngModel)]="url">
 	    <i class="fa fa-github" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg">Project Github  </label>
-	     <input class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink">
+	    <input class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink">
 	    <i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg" >Project Team </label>
-	     <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers">
-	     <br>
-	    <button type="button" class="btn btn-secondary" (click)= "addProject(name,url,gitHubLink,teamMembers)" >Done</button>
-  </div>
-</div>
+	    <!-- <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers"> -->
+	    <select [(ngModel)]="teamMembers1">
+	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    </select>
+	     <select [(ngModel)]="teamMembers2">
+	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    </select>
+	     <select [(ngModel)]="teamMembers3">
+	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    </select>
+	     <select [(ngModel)]="teamMembers4">
+	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    </select>
+	    <br>
+	    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)= "addProject(name,url,gitHubLink,[teamMembers1,teamMembers2,teamMembers3,teamMembers4])">Done </button>
+	    <div class="container">
+	    	
+		    <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h4 class="modal-title">Admin </h4>
+				        </div>
+				        <div class="modal-body">
+				          <p>Your add project is successful</p>
+				        </div>
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        </div>
+			        </div>
+			    </div>
+		    </div>
+		</div>
+  </div> 
+ </div>
+
+				

@@ -7,14 +7,16 @@ import { AddProjectService } from '../shared/addproject.service';
   providers: [AddProjectService]
 })
 export class AddProjectComponent implements OnInit {
-
+  drob : Object[]=[];
   constructor(private addProjectService: AddProjectService) { }
 
   ngOnInit() {
+    this.drob.push("ola","dania")
   }
 
 addProject(title,url,gitHubLink,teamMembers,img){
     console.log(title,url,gitHubLink,teamMembers)
     this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }) ;
     }
+
 }
