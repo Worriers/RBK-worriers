@@ -12,16 +12,16 @@
 	    <i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg" >Project Team </label>
 	    <!-- <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers"> -->
 	    <select [(ngModel)]="teamMembers1">
-	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
 	    </select>
 	     <select [(ngModel)]="teamMembers2">
-	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
 	    </select>
 	     <select [(ngModel)]="teamMembers3">
-	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
 	    </select>
 	     <select [(ngModel)]="teamMembers4">
-	    	<option *ngFor="let project of drob"  value={{project}} >{{project}}</option>
+	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
 	    </select>
 	    <br>
 	    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)= "addProject(name,url,gitHubLink,[teamMembers1,teamMembers2,teamMembers3,teamMembers4])">Done </button>
