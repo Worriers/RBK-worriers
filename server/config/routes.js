@@ -47,6 +47,7 @@ app.get('/api/profile' , userController.getAllUsers);
 app.get('/api/profile/:username',userController.getOneUser);
 app.post('/api/profile', userController.updateAccount);
 app.delete('/api/profile', userController.deleteUser);
+app.get('/api/profile/cohort/:cohort' , userController.getGradList);
 
 // getting and adding achievments 
 app.get('/api/achievments',achievmentsController.getAllAchievments);
@@ -75,12 +76,19 @@ app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);
 app.delete('/api/projects', projectsController.deleteProject);
 
-//get admin stats
+//admin routes
 app.get('/api/adminStats',adminController.getAdminStats);
+app.get('/api/admin/users',adminController.getNotActivatedUsers);
+app.post('/api/admin/users/approve',adminController.approveUser);
+app.post('/api/admin/users/delete',adminController.deleteUser);
 
-app.get('/images/projects', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../../dist', 'index.html'));
-});
+app.get('/api/admin/projects',adminController.getNotApprovedProjects);
+app.post('/api/admin/projects/approve',adminController.approveProject);
+app.post('/api/admin/projects/delete',adminController.deleteProject);
+
+app.get('/api/admin/questions',adminController.getNotApprovedQuestions);
+app.post('/api/admin/questions/approve',adminController.approveQuestion);
+app.post('/api/admin/questions/delete',adminController.deleteQuestion);
 
 app.all('*', (req, res) => {
   console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
