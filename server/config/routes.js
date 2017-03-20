@@ -51,7 +51,7 @@ app.delete('/api/profile', userController.deleteUser);
 // getting and adding achievments 
 app.get('/api/achievments',achievmentsController.getAllAchievments);
 app.post('/api/achievments',utils.ensureAuthenticated,achievmentsController.insertAchievment);
-app.delete('/api/achievments',utils.ensureAuthenticated,achievmentsController.deleteA);
+app.delete('/api/achievments/:id',utils.ensureAuthenticated,achievmentsController.deleteA);
 
 //insert and get all the images from the gellary 
 app.get('/api/gallery', galleryController.getAllImages);
