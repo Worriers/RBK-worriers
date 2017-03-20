@@ -48,7 +48,7 @@ import { UploadComponent } from './upload/upload.component';
     AdminComponent,
     SignupComponent,
     SliderComponent,
-    AddProjectComponent
+    AddProjectComponent,
     AchievmentsComponent,
     UploadComponent,
     FileSelectDirective,
@@ -70,17 +70,12 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: QaComponent },
       { path: 'addproject', component: AddProjectComponent },
-      { path: '**', component: MainComponent }
-    ])
-  ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService],
-      { path: 'achievments', component: AchievmentsComponent},
+       { path: 'achievments', component: AchievmentsComponent},
       { path: 'cpanel', component: UploadComponent },
       { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve , AchievmentsService],
->>>>>>> 1d2f8f0e322e8daf12cdb2941c8e2ced44df4f1a
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService ,AchievmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
