@@ -4,6 +4,11 @@ var Q = require('q');
 // var Schema = mongoose.Schema;
 
 var UserSchema = new mongoose.Schema({
+  gitHubID: {
+    type: String,
+    required: true,
+    unique: true
+  },
   username: {
     type: String,
     required: true,

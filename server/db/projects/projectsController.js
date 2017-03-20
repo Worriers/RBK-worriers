@@ -4,7 +4,7 @@ var webshot = require('webshot');
 
 module.exports ={
 	getAllProjects : function (req, res) {
-	  projects.find({}).populate('teamMembers').exec(function (err, data) {
+	  projects.find({}).populate('teamMembers', '_id displayName username cohort').exec(function (err, data) {
 	    if(err){
 		  res.status(500).send(err);
 		}else{

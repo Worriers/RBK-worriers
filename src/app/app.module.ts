@@ -9,6 +9,7 @@ import { AuthService } from './shared/auth.service';
 import { ProjectsService } from './shared/projects.service';
 import { QaService } from './shared/qa.service';
 import { GalleryService } from './shared/gallery.service';
+import { AdminService } from './shared/admin.service';
 import { AchievmentsService } from './shared/achievments.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
@@ -32,6 +33,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
 
@@ -49,6 +51,7 @@ import { UploadComponent } from './upload/upload.component';
     SignupComponent,
     SliderComponent,
     AddProjectComponent,
+    AdminMenuComponent,
     AchievmentsComponent,
     UploadComponent,
     FileSelectDirective,
@@ -73,6 +76,9 @@ import { UploadComponent } from './upload/upload.component';
        { path: 'achievments', component: AchievmentsComponent},
       { path: 'cpanel', component: UploadComponent },
       { path: '**', component: MainComponent }
+      { path: 'admin', component: AdminComponent },
+      { path: 'admin/gallery', component: UploadComponent },
+      { path: 'achievments', component: AchievmentsComponent},
     ])
   ],
   providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService ,AchievmentsService],

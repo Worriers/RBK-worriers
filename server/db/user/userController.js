@@ -16,7 +16,7 @@ function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
     var check = profile.emails === undefined ? false : true; 
     process.nextTick(function () {
-      User.findOneAndUpdate({ _id: profile.id },{$set:{
+      User.findOneAndUpdate({ gitHubID: profile.id },{$set:{
         displayName: profile.displayName,
         email: check ? profile.emails[0].value : null,
         img: profile._json.avatar_url,
@@ -32,7 +32,7 @@ function(accessToken, refreshToken, profile, done) {
         } else {
           var userEmail = check ? profile.emails[0].value : null;
           var newUser = new User();
-          newUser._id = profile.id;
+          newUser.gitHubID = profile.id;
           newUser.username = profile.username;
           newUser.displayName = profile.displayName;
           newUser.profileUrl = profile.profileUrl;
