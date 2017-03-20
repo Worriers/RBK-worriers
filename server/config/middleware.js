@@ -16,12 +16,12 @@ module.exports = function (app, express) {
 //   and deserialized.
 
 passport.serializeUser(function(user, done) {
-  // console.log(user);
+  //console.log('USER OBJECT IN SER',user);
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  // console.log(id)
+  //console.log('USER ID IN DES',id);
   User.findById(id,function(err,user){
   done(err, user);
   })
