@@ -14,7 +14,8 @@ import { AchievmentsService } from './shared/achievments.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
 import { AddProjectService} from './shared/addproject.service';
-
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 // Imports for loading & configuring the in-memory web api
@@ -36,6 +37,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
 import { ManageQuestionsComponent } from './manage-questions/manage-questions.component';
@@ -59,6 +61,7 @@ import { ManageQuestionsComponent } from './manage-questions/manage-questions.co
     UploadComponent,
     FileSelectDirective,
     FileDropDirective,
+    AdminLoginComponent,
     ManageUsersComponent,
     ManageProjectsComponent,
     ManageQuestionsComponent
@@ -67,6 +70,8 @@ import { ManageQuestionsComponent } from './manage-questions/manage-questions.co
     BrowserModule,
     FormsModule,
     HttpModule,
+    ModalModule.forRoot(),
+    BootstrapModalModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       { path: '', component: MainComponent },
@@ -79,6 +84,7 @@ import { ManageQuestionsComponent } from './manage-questions/manage-questions.co
       { path: 'about', component: AboutComponent },
       { path: 'addproject', component: AddProjectComponent },
       { path: 'achievments', component: AchievmentsComponent},
+      { path: 'login', component: AdminLoginComponent},
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
       { path: 'admin/users', component: ManageUsersComponent },
