@@ -10,6 +10,7 @@ import { ProjectsService } from './shared/projects.service';
 import { QaService } from './shared/qa.service';
 import { GalleryService } from './shared/gallery.service';
 import { AdminService } from './shared/admin.service';
+import { AchievmentsService } from './shared/achievments.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
@@ -68,10 +69,11 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
+      { path: 'achievments', component: AchievmentsComponent},
       { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AdminService],
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AdminService , AchievmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
