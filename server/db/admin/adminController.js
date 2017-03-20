@@ -2,6 +2,9 @@ var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var Admin = require("./adminModel.js");
 var utils = require('../../config/utils.js');
+var users = require('../user/userModel.js');
+var questions = require('../faq/quastionModel.js');
+var projects = require('../projects/projectsModel.js');
 
 passport.use('local-signup', new LocalStrategy({
   usernameField : 'username',
@@ -60,5 +63,28 @@ function(req, username, password, done){
 module.exports = {
   authorizeAdmin: function(req, res){
     res.send({status: req.authInfo.status, data: req.user});
+  },
+
+  getAdminStats: function(req,res){
+      var stats = {users: 0, projects : 0, questions : 0};
+      users.count({activated: false}, function(err, userCount) {
+        if(err) res.send(err);
+        else {
+          stats.users = userCount;
+          projects.count({approved: false}, function(err, projectCount) {
+            if(err) res.send(err);
+            else {
+              stats.projects = projectCount;
+              questions.count({approved: false}, function(err, qCount) {
+                if(err) res.send(err);
+                else {
+                  stats.questions = qCount;
+                  res.json(stats);
+                }
+              });
+            }
+          });
+        }
+      });
   }
 }

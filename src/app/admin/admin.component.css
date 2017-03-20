@@ -1,0 +1,48 @@
+.card {
+	background-color: #ffffff;
+	border: 0px;
+}
+
+.card .avatar {
+	margin-top: 40px;
+}
+
+.card .avatar img {
+	height: 200px;
+	width: 200px;
+}
+
+.card h3 {
+	margin-top: 0px;
+}
+
+.header-bg {
+	height: 150px;
+}
+
+.icon-bg {
+	background-color: #f5f5f5;
+	padding: 20px;
+			
+}
+
+.icon-bg i {
+	font-size: 4em;
+	color: #b52283;
+}
+
+.icon-title {
+	background-color: #f5f5f5;
+	color: #b52283;
+	border-top: 1px solid #dedede;
+	margin-bottom: 30px;
+}
+
+.icon-container {
+	margin-top: 30px;
+}
+
+h1.page-header {
+    margin-top: -5px;
+}
+

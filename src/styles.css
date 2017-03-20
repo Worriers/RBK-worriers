@@ -100,3 +100,11 @@
   position: relative;
   margin-bottom: 30px;
 }
+
+.footer {
+  background-color: #2f2f2f;
+  margin-top: 50px;
+  padding: 20px;
+  color: #ffffff;
+  border-top: 2px solid #000000;
+}
