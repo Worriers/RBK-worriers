@@ -73,12 +73,12 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: QaComponent },
       { path: 'addproject', component: AddProjectComponent },
-       { path: 'achievments', component: AchievmentsComponent},
       { path: 'cpanel', component: UploadComponent },
-      { path: '**', component: MainComponent }
+      { path: 'achievments', component: AchievmentsComponent},
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
       { path: 'achievments', component: AchievmentsComponent},
+      { path: '**', component: MainComponent }
     ])
   ],
   providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService ,AchievmentsService],
