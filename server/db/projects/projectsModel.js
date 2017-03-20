@@ -15,9 +15,8 @@ var ProjectsSchema = new mongoose.Schema({
 		type : String
 	},
 	teamMembers :  [{
-		type :String
-		// type: mongoose.Schema.Types.ObjectId,
-		// ref: 'users'
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'users'
   	}],
 	img : {
 		type : String

@@ -75,8 +75,11 @@ app.get('/api/projects',projectsController.getAllProjects);
 app.post('/api/projects',projectsController.insertProject);
 app.delete('/api/projects', projectsController.deleteProject);
 
-//get admin stats
+//admin routes
 app.get('/api/adminStats',adminController.getAdminStats);
+app.get('/api/admin/users',adminController.getNotActivatedUsers);
+app.post('/api/admin/users/approve',adminController.approveUser);
+app.post('/api/admin/users/delete',adminController.deleteUser);
 
 app.get('/images/projects', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../../dist', 'index.html'));

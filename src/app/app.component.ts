@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   		if(data.id !== null){
   			localStorage.setItem('rbk.isLogged', 'true');
   			localStorage.setItem('rbk.userId', data.id);
+        localStorage.setItem('rbk.cohort', data.cohort);
   		}
   	});
   }
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit {
   			localStorage.removeItem('rbk.isLogged');
   			localStorage.removeItem('rbk.userId');
   			this.userData = {id : null};
+        this.router.navigate([('/')]);
   		}
   	})
   }

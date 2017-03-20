@@ -14,8 +14,8 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName !== ''" disabled/>
-							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName === ''" required />
+							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName !== null" disabled/>
+							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName === null" required />
 						</div>
 					</div>
 				</div>
