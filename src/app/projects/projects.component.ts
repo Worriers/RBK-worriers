@@ -9,13 +9,14 @@ import { ProjectsService } from '../shared/projects.service';
 })
 export class ProjectsComponent implements OnInit {
 	projects : Object[] = [];
+  
   constructor(private projectsService: ProjectsService) { }
 
   ngOnInit() {
   	this.getProjects();
   }
    getProjects() {
-  	this.projectsService.getProjects().then((data) => this.projects = data.splice(0,4));
+  	this.projectsService.getProjects().then((data) => this.projects = data );
   }
 
 }

@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-xs-12" >
+	     <i style="font:#b52283" style="font-size: 1.5em" class="fa fa-user-circle" aria-hidden="true" ></i><label for="inputlg">Project Name </label>
+	     <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
+	    <i style="font-size: 1.5em" class="fa fa-external-link" aria-hidden="true"></i><label for="basic-url">Project URL</label>
+       <div class="input-group">
+         <span class="input-group-addon" id="basic-addon3">https://example.com</span>
+         <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+	     <input class="form-control input-lg" id="url" type="text" [(ngModel)]="url">
+	    <i class="fa fa-github" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg">Project Github  </label>
+	     <input class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink">
+	    <i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg" >Project Team </label>
+	     <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers">
+	     <br>
+	    <button type="button" class="btn btn-secondary" (click)= "addProject(name,url,gitHubLink,teamMembers)" >Done</button>
+  </div>
+</div>

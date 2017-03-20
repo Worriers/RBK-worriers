@@ -13,6 +13,8 @@ import { AdminService } from './shared/admin.service';
 import { AchievmentsService } from './shared/achievments.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
+import { AddProjectService} from './shared/addproject.service';
+
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 // Imports for loading & configuring the in-memory web api
@@ -30,6 +32,7 @@ import { QaComponent } from './qa/qa.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
@@ -47,6 +50,7 @@ import { UploadComponent } from './upload/upload.component';
     AdminComponent,
     SignupComponent,
     SliderComponent,
+    AddProjectComponent,
     AdminMenuComponent,
     AchievmentsComponent,
     UploadComponent,
@@ -67,13 +71,17 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'admin', component: QaComponent },
+      { path: 'addproject', component: AddProjectComponent },
+       { path: 'achievments', component: AchievmentsComponent},
+      { path: 'cpanel', component: UploadComponent },
+      { path: '**', component: MainComponent }
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
       { path: 'achievments', component: AchievmentsComponent},
-      { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AdminService , AchievmentsService],
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService ,AchievmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
