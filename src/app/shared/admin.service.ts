@@ -62,6 +62,33 @@ export class AdminService {
 	           .catch(this.handleError);
 	}
 
+	getNotApprovedProjects() : Promise<any> {
+	return this.http.get("/api/admin/projects", this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
+	approveProject(id) : Promise<any> {
+	return this.http.post("/api/admin/projects/approve", {id : id}, this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
+	deleteProject(id) : Promise<any> {
+	return this.http.post("/api/admin/projects/delete", {id : id}, this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
 
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error); // for demo purposes only
