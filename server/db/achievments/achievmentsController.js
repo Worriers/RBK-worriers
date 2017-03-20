@@ -13,8 +13,8 @@ module.exports ={
 	insertAchievment : function (req, res) {
 		console.log(req.body)
 		var newAch = new achievment(req.body);
-		var n = req.body.name;  
-		user.findOne({username : n}).exec(function(err, u){
+		var id = req.body.id;  
+		user.findOne({_id : id}).exec(function(err, u){
 		  	if(err) throw err;
 		  	newAch.save(function(err, achievment){
 		  		if(err) throw err;
