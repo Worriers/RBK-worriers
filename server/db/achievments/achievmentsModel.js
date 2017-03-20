@@ -10,8 +10,7 @@ var AchievmentsSchema = new mongoose.Schema({
 		required : true 
 	},
 	url : {
-		type : String, 
-		required : true 
+		type : String
 	},
 	date : {
 		type : String , 

@@ -1,5 +1,63 @@
 
 <app-slider></app-slider>
-<p>
-  achievments works!
-</p>
+<div class="container">
+	<div class="row main">
+		<div class="panel-heading">
+           <div class="panel-title text-center">
+           		<h2>Add your new Achievment</h2>
+           	</div>
+        </div> 
+		<div class="main-login main-center">
+
+
+				<div class="form-group">
+					<label for="password" class="cols-sm-2 control-label">Age</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+							<input type="number" class="form-control" name="age" placeholder="Enter your age"
+							[(ngModel)]="user.age" required/>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Main major</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="major" placeholder="Enter your major" [(ngModel)]="user.mainMajor" required/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Current job</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="job" placeholder="Enter your current job" [(ngModel)]="user.currentJob" required />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Cohort you participated in</label>
+				
+				</div>
+
+				<div class="form-group">
+					<label for="confirm" class="cols-sm-2 control-label">Linked in url</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="major" placeholder="Enter your linked in profile link" [(ngModel)]="user.linkedIn" required />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group ">
+					<button class="btn btn-primary btn-lg btn-block login-button">Complete</button>
+				</div>
+		</div>
+	</div>
+</div>

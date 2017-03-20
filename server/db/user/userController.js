@@ -108,5 +108,15 @@ module.exports ={
       console.log('question removed');
       res.status(200).send();
     })
+  },
+
+  getGradList : function(req, res){
+    User.find({cohort : req.params.cohort}, '_id displayName username').exec(function (err, alluser) {
+      if(err){
+        res.status(500).send(err);
+      }else{
+        res.json(alluser)
+      }
+  });
   }
 }

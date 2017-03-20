@@ -1,0 +1,30 @@
+<app-admin></app-admin>
+<div class="row">
+<div class="col-xs-12 col-md-10 col-md-offset-1">
+		<div class="page-header">
+		  <h1>Waiting Users <small>from all cohorts</small></h1>
+		</div>
+		<h4 *ngIf="error">{{ error }}</h4>
+		<div *ngFor="let grad of grads">
+			<div class="col-xs-12" style="border-bottom: 2px solid #dedede;margin-bottom: 20px;line-height: 40px;">
+				<div class="col-xs-12 col-md-2">
+					<img class="img-responsive" src="{{ grad?.img }}">		
+				</div>
+				<div class="col-xs-12 col-md-8">
+					<h4> {{ grad.displayName }}</h4>
+					<p><b>Cohort :</b> {{ grad.cohort }},
+					 <b>gitHub:</b> <a href="{{ grad.profileUrl }}">{{ grad.username }}</a>,
+					 <b>LinkedIn :</b> <a href="{{ grad.LinkedIn }}">{{ grad.username }}</a><br>
+					 <b>Email :</b> {{ grad.email }}, <b>Current Job :</b> {{ grad.currentJob }}, 
+					 <b>Profile Completed:</b> {{ grad.completed }}
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-2" style="margin-top: 20px; line-height: 40px;">
+					<button class="btn btn-success btn-xs" style="width: 100px;" (click)="approveUser(grad._id)"><span class="fa fa-check"></span> Approve</button>
+					<button class="btn btn-danger btn-xs" style="width: 100px" (click)="deleteUser(grad._id)"><span class="fa fa-times"></span> Delete</button>
+				</div>
+
+			</div>
+		</div>
+</div>
+</div>
