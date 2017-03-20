@@ -4,11 +4,6 @@ var Q = require('q');
 // var Schema = mongoose.Schema;
 
 var UserSchema = new mongoose.Schema({
-  _id: {
-    type: Number,
-    unique : true,
-    required: true,
-  },
   username: {
     type: String,
     required: true,

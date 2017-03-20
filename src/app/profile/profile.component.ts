@@ -8,12 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   
-  profileData = {};
+  profileData : any = {};
   constructor(private route : ActivatedRoute) { }
 
   ngOnInit() {
   	console.log("in profile", this.profileData)
   	this.profileData = this.route.snapshot.data['profileData'];
+  	this.profileData.projects = this.profileData.projects.filter(project => project.approved);
   }
 
 }

@@ -9,10 +9,12 @@ import { AuthService } from './shared/auth.service';
 import { ProjectsService } from './shared/projects.service';
 import { QaService } from './shared/qa.service';
 import { GalleryService } from './shared/gallery.service';
+import { AchievmentsService } from './shared/achievments.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
 import { AddProjectService} from './shared/addproject.service';
 
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 // Imports for loading & configuring the in-memory web api
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -30,6 +32,8 @@ import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { AchievmentsComponent } from './achievments/achievments.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { AddProjectComponent } from './add-project/add-project.component';
     SignupComponent,
     SliderComponent,
     AddProjectComponent
+    AchievmentsComponent,
+    UploadComponent,
+    FileSelectDirective,
+    FileDropDirective
   ],
   imports: [
     BrowserModule,
@@ -66,6 +74,13 @@ import { AddProjectComponent } from './add-project/add-project.component';
     ])
   ],
   providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService],
+      { path: 'achievments', component: AchievmentsComponent},
+      { path: 'cpanel', component: UploadComponent },
+      { path: '**', component: MainComponent }
+    ])
+  ],
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve , AchievmentsService],
+>>>>>>> 1d2f8f0e322e8daf12cdb2941c8e2ced44df4f1a
   bootstrap: [AppComponent]
 })
 export class AppModule { }
