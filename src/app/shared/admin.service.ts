@@ -35,6 +35,15 @@ export class AdminService {
 	           .catch(this.handleError);
 	}
 
+	getNotActivatedUsers() : Promise<any> {
+	return this.http.get("/api/admin/users", this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
 
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error); // for demo purposes only
