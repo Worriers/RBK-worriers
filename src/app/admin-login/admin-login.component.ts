@@ -21,7 +21,6 @@ export class AdminLoginComponent implements OnInit {
   }
 
   onSubmit(data: NgForm) {
-    console.log('batonata',data.value);
     this.adminService.login(data.value).then((res) => {
       if(res.status==='valid'){
         this.router.navigate(["/admin"]);
