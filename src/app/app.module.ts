@@ -67,7 +67,7 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: AdminComponent },
-      { path: 'cpanel', component: UploadComponent },
+      { path: 'admin/gallery', component: UploadComponent },
       { path: '**', component: MainComponent }
     ])
   ],
