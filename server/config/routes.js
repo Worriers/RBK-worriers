@@ -47,6 +47,7 @@ app.get('/api/profile' , userController.getAllUsers);
 app.get('/api/profile/:username',userController.getOneUser);
 app.post('/api/profile', userController.updateAccount);
 app.delete('/api/profile', userController.deleteUser);
+app.get('/api/profile/cohort/:cohort' , userController.getGradList);
 
 // getting and adding achievments 
 app.get('/api/achievments',achievmentsController.getAllAchievments);
