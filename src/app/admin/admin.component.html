@@ -1,12 +1,13 @@
+<div class="row" style="margin-top: 20px;">
 <app-admin-menu></app-admin-menu>
-<div class="col-xs-12 col-md-10 icon-container">
+<div class="col-xs-12 col-md-10">
 
 		<div class="col-md-4 col-xs-12 text-center">
 			<div class="col-xs-12 icon-bg">
 				<i class="fa fa-users"></i>
 			</div>
 			<div class="col-xs-12 icon-title">
-				<h5> 11 users waiting </h5>
+				<h5> {{ stats.users }} users waiting </h5>
 			</div>
 		</div>
 
@@ -15,7 +16,7 @@
 				<i class="fa fa-window-restore"></i>
 			</div>
 			<div class="col-xs-12 icon-title">
-				<h5> 14 projects waiting </h5>
+				<h5> {{ stats.projects }} projects waiting </h5>
 			</div>
 		</div>
 
@@ -24,7 +25,8 @@
 				<i class="fa fa-question-circle"></i>
 			</div>
 			<div class="col-xs-12 icon-title">
-				<h5> 11 questions waiting </h5>
+				<h5> {{ stats.questions }} questions waiting </h5>
 			</div>
 		</div>
+</div>
 </div>

@@ -9,6 +9,7 @@ import { AuthService } from './shared/auth.service';
 import { ProjectsService } from './shared/projects.service';
 import { QaService } from './shared/qa.service';
 import { GalleryService } from './shared/gallery.service';
+import { AdminService } from './shared/admin.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
@@ -31,7 +32,6 @@ import { SliderComponent } from './slider/slider.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
-import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
 @NgModule({
   declarations: [
@@ -50,8 +50,7 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
     AchievmentsComponent,
     UploadComponent,
     FileSelectDirective,
-    FileDropDirective,
-    AdminMenuComponent
+    FileDropDirective
   ],
   imports: [
     BrowserModule,
@@ -69,11 +68,10 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
       { path: 'about', component: AboutComponent },
       { path: 'admin', component: AdminComponent },
       { path: 'cpanel', component: UploadComponent },
-      { path: 'admin', component: AdminComponent },
       { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve],
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

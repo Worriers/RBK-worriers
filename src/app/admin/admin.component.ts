@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../shared/admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  stats = {};
+  constructor(private admin : AdminService) { }
 
   ngOnInit() {
+  	this.getAdminStats();
   }
 
+  getAdminStats() : any {
+  	this.admin.getAdminStats().then(data => this.stats = data);
+  }
 }
