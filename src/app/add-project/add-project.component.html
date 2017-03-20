@@ -1,30 +1,31 @@
 <div class="row">
 	<div class="col-xs-12" >
+	<form class="form-horizontal" method="post" action="#" (ngSubmit)="completeProfile()">
 	     <i style="font:#b52283" style="font-size: 1.5em" class="fa fa-user-circle" aria-hidden="true" ></i><label for="inputlg">Project Name </label>
-	     <input class="form-control input-lg" id="name" type="text" [(ngModel)]="name">
+	     <input name="name" class="form-control input-lg" id="name" type="text" [(ngModel)]="name" required>
 	    <i style="font-size: 1.5em" class="fa fa-external-link" aria-hidden="true"></i><label for="basic-url">Project URL</label>
        <div class="input-group">
          <span class="input-group-addon" id="basic-addon3">https://example.com</span>
-         <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="url">
+         <input name="url" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="url" required>
         </div>
 	    <i class="fa fa-github" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg">Project Github  </label>
-	    <input class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink">
+	    <input name="gitHubLink" class="form-control input-lg" id="gitHubLink" type="text" [(ngModel)]="gitHubLink" required>
 	    <i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i><label for="inputlg" >Project Team </label>
 	    <!-- <input class="form-control input-lg" id="teamMembers" type="text" [(ngModel)]="teamMembers"> -->
-	    <select [(ngModel)]="teamMembers1">
-	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
+	    <select name="teamMembers1" [(ngModel)]="teamMembers1" required>
+	    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 	    </select>
-	     <select [(ngModel)]="teamMembers2">
-	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
+	     <select name="teamMembers2" [(ngModel)]="teamMembers2" required>
+	    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 	    </select>
-	     <select [(ngModel)]="teamMembers3">
-	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
+	     <select name="teamMembers3" [(ngModel)]="teamMembers3" required>
+	    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 	    </select>
-	     <select [(ngModel)]="teamMembers4">
-	    	<option *ngFor="let grades of drob"  value={{grades.displayName}} >{{grades.displayName}}</option>
+	     <select name="teamMembers4" [(ngModel)]="teamMembers4" required>
+	    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 	    </select>
 	    <br>
-	    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)= "addProject(name,url,gitHubLink,[teamMembers1,teamMembers2,teamMembers3,teamMembers4])">Done </button>
+	    <button  type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" (click)= "addProject(name,url,gitHubLink,[teamMembers1,teamMembers2,teamMembers3,teamMembers4])">Done </button>
 	    <div class="container">
 	    	
 		    <div class="modal fade" id="myModal" role="dialog">
@@ -43,7 +44,8 @@
 			        </div>
 			    </div>
 		    </div>
-		</div>
+		 </div>
+		</form>
   </div> 
  </div>
 

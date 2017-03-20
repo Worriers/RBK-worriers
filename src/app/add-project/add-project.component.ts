@@ -9,21 +9,25 @@ import  {GradsService} from '../shared/grads.service';
   providers: [AddProjectService]
 })
 export class AddProjectComponent implements OnInit {
-  drob : Object[]=[];
-  num : string ;
-  constructor(private addProjectService: AddProjectService, private gradesprivate: GradsService ) { }
+  drob : Object[] = [];
+  num : String ;
+  constructor(private addProjectService: AddProjectService, private gradeService: GradsService ) { }
 
   ngOnInit() {
-    this.num=localStorage.getItem("rbk.cohort")
     this.getgrads()
   }
 
 addProject(title,url,gitHubLink,teamMembers,img){
     console.log(title,url,gitHubLink,teamMembers)
-    this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }) ;
-    }
+     console.log(arguments.length)
+     this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }).then((data)=>console.log(data)) ;
+     }
+   
     getgrads(){
-      this.gradesprivate.getGradList(this.num).then((data) => this.drob = data );
+      this.num=localStorage.getItem("rbk.cohort")
+      console.log(this.num)
+      this.gradeService.getGradList(this.num).then((data) => this.drob=data );
+      console.log(this.drob)
     }
 
 }

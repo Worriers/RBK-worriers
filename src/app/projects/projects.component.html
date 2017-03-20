@@ -9,7 +9,9 @@
 		      <img src="{{project.img}}" alt="...">
 		      <div class="caption" style="font:#b52283">
 		        <h3 style="color: #b52283">{{ project.title }}</h3>
-		        <p style="color: #b52283" > <i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i>Team Members : {{ project.teamMembers }}</p>
+		         <p style="color: #b52283"> <i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i>Team Members : <span *ngFor="let member of project.teamMembers">
+		        	<a href="/warriors/{{ member.username }}">{{ member.displayName }}</a> 
+		        </span></p>
 		        <p style="color: #b52283" style="font-size: 4.0em;text-align: center"><a href="{{ project.gitHubLink }}" target="_blank"><i class="fa fa-github" style="color: #b52283"></i></a><a href="{{ project.url}}" target="_blank"><i class="fa fa-link" style="color: #b52283" aria-hidden="true"></i></a></p>
 
 		        <p style="color: #b52283" *ngIf="project.url" style="font-size: 3em "></p>

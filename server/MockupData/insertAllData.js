@@ -25,6 +25,6 @@ var insertAllData = function(dir,cb) {
 }
 
 // Please uncomment these invocations before fire the server at the first time;
-// insertAllData(usersPath,dataController.insertUser);
+//insertAllData(usersPath,dataController.insertUser);
 // insertAllData(galleryPath,dataController.insertGallery);
 // insertAllData(projectPath,dataController.insertProjects);
