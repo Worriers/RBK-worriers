@@ -37,6 +37,8 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ManageProjectsComponent } from './manage-projects/manage-projects.component';
+import { ManageQuestionsComponent } from './manage-questions/manage-questions.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     UploadComponent,
     FileSelectDirective,
     FileDropDirective,
-    ManageUsersComponent
+    ManageUsersComponent,
+    ManageProjectsComponent,
+    ManageQuestionsComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +82,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
       { path: 'admin/users', component: ManageUsersComponent },
+      { path: 'admin/projects', component: ManageProjectsComponent },
+      { path: 'admin/faq', component: ManageQuestionsComponent },
       { path: '**', component: MainComponent }
     ])
   ],

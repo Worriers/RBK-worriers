@@ -1,0 +1,31 @@
+<app-admin></app-admin>
+<div class="row">
+<div class="col-xs-12 col-md-10 col-md-offset-1">
+		<div class="page-header">
+		  <h1>Waiting Projects <small></small></h1>
+		</div>
+		<h4 *ngIf="error">{{ error }}</h4>
+		<div *ngFor="let project of projects">
+			<div class="col-xs-12" style="border-bottom: 2px solid #dedede;margin-bottom: 20px;line-height: 40px;">
+				<div class="col-xs-12 col-md-2">
+					<img class="img-responsive" src="{{ project?.img }}">		
+				</div>
+				<div class="col-xs-12 col-md-8">
+					<h4> {{ project.title }}</h4>
+					<p>
+						<b>Url :</b> {{ project.url }}, <br>
+						<b>gitHub:</b> <a href="{{ project?.gitHubLink }}">{{ project.gitHubLink }}</a>,
+						<b>Team Members:</b> <span *ngFor="let member of project.teamMembers">
+			        	<a routerLink="warriors/{{ member.username }}">{{ member.displayName }} </a> 
+			        	</span>
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-2" style="margin-top: 20px; line-height: 40px;">
+					<button class="btn btn-success btn-xs" style="width: 100px;" (click)="approveProject(project._id)"><span class="fa fa-check"></span> Approve</button>
+					<button class="btn btn-danger btn-xs" style="width: 100px" (click)="deleteProject(project._id)"><span class="fa fa-times"></span> Delete</button>
+				</div>
+
+			</div>
+		</div>
+</div>
+</div>
