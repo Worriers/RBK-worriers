@@ -4,7 +4,7 @@ var webshot = require('webshot');
 
 module.exports ={
 	getAllProjects : function (req, res) {
-	  projects.find({}).populate('teamMembers', '_id displayName username cohort').exec(function (err, data) {
+	  projects.find({approved : true}).populate('teamMembers', '_id displayName username cohort').exec(function (err, data) {
 	    if(err){
 		  res.status(500).send(err);
 		}else{
@@ -19,7 +19,7 @@ module.exports ={
 	  var newProject = new projects(project); 
       newProject.save(function (err, newProject) {
         if (err) {
-          res.send({error: 1, text:"duplicated"});
+          res.status(201).send({error: 1, text:"duplicated"});
         } else if(newProject){
 
         	team.forEach(id => {
@@ -60,7 +60,7 @@ module.exports ={
       		}
       		res.status(201).send("project added!");
       	} else {
-      		res.status(204).send({error: 1, text:"duplicated"});
+      		res.status(201).send({error: 1, text:"duplicated"});
       	}
         });  
 	},
