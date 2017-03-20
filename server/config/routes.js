@@ -79,16 +79,16 @@ app.delete('/api/projects', projectsController.deleteProject);
 //admin routes
 app.get('/api/adminStats',adminController.getAdminStats);
 app.get('/api/admin/users',adminController.getNotActivatedUsers);
-app.post('/api/admin/users/approve',adminController.approveUser);
-app.post('/api/admin/users/delete',adminController.deleteUser);
+app.post('/api/admin/users/approve',utils.adminAuth, adminController.approveUser);
+app.post('/api/admin/users/delete',utils.adminAuth, adminController.deleteUser);
 
 app.get('/api/admin/projects',adminController.getNotApprovedProjects);
-app.post('/api/admin/projects/approve',adminController.approveProject);
-app.post('/api/admin/projects/delete',adminController.deleteProject);
+app.post('/api/admin/projects/approve',utils.adminAuth, adminController.approveProject);
+app.post('/api/admin/projects/delete',utils.adminAuth, adminController.deleteProject);
 
 app.get('/api/admin/questions',adminController.getNotApprovedQuestions);
-app.post('/api/admin/questions/approve',adminController.approveQuestion);
-app.post('/api/admin/questions/delete',adminController.deleteQuestion);
+app.post('/api/admin/questions/approve',utils.adminAuth, adminController.approveQuestion);
+app.post('/api/admin/questions/delete',utils.adminAuth, adminController.deleteQuestion);
 
 app.all('*', (req, res) => {
   console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
