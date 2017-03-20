@@ -9,7 +9,7 @@ import { ProjectsService } from '../shared/projects.service';
 })
 export class ProjectsComponent implements OnInit {
 	projects : Object[] = [];
-  flag  : Boolean ;
+  
   constructor(private projectsService: ProjectsService) { }
 
   ngOnInit() {
