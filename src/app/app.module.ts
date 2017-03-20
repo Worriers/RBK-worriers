@@ -36,6 +36,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
 import { UploadComponent } from './upload/upload.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UploadComponent } from './upload/upload.component';
     AchievmentsComponent,
     UploadComponent,
     FileSelectDirective,
-    FileDropDirective
+    FileDropDirective,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +73,9 @@ import { UploadComponent } from './upload/upload.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent },
       { path: 'addproject', component: AddProjectComponent },
-      { path: 'cpanel', component: UploadComponent },
       { path: 'achievments', component: AchievmentsComponent},
+      { path: 'login', component: AdminLoginComponent},
       { path: 'admin', component: AdminComponent },
       { path: 'admin/gallery', component: UploadComponent },
       { path: 'achievments', component: AchievmentsComponent},

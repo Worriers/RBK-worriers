@@ -4,6 +4,9 @@ var bcrypt = require('bcrypt-nodejs');
 var Q = require('q');
 
 var AdminSchema = new mongoose.Schema({
+  _id: {
+    type: Number
+  },
   username: {
     type: String,
     required: true,

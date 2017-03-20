@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
 var User = require('../db/user/userModel.js');
+var Admin = require('../db/admin/adminModel.js');
 
 module.exports = function (app, express) {
 
@@ -21,10 +22,16 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  //console.log('USER ID IN DES',id);
-  User.findById(id,function(err,user){
-  done(err, user);
-  })
+  //console.log(typeof id);
+  if(typeof id == "string"){
+    Admin.findById(id,function(err,admin){
+      done(err, admin);
+    })
+  }else{
+    User.findById(id,function(err,user){
+      done(err, user);
+    })
+  }
 });
 
 // app.use(function(req, res, next) { //allow cross origin requests

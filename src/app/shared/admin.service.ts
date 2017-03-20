@@ -35,6 +35,15 @@ export class AdminService {
 	           .catch(this.handleError);
 	}
 
+	login(data) : Promise<any> {
+	return this.http.post("/api/login", data, this.headers)
+	           .toPromise()
+	           .then(function(response){
+	           		return  response.json();
+	           })
+	           .catch(this.handleError);
+	}
+
 
 	private handleError(error: any): Promise<any> {
 		console.error('An error occurred', error); // for demo purposes only
