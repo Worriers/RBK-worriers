@@ -1,6 +1,5 @@
 [
   {
-    "_id": 16870091,
     "publicRepos": 12,
     "followers": 10,
     "following": 5,
@@ -20,7 +19,6 @@
     "achievments": []
 },
 {
-    "_id" : 24622244,
     "publicRepos" : 12,
     "followers" : 4,
     "following" : 4,
@@ -40,7 +38,6 @@
     "__v" : 3
 },
 {
-    "_id":24622163,
     "publicRepos":11,
     "followers":8,
     "following":3,
@@ -60,7 +57,6 @@
     "achievments":[]
 },
 {
-    "_id": 19625295,
     "publicRepos": 15,
     "followers": 13,
     "following": 21,

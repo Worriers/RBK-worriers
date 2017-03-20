@@ -12,6 +12,7 @@ import { GalleryService } from './shared/gallery.service';
 import { AchievmentsService } from './shared/achievments.service';
 import { SignupResolve } from './signup/signup.resolve';
 import { ProfileResolve } from './profile/profile.resolve';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 // Imports for loading & configuring the in-memory web api
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -29,6 +30,8 @@ import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SliderComponent } from './slider/slider.component';
 import { AchievmentsComponent } from './achievments/achievments.component';
+import { UploadComponent } from './upload/upload.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { AchievmentsComponent } from './achievments/achievments.component';
     AdminComponent,
     SignupComponent,
     SliderComponent,
-    AchievmentsComponent
+    AchievmentsComponent,
+    UploadComponent,
+    FileSelectDirective,
+    FileDropDirective
   ],
   imports: [
     BrowserModule,
@@ -59,8 +65,8 @@ import { AchievmentsComponent } from './achievments/achievments.component';
       { path: 'gallery', component: GalleryComponent },
       { path: 'qa', component: QaComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin', component: QaComponent },
       { path: 'achievments', component: AchievmentsComponent},
+      { path: 'cpanel', component: UploadComponent },
       { path: '**', component: MainComponent }
     ])
   ],

@@ -8,7 +8,7 @@ export class GradsService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
 
-	getGrads(): Promise<Object[]> {
+	getGrads(): Promise<any> {
 	return this.http.get("/api/profile", this.headers)
 	           .toPromise()
 	           .then(response => response.json())
