@@ -11,6 +11,7 @@ import  {GradsService} from '../shared/grads.service';
 export class AddProjectComponent implements OnInit {
   drob : Object[] = [];
   num : String ;
+  flag : Number;
   constructor(private addProjectService: AddProjectService, private gradeService: GradsService ) { }
 
   ngOnInit() {
@@ -19,10 +20,24 @@ export class AddProjectComponent implements OnInit {
 
 addProject(title,url,gitHubLink,teamMembers,img){
     console.log(title,url,gitHubLink,teamMembers)
-     console.log(arguments.length)
-     this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }).then((data)=>console.log(data)) ;
+    for(var i=0;i<teamMembers.length;i++){
+      if(teamMembers.indexOf(teamMembers[i])!==i){
+        teamMembers.splice(i,1)
+      }
+      if(teamMembers.indexOf(undefined)>-1){
+        teamMembers.splice(teamMembers.indexOf(undefined),1)
+      }
+    }
+
+     console.log(arguments.length,teamMembers)
+     this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }).then((data)=> {
+       if(data.status===201){
+         this.flag=201;
+       }
+       console.log(this.flag)
+     }) ;
      }
-   
+      
     getgrads(){
       this.num=localStorage.getItem("rbk.cohort")
       console.log(this.num)
