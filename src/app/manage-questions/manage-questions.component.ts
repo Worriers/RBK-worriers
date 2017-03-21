@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../shared/admin.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-manage-questions',
@@ -11,10 +13,13 @@ export class ManageQuestionsComponent implements OnInit {
   questions : any[] = [];
   error : string;
 
-  constructor(private admin : AdminService) { }
+  constructor(private admin : AdminService, private router : Router) { }
 
   ngOnInit() {
-  	this.getNotApprovedQuestions();
+    if(localStorage.getItem('rbk.type') !== 'admin'){
+      this.router.navigate(['/login']);
+    }
+    this.getNotApprovedQuestions();
   }
 
   getNotApprovedQuestions() : any {
@@ -22,9 +27,9 @@ export class ManageQuestionsComponent implements OnInit {
   		if(data.error){
   			this.error = data.error;
   		} else {
-			this.questions = data;
-  		}
-  	});
+        this.questions = data;
+      }
+    });
   }
 
   approveQuestion(id) : any {

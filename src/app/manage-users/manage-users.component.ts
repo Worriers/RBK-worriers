@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../shared/admin.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-manage-users',
@@ -12,10 +14,13 @@ export class ManageUsersComponent implements OnInit {
   grads : any[] = [];
   error : string;
 
-  constructor(private admin : AdminService) { }
+  constructor(private admin : AdminService, private router: Router) { }
 
   ngOnInit() {
-  	this.getNotActivatedUsers();
+    if(localStorage.getItem('rbk.type') !== 'admin'){
+      this.router.navigate(['/login']);
+    }
+    this.getNotActivatedUsers();
   }
 
   getNotActivatedUsers() : any {
@@ -23,9 +28,9 @@ export class ManageUsersComponent implements OnInit {
   		if(data.error){
   			this.error = data.error;
   		} else {
-			this.grads = data;
-  		}
-  	});
+        this.grads = data;
+      }
+    });
   }
 
   approveUser(id) : any {
@@ -51,35 +56,35 @@ export class ManageUsersComponent implements OnInit {
   }
 
   // getNotActivatedProjects() : any {
-  // 	this.admin.getNotActivatedProjects().then(data => {
-  // 		if(data.error){
-  // 			this.error = data.error;
-  // 		} else {
-		// 	this.grads = data;
-  // 		}
-  // 	});
-  // }
+    // 	this.admin.getNotActivatedProjects().then(data => {
+      // 		if(data.error){
+        // 			this.error = data.error;
+        // 		} else {
+          // 	this.grads = data;
+          // 		}
+          // 	});
+          // }
 
 
-  //  approveProject(id) : any {
-  // 	this.admin.approveProject(id).then(data => {
-  // 		if(data.error){
-  // 			alert(data.error.message);
-  // 		} else {
-  // 			alert("Project Has been approved!");
-  // 			this.getNotApprovedProjects();
-  // 		}
-  // 	})
-  // }
+          //  approveProject(id) : any {
+            // 	this.admin.approveProject(id).then(data => {
+              // 		if(data.error){
+                // 			alert(data.error.message);
+                // 		} else {
+                  // 			alert("Project Has been approved!");
+                  // 			this.getNotApprovedProjects();
+                  // 		}
+                  // 	})
+                  // }
 
-  // deleteProject(id) : any {
-  // 	this.admin.deleteProject(id).then(data => {
-  // 		if(data.error){
-  // 			alert(data.error.message);
-  // 		} else {
-  // 			alert("Project Has been deleted!");
-  // 		}
-  // 		this.getNotApprovedProjects();
-  // 	})
-  // }
-}
+                  // deleteProject(id) : any {
+                    // 	this.admin.deleteProject(id).then(data => {
+                      // 		if(data.error){
+                        // 			alert(data.error.message);
+                        // 		} else {
+                          // 			alert("Project Has been deleted!");
+                          // 		}
+                          // 		this.getNotApprovedProjects();
+                          // 	})
+                          // }
+                        }

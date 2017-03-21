@@ -22,9 +22,9 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  //console.log(typeof id);
-  if(typeof id == "string"){
-    Admin.findById(id,function(err,admin){
+  console.log(parseInt(id) == id);
+  if(parseInt(id) == id){
+      Admin.findById(id,function(err,admin){
       done(err, admin);
     })
   }else{

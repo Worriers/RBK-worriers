@@ -57,7 +57,7 @@ app.delete('/api/achievments/:id',utils.ensureAuthenticated,achievmentsControlle
 //insert and get all the images from the gellary 
 app.get('/api/gallery', galleryController.getAllImages);
 app.post('/api/gallery', multer.upload.single('file'), galleryController.insertImage);
-app.delete('/api/gallery/:id', galleryController.deleteImg);
+app.delete('/api/gallery/:id', utils.adminAuth , galleryController.deleteImg);
 
 // getting all quastions , and adding new quastions 
 app.get('/api/faq',quastionController.getAllQuastions);

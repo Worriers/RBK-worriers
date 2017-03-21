@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { GalleryService } from '../shared/gallery.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -14,9 +15,12 @@ export class UploadComponent implements OnInit {
   public fileOverBase(e:any):void {
     this.hasBaseDropZoneOver = e;
   }
-  constructor(private galleryService : GalleryService) { }
+  constructor(private galleryService : GalleryService, private router: Router) { }
   images : any[] = [];
   ngOnInit() {
+    if(localStorage.getItem('rbk.type') !== 'admin'){
+      this.router.navigate(['/login']);
+    }
     this.getImages();
   }
 
