@@ -21,7 +21,7 @@ export class AchievmentsComponent implements OnInit {
   	this.aServices.addAch(this.newAch) ; 
   	this.newAch = {};
   	alert("your achievment has been added")
-     this.router.navigate([('/warriors/')]);
+     this.router.navigate([('/warriors/'+ localStorage.getItem('rbk.name'))]);
   }
 
 }
