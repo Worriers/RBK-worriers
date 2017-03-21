@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   	this.profileData.projects = this.profileData.projects.filter(project => project.approved);
     
     this.profileData.achievments = this.profileData.achievments.map(ach => {
-      ach.iconClass = icons[ach.category];
+      ach.iconClass = this.icons[ach.category];
       return ach;
     })
   }
