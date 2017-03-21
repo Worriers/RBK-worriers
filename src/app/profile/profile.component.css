@@ -34,7 +34,6 @@
 .icon-title {
 	background-color: #b52283;
 	color: #fff;
-	margin-bottom: 30px;
 }
 
 .icon-container {
@@ -43,4 +42,8 @@
 
 .icon-container a {
 	color : #ffffff;
+}
+
+.caption > h3 > a {
+	color : #b52283;
 }
