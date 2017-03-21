@@ -22,6 +22,9 @@ export class AddProjectComponent implements OnInit {
 }
 
   ngOnInit() {
+    if(!localStorage.getItem("rbk.isLogged")){
+      this.router.navigate([('/')]);
+    }
     this.getgrads()
   }
 
