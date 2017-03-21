@@ -13,6 +13,9 @@ export class ManageProjectsComponent implements OnInit {
   projects : any[] = [];
   error : string;
 
+  allProjects : any[] = [];
+  errorAll : string;
+
   constructor(private admin : AdminService, private projectsService : ProjectsService, private router: Router) { }
 
   ngOnInit() {
