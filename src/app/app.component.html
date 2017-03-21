@@ -19,13 +19,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li *ngIf="userData?.id !== null"><a routerLink="/warriors/{{ userData?.username }}">My Profile</a></li>
+        <li class="dropdown" *ngIf="userData?.id !== null">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a routerLink="/warriors/{{ userData?.username }}">View profile</a></li>
+            <li><a routerLink="/addproject">Add project</a></li>
+            <li><a routerLink="/achievments">Add achievement</a></li>
+        </ul>
+        </li>
+        
         <li><a routerLink="/warriors">Warriors</a></li>
         <li><a routerLink="/projects">Projects</a></li>
         <li><a routerLink="/gallery">Gallery</a></li>
         <li><a routerLink="/qa">FAQ</a></li>
         <li><a routerLink="/about">About us</a></li>
-<!--         <li *ngIf="userData?.id === null"><a href="/auth/github">Sign in with GitHub</a></li> -->
+
         <li *ngIf="userData?.id !== null" style="cursor: pointer;"><a (click)="logout()">Logout</a></li>
       </ul>
       
