@@ -1,3 +1,26 @@
-<p>
-  gallery works!
-</p>
+<div class="modal fade" id="selectedImageModal" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+       <img *ngIf="selectedImage" src="{{selectedImage.path}}" >
+       <div class="arrow-back" (click)=navigate(false)>
+        &lt;
+      </div>
+      <div class="arrow-forward" (click)=navigate(true)>
+        &gt;
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="page-header">
+  <h2>Enjoy watching our best memories in RBK</h2>
+</div>
+<ul id="thumbnailsList">
+  <li *ngFor="let image of images" >
+    <img src="{{image.path}}" class="tn"
+    width="250" height="191"
+    data-toggle="modal" data-target="#selectedImageModal"
+    (click)=setSelectedImage(image)>
+  </li>
+</ul>
