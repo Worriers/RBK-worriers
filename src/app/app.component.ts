@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
   	this.auth.isAuth().then(data => {
-  		console.log(data);
+  		// console.log(data);
   		this.userData = data;
   		if(data.id !== null){
   			localStorage.setItem('rbk.isLogged', 'true');
@@ -26,7 +26,12 @@ export class AppComponent implements OnInit {
         if(data.type === 'user'){
         localStorage.setItem('rbk.cohort', data.cohort);
         }
-  		}
+  		} else {
+        localStorage.removeItem('rbk.isLogged');
+        localStorage.removeItem('rbk.userId');
+        localStorage.removeItem('rbk.type');
+        localStorage.removeItem('rbk.cohort');
+      }
   	});
   }
   
