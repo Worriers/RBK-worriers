@@ -3,7 +3,7 @@
 	<div class="row main" >
 	 	 <div class="panel-heading">
 	 		<div class="panel-title text-center">
-				 <h2>Add yout project </h2>
+				 <h2>Add your project </h2>
 	   		</div>
         </div> 
         <div class="main-login main-center">
@@ -12,7 +12,7 @@
 			 <label for="name" class="cols-sm-2 control-label">Project Name </label>
 				<div class="cols-sm-10">
 					<div class="input-group">
-		     			<span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true" ></i></span>
+		     			<span class="input-group-addon"><i class="fa fa-window-restore" aria-hidden="true" ></i></span>
 		     			<input name="name" class="form-control" id="name" type="text" [(ngModel)]="name" required>
 	     			</div>
 	     		</div>
@@ -21,7 +21,7 @@
 	     		<label for="basic-url">Project URL</label>
 	     		<div class="cols-sm-10">
 						<div class="input-group">
-							<span class="input-group-addon"> <i style="font-size: 1.5em" class="fa fa-external-link" aria-hidden="true"></i>https://example.com</span>
+							<span class="input-group-addon"> <i style="font-size: 1.5em" class="fa fa-external-link" aria-hidden="true"></i>(https or http) ://example.com</span>
 	                       <input name="url" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" [(ngModel)]="url" required>
 	                       </div>
 	            </div>
@@ -39,17 +39,20 @@
 	    	<div class="form-group">
 		    	<label for="inputlg" >Project Team </label>
 		    	<div class="cols-sm-10">
-					<div class="input-group" style="width: 100%%"><i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i>
-					    <select name="teamMembers1" [(ngModel)]="teamMembers1" required>
+					<div class="input-group" style="width: 100%%"><span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"  style="font-size: 1.5em"></i></span>
+					    <select  class="form-control" name="teamMembers1" [(ngModel)]="teamMembers1" required>
 					    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 					    </select>
-					     <select name="teamMembers2" [(ngModel)]="teamMembers2" required>
+					    <br>
+					     <select  class="form-control" name="teamMembers2" [(ngModel)]="teamMembers2" required>
 					    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 					    </select>
-					     <select name="teamMembers3" [(ngModel)]="teamMembers3" >
+					      <br>
+					     <select  class="form-control" name="teamMembers3" [(ngModel)]="teamMembers3" >
 					    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 					    </select>
-					     <select name="teamMembers4" [(ngModel)]="teamMembers4" >
+					      <br>
+					     <select  class="form-control" name="teamMembers4" [(ngModel)]="teamMembers4" >
 					    	<option *ngFor="let grades of drob"  value={{grades._id}} >{{grades.displayName}}</option>
 					    </select>
 	    			</div>
