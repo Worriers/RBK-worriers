@@ -24,12 +24,18 @@ exports.adminAuth = function (req, res, next) {
 }
 exports.isLogged = function (req, res){
   if(req.isAuthenticated()){
-    res.json({'id':req.user._id,
-              'username' : req.user.username,
-              'activated': req.user.activated,
-              'completed': req.user.completed,
-              'cohort' : req.user.cohort
-            });
+    var userData = {};
+    userData['id'] = req.user._id;
+    userData['username'] = req.user.username;
+    if(parseInt(req.user._id) == req.user._id){
+      userData['type'] = 'admin';
+    }else{
+      userData['activated'] = req.user.activated;
+      userData['completed'] = req.user.completed;
+      userData['cohort'] = req.user.cohort;
+      userData['type'] = 'user';
+    }
+    res.json(userData);
   } else {
     res.json({'id': null});
   }

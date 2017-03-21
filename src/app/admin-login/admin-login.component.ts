@@ -17,13 +17,16 @@ export class AdminLoginComponent implements OnInit {
     overlay.defaultViewContainer = vcRef;
   }
   ngOnInit() {
-
+    if(localStorage.getItem('rbk.type') === 'admin'){
+      this.router.navigate(['/admin']);
+    }
   }
 
   onSubmit(data: NgForm) {
     this.adminService.login(data.value).then((res) => {
       if(res.status==='valid'){
-        this.router.navigate(["/admin"]);
+        localStorage.setItem('rbk.type','admin');
+        this.router.navigate(['/admin']);
       } else {
         this.modal.alert()
         .title('sorry!')

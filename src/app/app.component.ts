@@ -21,7 +21,10 @@ export class AppComponent implements OnInit {
   		if(data.id !== null){
   			localStorage.setItem('rbk.isLogged', 'true');
   			localStorage.setItem('rbk.userId', data.id);
+        localStorage.setItem('rbk.type', data.type);
+        if(data.type === 'user'){
         localStorage.setItem('rbk.cohort', data.cohort);
+        }
   		}
   	});
   }
@@ -33,8 +36,15 @@ export class AppComponent implements OnInit {
   		} else {
   			localStorage.removeItem('rbk.isLogged');
   			localStorage.removeItem('rbk.userId');
-  			this.userData = {id : null};
-        this.router.navigate([('/')]);
+        this.userData = {id : null};
+        if(localStorage.getItem('rbk.type') === 'user'){
+          localStorage.removeItem('rbk.type');
+          localStorage.removeItem('rbk.cohort');
+          this.router.navigate([('/')]);
+        } else{
+          localStorage.removeItem('rbk.type');
+          this.router.navigate([('/login')]);
+        }
   		}
   	})
   }
