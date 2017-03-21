@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../shared/admin.service';
 import {Router} from '@angular/router';
-
+import { GradsService } from '../shared/grads.service';
 
 @Component({
   selector: 'app-manage-users',
   templateUrl: './manage-users.component.html',
   styleUrls: ['./manage-users.component.css'],
-  providers: [AdminService]
+  providers: [AdminService, GradsService]
 })
 export class ManageUsersComponent implements OnInit {
 
   grads : any[] = [];
   error : string;
 
-  constructor(private admin : AdminService, private router: Router) { }
+  allGrads : any[] = [];
+  errorAll : string;
+
+  constructor(private admin : AdminService, private gradsService : GradsService, private router: Router) { }
 
   ngOnInit() {
     if(localStorage.getItem('rbk.type') !== 'admin'){
@@ -28,7 +31,15 @@ export class ManageUsersComponent implements OnInit {
   		if(data.error){
   			this.error = data.error;
   		} else {
-        this.grads = data;
+			  this.grads = data;
+  		}
+  	});
+
+    this.gradsService.getGrads().then(data => {
+      if(data.error){
+        this.errorAll = data.error;
+      } else {
+      this.allGrads = data;
       }
     });
   }
@@ -54,37 +65,5 @@ export class ManageUsersComponent implements OnInit {
   		this.getNotActivatedUsers();
   	})
   }
-
-  // getNotActivatedProjects() : any {
-    // 	this.admin.getNotActivatedProjects().then(data => {
-      // 		if(data.error){
-        // 			this.error = data.error;
-        // 		} else {
-          // 	this.grads = data;
-          // 		}
-          // 	});
-          // }
-
-
-          //  approveProject(id) : any {
-            // 	this.admin.approveProject(id).then(data => {
-              // 		if(data.error){
-                // 			alert(data.error.message);
-                // 		} else {
-                  // 			alert("Project Has been approved!");
-                  // 			this.getNotApprovedProjects();
-                  // 		}
-                  // 	})
-                  // }
-
-                  // deleteProject(id) : any {
-                    // 	this.admin.deleteProject(id).then(data => {
-                      // 		if(data.error){
-                        // 			alert(data.error.message);
-                        // 		} else {
-                          // 			alert("Project Has been deleted!");
-                          // 		}
-                          // 		this.getNotApprovedProjects();
-                          // 	})
-                          // }
-                        }
+  
+}

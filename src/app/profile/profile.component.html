@@ -136,11 +136,11 @@
 
 	<div class="col-md-10 col-md-offset-1 col-xs-12">
 
-		<div class="col-md-4 col-xs-12 text-center" *ngFor="let achievment of profileData.achievments">
+		<div class="col-md-4 col-xs-12 text-center" style="margin-bottom: 30px;" *ngFor="let achievment of profileData.achievments">
 			<a href="{{profileData?.gitHub}}">
 				<div class="col-xs-12 icon-bg">
 					<i class="{{ achievment?.iconClass }}"></i>
-					<p>{{ achievment.categoray }}</p>
+					<p>{{ achievment.category }}</p>
 				</div>
 				<div class="col-xs-12 icon-title">
 					<h5>{{ achievment.desc }}</h5>

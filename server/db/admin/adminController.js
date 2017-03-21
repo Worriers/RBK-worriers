@@ -5,6 +5,7 @@ var utils = require('../../config/utils.js');
 var users = require('../user/userModel.js');
 var questions = require('../faq/quastionModel.js');
 var projects = require('../projects/projectsModel.js');
+var comments = require('../comment/commentModel.js');
 
 passport.use('local-signup', new LocalStrategy({
   usernameField : 'username',
@@ -207,6 +208,17 @@ module.exports = {
   deleteQuestion : function(req,res) {
     var id = req.body.id ; 
     questions.remove({_id: id}, function (err, q) {
+      if (err){
+        res.json({error : err});
+      } else {
+        res.json({ok : 1});
+      }
+    })
+  },
+
+  deleteComment : function(req,res) {
+    var id = req.body.id ; 
+    comments.remove({_id: id}, function (err, p) {
       if (err){
         res.json({error : err});
       } else {

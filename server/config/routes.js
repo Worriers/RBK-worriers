@@ -87,8 +87,9 @@ app.post('/api/admin/projects/approve',utils.adminAuth, adminController.approveP
 app.post('/api/admin/projects/delete',utils.adminAuth, adminController.deleteProject);
 
 app.get('/api/admin/questions',adminController.getNotApprovedQuestions);
-app.post('/api/admin/questions/approve',utils.adminAuth, adminController.approveQuestion);
-app.post('/api/admin/questions/delete',utils.adminAuth, adminController.deleteQuestion);
+app.post('/api/admin/questions/approve',adminController.approveQuestion);
+app.post('/api/admin/questions/delete',adminController.deleteQuestion);
+app.post('/api/admin/comments/delete',adminController.deleteComment);
 
 app.all('*', (req, res) => {
   console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
