@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { QaService } from '../shared/qa.service';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { Overlay } from 'angular2-modal';
 
 @Component({
   selector: 'app-qa',
   templateUrl: './qa.component.html',
   styleUrls: ['./qa.component.css'],
-  providers:[ QaService ]
+  providers:[ QaService, Modal, Overlay ]
 })
 
 export class QaComponent implements OnInit {
@@ -14,7 +16,9 @@ export class QaComponent implements OnInit {
 	myVar : boolean = false ; 
 	newEntry: any = {}; 
 	newComment : any = {} ;
-  constructor(private qaSevices : QaService) { }
+  constructor(private qaSevices : QaService,vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
+    overlay.defaultViewContainer = vcRef }
+
 
   ngOnInit() {
   	this.getQuestions();
@@ -36,7 +40,10 @@ export class QaComponent implements OnInit {
   	this.qaSevices.addQuestion({name : name , text : q}) ;
   	this.newEntry = {};
   	this.getQuestions();
-  		alert('your question will be answered as soon as possible')
+    this.modal.alert() 
+      .title('Thanks for asking')
+      .body("your question will be answered as soon as possible :)")
+      .open();
   }
 
   addC(qText , c) {
