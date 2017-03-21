@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   			localStorage.setItem('rbk.isLogged', 'true');
   			localStorage.setItem('rbk.userId', data.id);
         localStorage.setItem('rbk.type', data.type);
+        localStorage.setItem('rbk.name' , data.username);
         if(data.type === 'user'){
         localStorage.setItem('rbk.cohort', data.cohort);
         }
