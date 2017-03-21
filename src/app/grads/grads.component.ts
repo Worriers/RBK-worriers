@@ -20,7 +20,7 @@ export class GradsComponent implements OnInit {
 
   getGrads() {
   	this.gradsService.getGrads().then((data) => this.grads = data);
-  	console.log(this.grads);
+  	// console.log(this.grads);
   }
 
 }

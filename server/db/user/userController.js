@@ -56,7 +56,7 @@ function(accessToken, refreshToken, profile, done) {
 
 module.exports ={ 
   getAllUsers : function (req, res) {
-   User.find({}).populate('achievments').populate('projects').exec(function (err, alluser) {
+   User.find({activated : true, completed : true}).populate('achievments').populate('projects').exec(function (err, alluser) {
      if(err){
       res.status(500).send(err);
     }else{
