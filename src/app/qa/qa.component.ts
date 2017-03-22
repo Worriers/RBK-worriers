@@ -45,7 +45,7 @@ export class QaComponent implements OnInit {
       .title('Thanks for asking')
       .body("your question will be answered as soon as possible :)")
       .open();
-    }
+  }
 
     addC(qText , c) {
       if(localStorage.getItem("rbk.isLogged")){

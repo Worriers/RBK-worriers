@@ -13,6 +13,7 @@ export class ProfileResolve implements Resolve<any> {
         if(res.status !== 200 || !data.completed || !data.username){
             this.router.navigate([('/')]);
     	} else {
+        console.log(data);
 			  return data;
     	}
     });
