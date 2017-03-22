@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewContainerRef} from '@angular/core';
 import { AdminService } from '../shared/admin.service';
 import {Router} from '@angular/router';
 import { QaService } from '../shared/qa.service';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { Overlay } from 'angular2-modal';
 
 @Component({
   selector: 'app-manage-questions',
   templateUrl: './manage-questions.component.html',
   styleUrls: ['./manage-questions.component.css'],
-  providers: [AdminService, QaService]
+  providers: [AdminService, QaService , Modal, Overlay ]
 })
 export class ManageQuestionsComponent implements OnInit {
   questions : any[] = [];
@@ -16,7 +18,9 @@ export class ManageQuestionsComponent implements OnInit {
   allQuestions : any[] = [];
   errorAll : string;
 
-  constructor(private admin : AdminService, private router : Router, private qa : QaService) { }
+  constructor(private admin : AdminService, private router : Router, private qa : QaService ,vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
+    overlay.defaultViewContainer = vcRef;
+   }
 
   ngOnInit() {
     if(localStorage.getItem('rbk.type') !== 'admin'){
@@ -47,9 +51,15 @@ export class ManageQuestionsComponent implements OnInit {
   approveQuestion(id) : any {
   	this.admin.approveQuestion(id).then(data => {
   		if(data.error){
-  			alert(data.error.message);
+  			  this.modal.alert()
+        .title("Error")
+        .body(data.error.message)
+        .open()
   		} else {
-  			alert("Question Has been approved!");
+         this.modal.alert()
+        .title("Great")
+        .body("Question Has been approved!")
+        .open()
   			this.getNotApprovedQuestions();
   		}
   	})
@@ -58,9 +68,15 @@ export class ManageQuestionsComponent implements OnInit {
   deleteQuestion(id) : any {
   	this.admin.deleteQuestion(id).then(data => {
   		if(data.error){
-  			alert(data.error.message);
-  		} else {
-  			alert("Question Has been deleted!");
+  			 this.modal.alert()
+        .title("Error")
+        .body(data.error.message)
+        .open()
+      } else {
+         this.modal.alert()
+        .title("Great")
+        .body("Question Has been deleted!")
+        .open()
   			this.getNotApprovedQuestions();
   		}
   	})
@@ -69,9 +85,15 @@ export class ManageQuestionsComponent implements OnInit {
   deleteComment(id) : any {
     this.admin.deleteComment(id).then(data => {
       if(data.error){
-        alert(data.error.message);
+         this.modal.alert()
+        .title("Error")
+        .body(data.error.message)
+        .open()
       } else {
-        alert("Comment Has been deleted!");
+         this.modal.alert()
+        .title("Great")
+        .body("Comment Has been deleted!")
+        .open()
         this.getNotApprovedQuestions();
       }
     })
