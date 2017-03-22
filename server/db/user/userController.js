@@ -88,6 +88,8 @@ module.exports ={
 
  updateAccount : function(req , res) {
   User.findOneAndUpdate({_id: req.body._id} , { $set: {
+    email : req.body.email,
+    displayName : req.body.displayName,
     age : req.body.age,
     mainMajor : req.body.mainMajor,
     cohort : req.body.cohort,
