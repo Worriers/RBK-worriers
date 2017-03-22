@@ -25,14 +25,14 @@ export class MainComponent implements OnInit {
 
   getGrads() {
   	this.gradsService.getGrads().then((data) => {
-  		data = data.filter(grad => grad.completed && grad.activated);
+  		// data = data.filter(grad => grad.completed && grad.activated);
   		this.grads = this.shuffle(data).splice(0,4);
   	});
   }
 
   getProjects() {
   	this.projectsService.getProjects().then((data) => {
-		  data = data.filter(project => project.approved);
+		  // data = data.filter(project => project.approved);
   		this.projects = this.shuffle(data).splice(0,4);
   	});
   }
