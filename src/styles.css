@@ -55,7 +55,6 @@
   background-color: #f5f5f5;
   border: 1px solid #dedede;
   border-radius: 0px;
-  max-height: 200px;
   overflow: hidden;
 }
 
@@ -74,15 +73,15 @@
 	padding-bottom: 10px;
 }
 
-.thumbnail  .btn-default {
+.thumbnail  .btn-rbk {
 	width: 100%;
-	background-color: #b52283;
-	border-color: #96146a;
-	color: #ffffff;
+	background-color: #b52283 !important;
+	border-color: #96146a !important;
+	color: #ffffff !important;
 }
 
-.thumbnail  .btn-default:hover {
-	background-color: #f532b2;
+.thumbnail  .btn-rbk:hover {
+	background-color: #f532b2 !important;
 	color: #ffffff;
 }
 
