@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, SafeUrl, SafeStyle} from '@angular/platform-browser';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-slider',
@@ -20,8 +21,18 @@ export class SliderComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-  	this.image = this.sanitizer.bypassSecurityTrustStyle('url('+this.images[Math.floor(Math.random() * 5)]+')');
-  	this.qoute = this.qoutes[Math.floor(Math.random() * 5)];
+    this.image = this.sanitizer.bypassSecurityTrustStyle('url('+this.images[Math.floor(Math.random() * 5)]+')');
+    this.qoute = this.qoutes[Math.floor(Math.random() * 5)];
+    $('#image').animate({width:'110%'}, 5000);
+    setInterval(()=> {
+      // $('#image').finish();
+     $('#image').animate({width:'105%'}, 5000);
+      this.image = this.sanitizer.bypassSecurityTrustStyle('url('+this.images[Math.floor(Math.random() * 5)]+')');
+      this.qoute = this.qoutes[Math.floor(Math.random() * 5)];
+      $('#image').fadeIn('slow');
+      $('#qoute').fadeIn('slow');
+      $('#image').animate({width:'110%'}, 3000);
+    }, 5000)
   }
 
 }
