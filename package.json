@@ -9,12 +9,12 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "run": "nodemon ./server/server.js",
+    "start": "nodemon ./server/server.js",
     "ng": "ng",
-    "start": "ng build -op dist -w",
-    "build": "ng build",
+    "build": "ng build -op dist -w",
     "test": "ng test",
-    "lint": "ng lint",
+    "tslint": "ng lint",
+    "eslint": "eslint ./server",
     "e2e": "ng e2e"
   },
   "dependencies": {
