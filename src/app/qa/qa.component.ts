@@ -47,9 +47,19 @@ export class QaComponent implements OnInit {
   }
 
   addC(qText , c) {
+    if(localStorage.getItem("rbk.isLogged")){
+      this.router.navigate([('/')]);
+    }){
  	this.qaSevices.addComment({qText :qText , text : c });
  	setTimeout(() => this.getQuestions() , 500);
  	this.newComment = {} ;
+ } else {
+   this.modal.alert()
+   .title('Ooopss')
+   .body("Make sure you're logged in before adding this comment")
+   .open()
+     this.newComment = {} ;
+ }
   }
 
 

@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
 import { AdminService } from '../shared/admin.service';
 import {Router} from '@angular/router';
 import { GradsService } from '../shared/grads.service';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { Overlay } from 'angular2-modal';
 
 @Component({
   selector: 'app-manage-users',
   templateUrl: './manage-users.component.html',
   styleUrls: ['./manage-users.component.css'],
-  providers: [AdminService, GradsService]
+  providers: [AdminService, GradsService , Modal, Overlay ]
 })
 export class ManageUsersComponent implements OnInit {
 
@@ -17,7 +19,9 @@ export class ManageUsersComponent implements OnInit {
   allGrads : any[] = [];
   errorAll : string;
 
-  constructor(private admin : AdminService, private gradsService : GradsService, private router: Router) { }
+  constructor(private admin : AdminService, private gradsService : GradsService, private router: Router ,vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
+     overlay.defaultViewContainer = vcRef;
+   }
 
   ngOnInit() {
     if(localStorage.getItem('rbk.type') !== 'admin'){
@@ -47,9 +51,15 @@ export class ManageUsersComponent implements OnInit {
   approveUser(id) : any {
   	this.admin.approveUser(id).then(data => {
   		if(data.error){
-  			alert(data.error.message);
-  		} else {
-  			alert("User Has been approved!");
+  		  this.modal.alert()
+        .title("Error")
+        .body(data.error.message)
+        .open()
+      } else {
+         this.modal.alert()
+        .title("Great")
+        .body("User Has been approved!")
+        .open()
   			this.getNotActivatedUsers();
   		}
   	})
@@ -58,9 +68,15 @@ export class ManageUsersComponent implements OnInit {
   deleteUser(id) : any {
   	this.admin.deleteUser(id).then(data => {
   		if(data.error){
-  			alert(data.error.message);
-  		} else {
-  			alert("User Has been deleted!");
+  		  this.modal.alert()
+        .title("Error")
+        .body(data.error.message)
+        .open()
+      } else {
+         this.modal.alert()
+        .title("Great")
+        .body("User Has been deleted!")
+        .open()
   		}
   		this.getNotActivatedUsers();
   	})

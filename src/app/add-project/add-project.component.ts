@@ -41,17 +41,16 @@ addProject(title,url,gitHubLink,teamMembers,img){
      this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }).then((data)=> {
       if(this.url1.includes("https")||this.url1.includes("http")){
          this.modal.alert()
-        .title('Admin!')
-        .body('Add project is completed successful but wait admin to approve yor reqyest')
+        .title('Great!')
+        .body('Your project has been added  successfully and waiting for admin approval :) ')
         .open();
       }else {
          this.modal.alert()
-        .title('Admin!')
-        .body('pleas check your input url project')
+        .title('Ooopps!')
+        .body('please enter a valid url ')
         .open();
       }
      }) ;
-      this.router.navigate([('/')]);
      }
       
     getgrads(){
