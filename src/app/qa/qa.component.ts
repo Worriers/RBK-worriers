@@ -47,7 +47,9 @@ export class QaComponent implements OnInit {
   }
 
   addC(qText , c) {
-    if(localStorage.getItem('rbk.type')=== 'user' || localStorage.getItem('rbk.type')=== 'admin'){
+    if(localStorage.getItem("rbk.isLogged")){
+      this.router.navigate([('/')]);
+    }){
  	this.qaSevices.addComment({qText :qText , text : c });
  	setTimeout(() => this.getQuestions() , 500);
  	this.newComment = {} ;
