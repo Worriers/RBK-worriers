@@ -1,6 +1,6 @@
 const app = require('../../server.js');
 const request = require('supertest');
-const expect = require('chai').expect
+const expect = require('chai').expect;
 
 
 describe('users', function () {
@@ -12,13 +12,13 @@ describe('users', function () {
     .expect(200)
     .end(function (err, resp) {
       if (err) {
-        throw new Error(err)
+        throw new Error(err);
       }
-      expect(resp.body).to.be.an('array')
-      done()
-    })
+      expect(resp.body).to.be.an('array');
+      done();
+    });
 
-  })
+  });
   
   it('Should get one user', function (done) {
     request(app)
@@ -26,12 +26,12 @@ describe('users', function () {
     .set('Accept', 'application/json')
     .end(function (err, resp) {
       if (err) {
-        console.log(err)
+        console.log(err);
       }
       expect(resp.body[0].username).to.equal('semo94');
-      done()
-    })
-  })
+      done();
+    });
+  });
 
   it('Delete one user', function (done) {
     request(app)
@@ -41,7 +41,7 @@ describe('users', function () {
     .expect(200)
     .end(function (err, resp) {
       if (err) {
-        throw new Error(err)
+        throw new Error(err);
       }
       request(app)
       .get('/api/profile/?semo94')
@@ -49,11 +49,11 @@ describe('users', function () {
       .expect('Content-Type', /json/)
       .end(function (err, resp) {
         if (err) {
-          console.log(err)
+          console.log(err);
         }
         expect(resp.body).to.be.empty;
-        done()
-      })
-    })
-  })
-})
+        done();
+      });
+    });
+  });
+});

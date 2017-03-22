@@ -20,7 +20,7 @@ describe('GradsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ GradsComponent ],
-      imports:[
+      imports: [
         HttpModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService)
       ],
@@ -28,7 +28,7 @@ describe('GradsComponent', () => {
     })
     .compileComponents();
 
-    var gradsService = TestBed.get(GradsService);
+    const gradsService = TestBed.get(GradsService);
     fixture = TestBed.createComponent(GradsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -47,8 +47,8 @@ describe('GradsComponent', () => {
   // });
 
   it('should display right data from server', () => {
-    expect(component.grads).toContain({id: 11, username: "nice", name: 'Mr. Nice', currentJob : "Web Developer", img: "https://avatars0.githubusercontent.com/u/139426?v=3&s=400", age:23, gitHub:"http://github.com/MontaserRahmani", linkedIn:"http://linkedin.com", cohort:2});
+    expect(component.grads).toContain({id: 11, username: 'nice', name: 'Mr. Nice', currentJob : 'Web Developer', img: 'https://avatars0.githubusercontent.com/u/139426?v=3&s=400', age: 23, gitHub: 'http://github.com/MontaserRahmani', linkedIn: 'http://linkedin.com', cohort: 2});
     console.log(component.grads);
-  })
+  });
 
 });

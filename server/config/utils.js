@@ -15,21 +15,21 @@ exports.ensureAuthenticated = function (req, res, next) {
     return next(); 
   }
   res.status(401).send();
-}
+};
 exports.adminAuth = function (req, res, next) {
   if (req.isAuthenticated()) {
     return next(); 
   }
   res.status(401).send();
-}
-exports.isLogged = function (req, res){
-  if(req.isAuthenticated()){
+};
+exports.isLogged = function (req, res) {
+  if (req.isAuthenticated()) {
     var userData = {};
     userData['id'] = req.user._id;
     userData['username'] = req.user.username;
-    if(parseInt(req.user._id) == req.user._id){
+    if (parseInt(req.user._id) == req.user._id) {
       userData['type'] = 'admin';
-    }else{
+    } else {
       userData['activated'] = req.user.activated;
       userData['completed'] = req.user.completed;
       userData['cohort'] = req.user.cohort;
@@ -39,13 +39,13 @@ exports.isLogged = function (req, res){
   } else {
     res.json({'id': null});
   }
-}
+};
 
 exports.comparePass = function(pass, hash, cb) {
   bcrypt.compare(pass, hash, function(err, isMatch) {
     if (err) {
       throw new Error(err);
     }
-    cb(null,isMatch);
+    cb(null, isMatch);
   });
 };

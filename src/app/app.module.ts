@@ -93,7 +93,7 @@ import { ManageQuestionsComponent } from './manage-questions/manage-questions.co
       { path: '**', component: MainComponent }
     ])
   ],
-  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService ,AchievmentsService],
+  providers: [GradsService, AuthService, ProjectsService, QaService, GalleryService,  SignupResolve, ProfileResolve, AddProjectService , AchievmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

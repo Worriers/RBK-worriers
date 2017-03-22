@@ -19,7 +19,7 @@ export class ManageProjectsComponent implements OnInit {
   constructor(private admin : AdminService, private projectsService : ProjectsService, private router: Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem('rbk.type') !== 'admin'){
+    if (localStorage.getItem('rbk.type') !== 'admin'){
       this.router.navigate(['/login']);
     }
     this.getNotApprovedProjects();
@@ -27,7 +27,7 @@ export class ManageProjectsComponent implements OnInit {
 
   getNotApprovedProjects() : any {
   	this.admin.getNotApprovedProjects().then(data => {
-  		if(data.error){
+  		if (data.error){
   			this.error = data.error;
   		} else {
         this.projects = data;
@@ -35,7 +35,7 @@ export class ManageProjectsComponent implements OnInit {
   	});
 
     this.projectsService.getProjects().then(data => {
-      if(data.error){
+      if (data.error){
         this.errorAll = data.error;
       } else {
         this.allProjects = data;
@@ -45,23 +45,23 @@ export class ManageProjectsComponent implements OnInit {
 
   approveProject(id) : any {
   	this.admin.approveProject(id).then(data => {
-  		if(data.error){
+  		if (data.error){
   			alert(data.error.message);
   		} else {
-  			alert("Project Has been approved!");
+  			alert('Project Has been approved!');
   			this.getNotApprovedProjects();
   		}
-  	})
+  	});
   }
 
   deleteProject(id) : any {
   	this.admin.deleteProject(id).then(data => {
-  		if(data.error){
+  		if (data.error){
   			alert(data.error.message);
   		} else {
-  			alert("Project Has been deleted!");
+  			alert('Project Has been deleted!');
   			this.getNotApprovedProjects();
   		}
-  	})
+  	});
   }
 }

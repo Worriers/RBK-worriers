@@ -10,7 +10,7 @@ export class AuthService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	isAuth() : Promise<any> {
-	return this.http.get("/api/isLogged", this.headers)
+	return this.http.get('/api/isLogged', this.headers)
 	           .toPromise()
 	           .then(function(response){
 	           		// this.userData = response.json();
@@ -21,7 +21,7 @@ export class AuthService {
 	}
 
 	getGitHubData() : Promise<any> {
-	return this.http.get("/api/validate", this.headers)
+	return this.http.get('/api/validate', this.headers)
 	           .toPromise()
 	           .then(function(response){
 	           		return  response.json();
@@ -31,7 +31,7 @@ export class AuthService {
 
 	completeProfile(data) : Promise<any> {
 		console.log(JSON.stringify(data));
-	return this.http.post("/api/profile", JSON.stringify(data), {headers: this.headers})
+	return this.http.post('/api/profile', JSON.stringify(data), {headers: this.headers})
 	           .toPromise()
 	           .then(function(response){
 	           		return  response;
@@ -40,7 +40,7 @@ export class AuthService {
 	}
 
 	logout() : Promise<any> {
-	return this.http.get("/api/logout", this.headers)
+	return this.http.get('/api/logout', this.headers)
 	           .toPromise()
 	           .then(function(response){
 	           		return  response;
@@ -53,5 +53,5 @@ export class AuthService {
 		console.error('An error occurred', error); // for demo purposes only
 		return Promise.reject(error.message || error);
 	}
-	
+
 }

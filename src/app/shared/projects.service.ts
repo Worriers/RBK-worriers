@@ -9,7 +9,7 @@ export class ProjectsService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	getProjects(): Promise<any> {
-	return this.http.get("/api/projects", this.headers)
+	return this.http.get('/api/projects', this.headers)
 	           .toPromise()
 	           .then(response => response.json())
 	           .catch(this.handleError);
@@ -19,5 +19,5 @@ export class ProjectsService {
 	console.error('An error occurred', error); // for demo purposes only
 	return Promise.reject(error.message || error);
 	}
-	
+
 }

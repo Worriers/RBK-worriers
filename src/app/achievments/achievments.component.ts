@@ -8,12 +8,12 @@ import { Overlay } from 'angular2-modal';
   selector: 'app-achievments',
   templateUrl: './achievments.component.html',
   styleUrls: ['./achievments.component.css'],
-  providers:[ AchievmentsService, Modal, Overlay ]
+  providers: [ AchievmentsService, Modal, Overlay ]
 })
 export class AchievmentsComponent implements OnInit {
 
-  newAch : any = {} ; 
-  constructor(private aServices : AchievmentsService, private router : Router,vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
+  newAch : any = {} ;
+  constructor(private aServices : AchievmentsService, private router : Router, vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
     overlay.defaultViewContainer = vcRef;
   }
 
@@ -21,15 +21,15 @@ export class AchievmentsComponent implements OnInit {
   }
 
   insertData(){
-  	this.newAch.id = localStorage.getItem('rbk.userId')
-  	this.aServices.addAch(this.newAch).then((data)=>{ 
-  	this.modal.alert() 
+  	this.newAch.id = localStorage.getItem('rbk.userId');
+  	this.aServices.addAch(this.newAch).then((data) => {
+  	this.modal.alert()
       .title('Great')
-      .body("your achievment has been added to your profile :)")
+      .body('your achievment has been added to your profile :)')
       .open();
    this.newAch = {};
-  setTimeout(() => this.router.navigate([('/warriors/'+ localStorage.getItem('rbk.name'))]) , 2000)
- })
+  setTimeout(() => this.router.navigate([('/warriors/' + localStorage.getItem('rbk.name'))]) , 2000);
+ });
   }
 
 }

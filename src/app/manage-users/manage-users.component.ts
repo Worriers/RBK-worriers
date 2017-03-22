@@ -20,7 +20,7 @@ export class ManageUsersComponent implements OnInit {
   constructor(private admin : AdminService, private gradsService : GradsService, private router: Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem('rbk.type') !== 'admin'){
+    if (localStorage.getItem('rbk.type') !== 'admin'){
       this.router.navigate(['/login']);
     }
     this.getNotActivatedUsers();
@@ -28,7 +28,7 @@ export class ManageUsersComponent implements OnInit {
 
   getNotActivatedUsers() : any {
   	this.admin.getNotActivatedUsers().then(data => {
-  		if(data.error){
+  		if (data.error){
   			this.error = data.error;
   		} else {
 			  this.grads = data;
@@ -36,7 +36,7 @@ export class ManageUsersComponent implements OnInit {
   	});
 
     this.gradsService.getGrads().then(data => {
-      if(data.error){
+      if (data.error){
         this.errorAll = data.error;
       } else {
       this.allGrads = data;
@@ -46,24 +46,24 @@ export class ManageUsersComponent implements OnInit {
 
   approveUser(id) : any {
   	this.admin.approveUser(id).then(data => {
-  		if(data.error){
+  		if (data.error){
   			alert(data.error.message);
   		} else {
-  			alert("User Has been approved!");
+  			alert('User Has been approved!');
   			this.getNotActivatedUsers();
   		}
-  	})
+  	});
   }
 
   deleteUser(id) : any {
   	this.admin.deleteUser(id).then(data => {
-  		if(data.error){
+  		if (data.error){
   			alert(data.error.message);
   		} else {
-  			alert("User Has been deleted!");
+  			alert('User Has been deleted!');
   		}
   		this.getNotActivatedUsers();
-  	})
+  	});
   }
-  
+
 }

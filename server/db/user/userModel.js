@@ -36,39 +36,39 @@ var UserSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  img : {
+  img: {
     type: String,
     required: true
   },
 
-  age : {
+  age: {
     type: Number
   },
 
-  mainMajor : {
+  mainMajor: {
     type: String
   },
 
-  cohort : {
+  cohort: {
     type: Number
   },
 
-  currentJob : {
+  currentJob: {
     type: String
   },
 
-  linkedIn : {
+  linkedIn: {
     type: String
   },
 
-  gitHub : {
+  gitHub: {
     type: String
   },  
-  projects : [{
+  projects: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'projects'
   }],
-  achievments : [{
+  achievments: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'achievments'
   }],

@@ -18,7 +18,7 @@ export class GalleryComponent implements OnInit {
   }
 
   setSelectedImage(image){
-    this.selectedImage= image;  
+    this.selectedImage = image;
   }
 
   getImages() {
@@ -26,17 +26,17 @@ export class GalleryComponent implements OnInit {
   }
 
   navigate(forward){
-    var index = this.images.indexOf(this.selectedImage)+(forward ? 1: -1);
-    if(index >= 0 && index < this.images.length){
-      this.selectedImage = this.images[index];  
+    const index = this.images.indexOf(this.selectedImage) + (forward ? 1 : -1);
+    if (index >= 0 && index < this.images.length){
+      this.selectedImage = this.images[index];
     }
   }
 
   hotkeys(event){
-    if(this.selectedImage){
+    if (this.selectedImage){
       if (event.keyCode == 37){
         this.navigate(false);
-      }else if(event.keyCode == 39){
+      }else if (event.keyCode == 39){
         this.navigate(true);
       }
     }

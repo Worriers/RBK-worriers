@@ -9,8 +9,8 @@ export class ProfileResolve implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot) {
     return this.gradService.getProfile(route.params).then(res => {
-        var data = JSON.parse(res._body);
-        if(res.status !== 200 || !data.completed || !data.username){
+        const data = JSON.parse(res._body);
+        if (res.status !== 200 || !data.completed || !data.username){
             this.router.navigate([('/')]);
     	} else {
 			  return data;

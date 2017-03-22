@@ -7,17 +7,17 @@ import { Overlay } from 'angular2-modal';
   selector: 'app-qa',
   templateUrl: './qa.component.html',
   styleUrls: ['./qa.component.css'],
-  providers:[ QaService, Modal, Overlay ]
+  providers: [ QaService, Modal, Overlay ]
 })
 
 export class QaComponent implements OnInit {
 
 	q : Object[] = [];
-	myVar : boolean = false ; 
-	newEntry: any = {}; 
+	myVar = false ;
+	newEntry: any = {};
 	newComment : any = {} ;
-  constructor(private qaSevices : QaService,vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
-    overlay.defaultViewContainer = vcRef }
+  constructor(private qaSevices : QaService, vcRef: ViewContainerRef, overlay: Overlay, public modal: Modal) {
+    overlay.defaultViewContainer = vcRef; }
 
 
   ngOnInit() {
@@ -28,26 +28,26 @@ export class QaComponent implements OnInit {
   	this.qaSevices.getQuestions().then((data) => {
   		data.forEach(q => {
   			q.show = false;
-  		})
+  		});
   		this.q = data;
   	});
   }
 
   addQ(name , q ){
-  	if(name === undefined){
-  		name = "visitor"
+  	if (name === undefined){
+  		name = 'visitor';
   	}
   	this.qaSevices.addQuestion({name : name , text : q}) ;
   	this.newEntry = {};
   	this.getQuestions();
-    this.modal.alert() 
+    this.modal.alert()
       .title('Thanks for asking')
-      .body("your question will be answered as soon as possible :)")
+      .body('your question will be answered as soon as possible :)')
       .open();
   }
 
   addC(qText , c) {
- 	this.qaSevices.addComment({qText :qText , text : c });
+ 	this.qaSevices.addComment({qText : qText , text : c });
  	setTimeout(() => this.getQuestions() , 500);
  	this.newComment = {} ;
   }

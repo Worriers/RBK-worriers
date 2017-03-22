@@ -19,7 +19,7 @@ export class ManageQuestionsComponent implements OnInit {
   constructor(private admin : AdminService, private router : Router, private qa : QaService) { }
 
   ngOnInit() {
-    if(localStorage.getItem('rbk.type') !== 'admin'){
+    if (localStorage.getItem('rbk.type') !== 'admin'){
       this.router.navigate(['/login']);
     }
     this.getNotApprovedQuestions();
@@ -27,7 +27,7 @@ export class ManageQuestionsComponent implements OnInit {
 
   getNotApprovedQuestions() : any {
   	this.admin.getNotApprovedQuestions().then(data => {
-  		if(data.error){
+  		if (data.error){
   			this.error = data.error;
   		} else {
 			  this.questions = data;
@@ -35,7 +35,7 @@ export class ManageQuestionsComponent implements OnInit {
   	});
 
     this.qa.getQuestions().then(data => {
-      if(data.error){
+      if (data.error){
         this.errorAll = data.error;
       } else {
         this.allQuestions = data;
@@ -46,34 +46,34 @@ export class ManageQuestionsComponent implements OnInit {
 
   approveQuestion(id) : any {
   	this.admin.approveQuestion(id).then(data => {
-  		if(data.error){
+  		if (data.error){
   			alert(data.error.message);
   		} else {
-  			alert("Question Has been approved!");
+  			alert('Question Has been approved!');
   			this.getNotApprovedQuestions();
   		}
-  	})
+  	});
   }
 
   deleteQuestion(id) : any {
   	this.admin.deleteQuestion(id).then(data => {
-  		if(data.error){
+  		if (data.error){
   			alert(data.error.message);
   		} else {
-  			alert("Question Has been deleted!");
+  			alert('Question Has been deleted!');
   			this.getNotApprovedQuestions();
   		}
-  	})
+  	});
   }
 
   deleteComment(id) : any {
     this.admin.deleteComment(id).then(data => {
-      if(data.error){
+      if (data.error){
         alert(data.error.message);
       } else {
-        alert("Comment Has been deleted!");
+        alert('Comment Has been deleted!');
         this.getNotApprovedQuestions();
       }
-    })
+    });
   }
 }

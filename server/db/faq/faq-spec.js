@@ -1,6 +1,6 @@
 const app = require('../../server.js');
 const request = require('supertest');
-const expect = require('chai').expect
+const expect = require('chai').expect;
 
 
 describe('faq', function () {
@@ -12,15 +12,15 @@ describe('faq', function () {
       .expect(200)
       .end(function (err, resp) {
         if (err) {
-          throw new Error(err)
+          throw new Error(err);
         }
-        expect(resp.body).to.be.an('array')
-        done()
-      })
+        expect(resp.body).to.be.an('array');
+        done();
+      });
 
-  })
+  });
   
-it('Should creat Quastion', function (done) {
+  it('Should creat Quastion', function (done) {
     request(app)
       .post('/api/faq/')
       .send({
@@ -33,23 +33,23 @@ it('Should creat Quastion', function (done) {
       .end(function (err, resp) {
          // console.log(resp.body.username)
         if (err) {
-          console.log(err)
+          console.log(err);
         }
 
-        let q = resp.body
+        let q = resp.body;
            // console.log("hhhhh",q.name,q._id)
         // /console.log(resp.body)
         request(app)
-          .get('/api/faq/'+resp.body._id)
+          .get('/api/faq/' + resp.body._id)
           .end(function (err, resp) {
             if (err) {
-              throw new Error(err)
+              throw new Error(err);
             }
-            expect(q.name).to.equal('aaa')
-            done()
-          })
-      })
-  })
+            expect(q.name).to.equal('aaa');
+            done();
+          });
+      });
+  });
 
   it('Should delete Quastion', function (done) {
     request(app)
@@ -59,25 +59,25 @@ it('Should creat Quastion', function (done) {
     .expect(200)
     .end(function (err, resp) {
       if (err) {
-        throw new Error(err)
+        throw new Error(err);
       }
-      var id=resp.body[resp.body.length-1]._id
-      console.log(id)
+      var id = resp.body[resp.body.length - 1]._id;
+      console.log(id);
       request(app)
       .delete('/api/faq/')
       .send({
-       _id : id,
-     })
+        _id: id,
+      })
       .set('ok', 'application/json')
       // .expect('Content-Type', /json/)
       .expect(200)
       .end(function (err, resp) {
         if (err) {
-          console.log(err)
+          console.log(err);
         }
-        console.log(resp.body)
-        done()
-      })  
-    })
-  })
-})
+        console.log(resp.body);
+        done();
+      });  
+    });
+  });
+});

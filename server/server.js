@@ -6,8 +6,8 @@ var mockup = require('./mockupData/insertAllData');
 var app = express();
 
 //project and gallary images path
-app.use('/assets/projects',express.static('src/assets/projects'));
-app.use('/assets/gallery',express.static('src/assets/gallery'));
+app.use('/assets/projects', express.static('src/assets/projects'));
+app.use('/assets/gallery', express.static('src/assets/gallery'));
 
 
 require('./config/middleware.js')(app, express);

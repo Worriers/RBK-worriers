@@ -13,19 +13,19 @@ import { AdminService } from '../shared/admin.service';
   providers: [AdminService, Modal, Overlay]
 })
 export class AdminLoginComponent implements OnInit {
-  constructor(private adminService : AdminService, private router: Router, overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal) { 
+  constructor(private adminService : AdminService, private router: Router, overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal) {
     overlay.defaultViewContainer = vcRef;
   }
   ngOnInit() {
-    if(localStorage.getItem('rbk.type') === 'admin'){
+    if (localStorage.getItem('rbk.type') === 'admin'){
       this.router.navigate(['/admin']);
     }
   }
 
   onSubmit(data: NgForm) {
     this.adminService.login(data.value).then((res) => {
-      if(res.status==='valid'){
-        localStorage.setItem('rbk.type','admin');
+      if (res.status === 'valid'){
+        localStorage.setItem('rbk.type', 'admin');
         this.router.navigate(['/admin']);
       } else {
         this.modal.alert()

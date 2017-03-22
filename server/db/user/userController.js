@@ -1,7 +1,7 @@
 var passport = require('passport');
 var GitHubStrategy = require('passport-github2').Strategy;
-var User = require("./userModel.js");
-var configAuth = require("../../config/auth.js");
+var User = require('./userModel.js');
+var configAuth = require('../../config/auth.js');
 
 // Use the GitHubStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
@@ -14,113 +14,113 @@ passport.use(new GitHubStrategy({
 },
 function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
-    var check = profile.emails === undefined ? false : true; 
-    process.nextTick(function () {
-      User.findOneAndUpdate({ gitHubID: profile.id },{$set:{
-        displayName: profile.displayName,
-        email: check ? profile.emails[0].value : null,
-        img: profile._json.avatar_url,
-        following: profile._json.following,
-        followers: profile._json.followers,
-        publicRepos: profile._json.public_repos
-      }}, {new: true}, function (err, user) {
-        if(err) {
-          return done(err)
-        }
-        if(user) {
-          return done(null,user)
-        } else {
-          var userEmail = check ? profile.emails[0].value : null;
-          var newUser = new User();
-          newUser.gitHubID = profile.id;
-          newUser.username = profile.username;
-          newUser.displayName = profile.displayName;
-          newUser.profileUrl = profile.profileUrl;
-          newUser.email = userEmail;
-          newUser.img = profile._json.avatar_url;
-          newUser.following = profile._json.following;
-          newUser.followers = profile._json.followers;
-          newUser.publicRepos = profile._json.public_repos;
-          newUser.save(function(err){
-            if(err){throw err;}
-            return done(null,newUser);
-          })
-        }
-      });
+  var check = profile.emails === undefined ? false : true; 
+  process.nextTick(function () {
+    User.findOneAndUpdate({ gitHubID: profile.id }, {$set: {
+      displayName: profile.displayName,
+      email: check ? profile.emails[0].value : null,
+      img: profile._json.avatar_url,
+      following: profile._json.following,
+      followers: profile._json.followers,
+      publicRepos: profile._json.public_repos
+    }}, {new: true}, function (err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (user) {
+        return done(null, user);
+      } else {
+        var userEmail = check ? profile.emails[0].value : null;
+        var newUser = new User();
+        newUser.gitHubID = profile.id;
+        newUser.username = profile.username;
+        newUser.displayName = profile.displayName;
+        newUser.profileUrl = profile.profileUrl;
+        newUser.email = userEmail;
+        newUser.img = profile._json.avatar_url;
+        newUser.following = profile._json.following;
+        newUser.followers = profile._json.followers;
+        newUser.publicRepos = profile._json.public_repos;
+        newUser.save(function(err) {
+          if (err) { throw err; }
+          return done(null, newUser);
+        });
+      }
     });
-  }
+  });
+}
   ));
 
 
 
 
-module.exports ={ 
-  getAllUsers : function (req, res) {
-   User.find({activated : true, completed : true}).populate('achievments').populate('projects').exec(function (err, alluser) {
-     if(err){
-      res.status(500).send(err);
-    }else{
-      res.json(alluser)
+module.exports = { 
+  getAllUsers: function (req, res) {
+    User.find({activated: true, completed: true}).populate('achievments').populate('projects').exec(function (err, alluser) {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.json(alluser);
 
-    }
-  });
- },
+      }
+    });
+  },
 
- getOneUser : function (req,res) {
-   User.findOne({username: { $regex : new RegExp(req.params.username, "i")}}).populate({
-    path: 'projects',
-    populate: { path: 'teamMembers' }
-  })
+  getOneUser: function (req, res) {
+    User.findOne({username: { $regex: new RegExp(req.params.username, 'i')}}).populate({
+      path: 'projects',
+      populate: { path: 'teamMembers' }
+    })
    .populate('achievments').exec(function (err, user) {  
-    if (err) {
-      res.status(500).send(err);
-    }else if(user){
-      res.json(user);
-    }else {
-    res.json({_id : null})
+     if (err) {
+       res.status(500).send(err);
+     } else if (user) {
+       res.json(user);
+     } else {
+       res.json({_id: null});
+     } 
+   });
+  },
+
+  validateAccount: function(req, res) {
+    res.json(req.user);
+  }, 
+
+  updateAccount: function(req, res) {
+    User.findOneAndUpdate({_id: req.body._id}, { $set: {
+      age: req.body.age,
+      mainMajor: req.body.mainMajor,
+      cohort: req.body.cohort,
+      currentJob: req.body.currentJob,
+      linkedIn: req.body.linkedIn,
+      completed: true
     } 
-  })
- },
-
- validateAccount: function(req,res){
-  res.json(req.user);
- }, 
-
- updateAccount : function(req , res) {
-  User.findOneAndUpdate({_id: req.body._id} , { $set: {
-    age : req.body.age,
-    mainMajor : req.body.mainMajor,
-    cohort : req.body.cohort,
-    currentJob : req.body.currentJob,
-    linkedIn: req.body.linkedIn,
-    completed: true
     } 
-  } 
-   , { new: true }, function(err, data){
-    if(err){throw err} ; 
+   , { new: true }, function(err, data) {
+     if (err) { throw err; }  
 
-    req.user.completed = data.completed;
-    res.status(201).send(data);
-  })
- },
-  deleteUser : function(req,res) {
-    var id = req.body._id ; 
+     req.user.completed = data.completed;
+     res.status(201).send(data);
+   });
+  },
+  deleteUser: function(req, res) {
+    var id = req.body._id; 
     User.remove({_id: id}, function (err, p) {
-      if (err){
-        throw err
+      if (err) {
+        throw err;
       }
       console.log('question removed');
       res.status(200).send();
-    })
+    });
   },
 
-  getGradList : function(req, res){
-    User.find({cohort : req.params.cohort}, '_id displayName username').exec(function (err, alluser) {
-      if(err){
+  getGradList: function(req, res) {
+    User.find({cohort: req.params.cohort}, '_id displayName username').exec(function (err, alluser) {
+      if (err) {
         res.status(500).send(err);
-      }else{
-        res.json(alluser)
+      } else {
+        res.json(alluser);
       }
-  });
+    });
   }
-}
+};

@@ -9,14 +9,14 @@ export class GalleryService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	getImages(): Promise<Object[]> {
-	return this.http.get("/api/gallery", this.headers)
+	return this.http.get('/api/gallery', this.headers)
 	           .toPromise()
 	           .then(response => response.json())
 	           .catch(this.handleError);
 	}
 
 	deleteImage(id): Promise<any> {
-	return this.http.delete("/api/gallery/" + id ,this.headers)
+	return this.http.delete('/api/gallery/' + id , this.headers)
 	           .toPromise()
 	           .then(response => response)
 	           .catch(this.handleError);
@@ -26,5 +26,5 @@ export class GalleryService {
 	console.error('An error occurred', error); // for demo purposes only
 	return Promise.reject(error.message || error);
 	}
-	
+
 }

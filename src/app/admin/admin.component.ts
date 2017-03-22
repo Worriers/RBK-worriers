@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   constructor(private admin : AdminService, private router: Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem('rbk.type') !== 'admin'){ 
+    if (localStorage.getItem('rbk.type') !== 'admin'){
       this.router.navigate(['/login']);
     }
   	this.getAdminStats();

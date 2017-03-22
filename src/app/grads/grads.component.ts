@@ -5,7 +5,7 @@ import { GradsService } from '../shared/grads.service';
   selector: 'app-grads',
   templateUrl: './grads.component.html',
   styleUrls: ['./grads.component.css'],
-  providers:[ GradsService ]
+  providers: [ GradsService ]
 })
 
 export class GradsComponent implements OnInit {

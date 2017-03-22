@@ -7,20 +7,20 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl, SafeStyle} from '@angular/platf
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-  
+
   images : string[] = ['assets/bg1.jpg', 'assets/bg2.jpg', 'assets/bg3.jpg', 'assets/bg4.jpg', 'assets/bg5.jpg'];
   qoutes : string[] = ['Perseverance is your weapon, knowledge is your key',
   						'If it doesn\'t challenge you, it wont change you ',
   						'Stay positive, work hard, make it happen',
   						'Your only limit is you',
   						'Look in the mirror, thats your competition'
-  					]
+  					];
   image : any;
   qoute : string;
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-  	this.image = this.sanitizer.bypassSecurityTrustStyle('url('+this.images[Math.floor(Math.random() * 5)]+')');
+  	this.image = this.sanitizer.bypassSecurityTrustStyle('url(' + this.images[Math.floor(Math.random() * 5)] + ')');
   	this.qoute = this.qoutes[Math.floor(Math.random() * 5)];
   }
 

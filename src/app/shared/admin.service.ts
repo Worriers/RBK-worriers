@@ -9,7 +9,7 @@ export class AdminService {
   private headers = new Headers({'Content-Type': 'application/json'});
 
   isAuth() : Promise<any> {
-  return this.http.get("/api/admin/isLogged", this.headers)
+  return this.http.get('/api/admin/isLogged', this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -18,7 +18,7 @@ export class AdminService {
   }
 
   getAdminStats() : Promise<any> {
-  return this.http.get("/api/adminStats", this.headers)
+  return this.http.get('/api/adminStats', this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -27,7 +27,7 @@ export class AdminService {
   }
 
   login(data) : Promise<any> {
-  return this.http.post("/api/login", data, this.headers)
+  return this.http.post('/api/login', data, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -36,7 +36,7 @@ export class AdminService {
   }
 
   logout() : Promise<any> {
-  return this.http.get("/api/admin/logout", this.headers)
+  return this.http.get('/api/admin/logout', this.headers)
              .toPromise()
              .then(function(response){
                  return  response;
@@ -45,7 +45,7 @@ export class AdminService {
   }
 
   getNotActivatedUsers() : Promise<any> {
-  return this.http.get("/api/admin/users", this.headers)
+  return this.http.get('/api/admin/users', this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -54,7 +54,7 @@ export class AdminService {
   }
 
   approveUser(id) : Promise<any> {
-  return this.http.post("/api/admin/users/approve", {id : id}, this.headers)
+  return this.http.post('/api/admin/users/approve', {id : id}, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -63,7 +63,7 @@ export class AdminService {
   }
 
   deleteUser(id) : Promise<any> {
-  return this.http.post("/api/admin/users/delete", {id : id}, this.headers)
+  return this.http.post('/api/admin/users/delete', {id : id}, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -72,7 +72,7 @@ export class AdminService {
   }
 
   getNotApprovedProjects() : Promise<any> {
-  return this.http.get("/api/admin/projects", this.headers)
+  return this.http.get('/api/admin/projects', this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -81,7 +81,7 @@ export class AdminService {
   }
 
   approveProject(id) : Promise<any> {
-  return this.http.post("/api/admin/projects/approve", {id : id}, this.headers)
+  return this.http.post('/api/admin/projects/approve', {id : id}, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -90,7 +90,7 @@ export class AdminService {
   }
 
   deleteProject(id) : Promise<any> {
-  return this.http.post("/api/admin/projects/delete", {id : id}, this.headers)
+  return this.http.post('/api/admin/projects/delete', {id : id}, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -99,7 +99,7 @@ export class AdminService {
   }
 
   getNotApprovedQuestions() : Promise<any> {
-  return this.http.get("/api/admin/questions", this.headers)
+  return this.http.get('/api/admin/questions', this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -108,7 +108,7 @@ export class AdminService {
   }
 
   approveQuestion(id) : Promise<any> {
-  return this.http.post("/api/admin/questions/approve", {id : id}, this.headers)
+  return this.http.post('/api/admin/questions/approve', {id : id}, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -117,7 +117,7 @@ export class AdminService {
   }
 
   deleteQuestion(id) : Promise<any> {
-  return this.http.post("/api/admin/questions/delete", {id : id}, this.headers)
+  return this.http.post('/api/admin/questions/delete', {id : id}, this.headers)
              .toPromise()
              .then(function(response){
                  return  response.json();
@@ -126,7 +126,7 @@ export class AdminService {
   }
 
   deleteComment(id) : Promise<any> {
-	return this.http.post("/api/admin/comments/delete", {id : id}, this.headers)
+	return this.http.post('/api/admin/comments/delete', {id : id}, this.headers)
 	           .toPromise()
 	           .then(function(response){
 	           		return  response.json();
@@ -138,5 +138,5 @@ export class AdminService {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
-  
+
 }

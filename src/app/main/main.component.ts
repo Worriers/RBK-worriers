@@ -26,25 +26,25 @@ export class MainComponent implements OnInit {
   getGrads() {
   	this.gradsService.getGrads().then((data) => {
   		// data = data.filter(grad => grad.completed && grad.activated);
-  		this.grads = this.shuffle(data).splice(0,4);
+  		this.grads = this.shuffle(data).splice(0, 4);
   	});
   }
 
   getProjects() {
   	this.projectsService.getProjects().then((data) => {
 		  // data = data.filter(project => project.approved);
-  		this.projects = this.shuffle(data).splice(0,4);
+  		this.projects = this.shuffle(data).splice(0, 4);
   	});
   }
 
   getImages() {
   	this.galleryService.getImages().then((data) => {
-  		this.images = this.shuffle(data).splice(0,4);
+  		this.images = this.shuffle(data).splice(0, 4);
   	});
   }
 
   shuffle(array) {
-	  var currentIndex = array.length, temporaryValue, randomIndex;
+	  let currentIndex = array.length, temporaryValue, randomIndex;
 	  while (0 !== currentIndex) {
 	    randomIndex = Math.floor(Math.random() * currentIndex);
 	    currentIndex -= 1;

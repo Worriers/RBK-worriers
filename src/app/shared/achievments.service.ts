@@ -9,14 +9,14 @@ export class AchievmentsService {
 	private headers = new Headers({'Content-Type': 'application/json'});
 
 	addAch(a): Promise<any> {
-		return this.http.post("/api/achievments", a, this.headers)
+		return this.http.post('/api/achievments', a, this.headers)
 		.toPromise()
 		.then(response => response)
 		.catch(this.handleError);
 	}
-	
+
 	deleteAch(id): Promise<any> {
-	return this.http.delete("/api/achievments/" + id ,this.headers)
+	return this.http.delete('/api/achievments/' + id , this.headers)
 	           .toPromise()
 	           .then(response => response)
 	           .catch(this.handleError);
@@ -26,5 +26,5 @@ export class AchievmentsService {
 		console.error('An error occurred', error); // for demo purposes only
 		return Promise.reject(error.message || error);
 	}
-	
+
 }

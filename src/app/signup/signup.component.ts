@@ -23,10 +23,10 @@ export class SignupComponent implements OnInit {
 
   completeProfile(){
   	this.auth.completeProfile(this.user).then(data => {
-  		if(data.status !== 201){
-  			alert("OOPS! something went wrong, please try again");
+  		if (data.status !== 201){
+  			alert('OOPS! something went wrong, please try again');
   		} else {
-  			alert("Thank you for completing your profile, It won't take long until your account is activated! STAY TUNED!");
+  			alert('Thank you for completing your profile, It won\'t take long until your account is activated! STAY TUNED!');
   			this.router.navigate(['/']);
   		}
   	});

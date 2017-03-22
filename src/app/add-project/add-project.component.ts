@@ -16,30 +16,30 @@ export class AddProjectComponent implements OnInit {
   drob : Object[] = [];
   num : String ;
   flag : Number;
-  url1 :  Object[]=[];
-  constructor(private addProjectService: AddProjectService, private gradeService: GradsService , overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal , private router : Router) { 
+  url1 :  Object[]= [];
+  constructor(private addProjectService: AddProjectService, private gradeService: GradsService , overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal , private router : Router) {
   overlay.defaultViewContainer = vcRef;
 }
 
   ngOnInit() {
-    if(!localStorage.getItem("rbk.isLogged")){
+    if (!localStorage.getItem('rbk.isLogged')){
       this.router.navigate([('/')]);
     }
-    this.getgrads()
+    this.getgrads();
   }
 
-addProject(title,url,gitHubLink,teamMembers,img){
-    for(var i=0;i<teamMembers.length;i++){
-      if(teamMembers.indexOf(teamMembers[i])!==i){
-        teamMembers.splice(i,1)
+addProject(title, url, gitHubLink, teamMembers, img){
+    for (let i = 0; i < teamMembers.length; i++){
+      if (teamMembers.indexOf(teamMembers[i]) !== i){
+        teamMembers.splice(i, 1);
       }
-      if(teamMembers.indexOf(undefined)>-1){
-        teamMembers.splice(teamMembers.indexOf(undefined),1)
+      if (teamMembers.indexOf(undefined) > -1){
+        teamMembers.splice(teamMembers.indexOf(undefined), 1);
       }
     }
-    this.url1=url.split(":")
-     this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }).then((data)=> {
-      if(this.url1.includes("https")||this.url1.includes("http")){
+    this.url1 = url.split(':');
+     this.addProjectService.insertProject({title : title , url : url , gitHubLink : gitHubLink , teamMembers : teamMembers }).then((data) => {
+      if (this.url1.includes('https') || this.url1.includes('http')){
          this.modal.alert()
         .title('Admin!')
         .body('Add project is completed successful but wait admin to approve yor reqyest')
@@ -53,12 +53,12 @@ addProject(title,url,gitHubLink,teamMembers,img){
      }) ;
       this.router.navigate([('/')]);
      }
-      
+
     getgrads(){
-      this.num=localStorage.getItem("rbk.cohort")
-      console.log(this.num)
-      this.gradeService.getGradList(this.num).then((data) => this.drob=data );
-      console.log(this.drob)
+      this.num = localStorage.getItem('rbk.cohort');
+      console.log(this.num);
+      this.gradeService.getGradList(this.num).then((data) => this.drob = data );
+      console.log(this.drob);
     }
 
 }

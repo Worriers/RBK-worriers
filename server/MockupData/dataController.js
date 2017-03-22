@@ -1,6 +1,6 @@
-var projectsModel = require("../db/projects/projectsModel.js");
-var galleryModel = require("../db/gallery/galleryModel.js");
-var userModel = require("../db/user/userModel.js");
+var projectsModel = require('../db/projects/projectsModel.js');
+var galleryModel = require('../db/gallery/galleryModel.js');
+var userModel = require('../db/user/userModel.js');
 
 function insertUser(user, callback) {
   userModel.create(user, callback);

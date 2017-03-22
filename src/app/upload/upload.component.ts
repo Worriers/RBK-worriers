@@ -10,15 +10,15 @@ import {Router} from '@angular/router';
   providers: [GalleryService]
 })
 export class UploadComponent implements OnInit {
-  public uploader:FileUploader = new FileUploader({url:'http://127.0.0.1:5000/api/gallery'});
-  public hasBaseDropZoneOver:boolean = false;
-  public fileOverBase(e:any):void {
+  public uploader: FileUploader = new FileUploader({url: 'http://127.0.0.1:5000/api/gallery'});
+  public hasBaseDropZoneOver = false;
+  public fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
   constructor(private galleryService : GalleryService, private router: Router) { }
   images : any[] = [];
   ngOnInit() {
-    if(localStorage.getItem('rbk.type') !== 'admin'){
+    if (localStorage.getItem('rbk.type') !== 'admin'){
       this.router.navigate(['/login']);
     }
     this.getImages();
@@ -35,7 +35,7 @@ export class UploadComponent implements OnInit {
 
   deleteImage(id) {
     this.galleryService.deleteImage(id).then((data) => {
-      if(data.status === 200){
+      if (data.status === 200){
         this.getImages();
       }
     });

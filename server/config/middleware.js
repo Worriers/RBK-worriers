@@ -16,23 +16,23 @@ module.exports = function (app, express) {
 //   have a database of user records, the complete GitHub profile is serialized
 //   and deserialized.
 
-passport.serializeUser(function(user, done) {
+  passport.serializeUser(function(user, done) {
   //console.log('USER OBJECT IN SER',user);
-  done(null, user.id);
-});
+    done(null, user.id);
+  });
 
-passport.deserializeUser(function(id, done) {
-  console.log(parseInt(id) == id);
-  if(parseInt(id) == id){
-      Admin.findById(id,function(err,admin){
-      done(err, admin);
-    })
-  }else{
-    User.findById(id,function(err,user){
-      done(err, user);
-    })
-  }
-});
+  passport.deserializeUser(function(id, done) {
+    console.log(parseInt(id) == id);
+    if (parseInt(id) == id) {
+      Admin.findById(id, function(err, admin) {
+        done(err, admin);
+      });
+    } else {
+      User.findById(id, function(err, user) {
+        done(err, user);
+      });
+    }
+  });
 
 // app.use(function(req, res, next) { //allow cross origin requests
 //     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
@@ -42,18 +42,18 @@ passport.deserializeUser(function(id, done) {
 //     next();
 // });
 
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+  app.use(morgan('dev'));
+  app.use(bodyParser.urlencoded({extended: false}));
+  app.use(bodyParser.json());
 
-app.use(session({
-  secret: 'RBK-warriors',
-  saveUninitialized: true,
-  resave: true,
-}));
+  app.use(session({
+    secret: 'RBK-warriors',
+    saveUninitialized: true,
+    resave: true,
+  }));
 // Init passport authentication 
-app.use(passport.initialize());
+  app.use(passport.initialize());
 // persistent login sessions 
-app.use(passport.session());
-app.use(express.static(__dirname + '/../../dist'));
+  app.use(passport.session());
+  app.use(express.static(__dirname + '/../../dist'));
 };
