@@ -14,8 +14,12 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName !== null" disabled/>
-							<input type="text" class="form-control" name="name" id="name" value="Loading.." [(ngModel)]="user.displayName" *ngIf="user.displayName === null" required />
+							<ng-container *ngIf="nameFlag">
+							<input type="text" class="form-control" name="name" id="name" [(ngModel)]="user.displayName" disabled/>
+							</ng-container>
+							<ng-container *ngIf="!nameFlag">
+							<input type="text" class="form-control" name="name2" id="name2" [(ngModel)]="user.displayName" required />
+							</ng-container>
 						</div>
 					</div>
 				</div>
@@ -25,8 +29,12 @@
 					<div class="cols-sm-10">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" name="email" id="email" value="Loading.." [(ngModel)]="user.email" *ngIf="user.email !== ''" disabled/>
-							<input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.email" *ngIf="user.email === ''" placeholder="Enter your email please" required />
+							<ng-container *ngIf="emailFlag">
+							<input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.email" disabled/>
+							</ng-container>
+							<ng-container *ngIf="!emailFlag">
+							<input type="text" class="form-control" name="email2" id="email2" [(ngModel)]="user.email" required />
+							</ng-container>
 						</div>
 					</div>
 				</div>

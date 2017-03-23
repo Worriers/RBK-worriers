@@ -12,17 +12,28 @@ export class SignupComponent implements OnInit {
 
   constructor(private auth : AuthService, private route : ActivatedRoute, private router: Router) { }
 
-  user = {};
+  user : any = {};
+  nameFlag : any = true;
+  emailFlag : any = true;
 
   ngOnInit() {
   	// this.auth.getGitHubData().then(data => {
   	// 	this.user = data
   	// })
   	this.user = this.route.snapshot.data['gitHubData'];
+    if(this.user.displayName === null){
+      this.nameFlag = false;
+    }
+
+    if(this.user.email === null){
+      this.emailFlag = false;
+    }
   }
 
   completeProfile(){
+     // console.log("before complete", this.user);
   	this.auth.completeProfile(this.user).then(data => {
+      // console.log("completed", data);
   		if(data.status !== 201){
   			alert("OOPS! something went wrong, please try again");
   		} else {
